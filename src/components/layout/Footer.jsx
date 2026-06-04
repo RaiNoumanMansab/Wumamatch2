@@ -5,7 +5,7 @@ import { Heart, Shield, Mail, Phone, MapPin } from 'lucide-react';
 export const Footer = ({ isChinese }) => {
   return (
     <footer className="bg-[#0D0D0D] border-t border-[#C0392B]/15 pt-16 pb-8 text-left">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* About column */}
         <div className="flex flex-col gap-4">
           <Link to="/" className="flex items-center gap-2">
@@ -38,6 +38,7 @@ export const Footer = ({ isChinese }) => {
             <Link to="/success-stories" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '成功案例' : 'Success'}</Link>
             <Link to="/about" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '关于我们' : 'About'}</Link>
             <Link to="/events" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '高端活动' : 'Events'}</Link>
+            <Link to="/blogs" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '博客' : 'Blog'}</Link>
             <Link to="/contact" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '联系我们' : 'Contact'}</Link>
             <Link to="/register" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '注册加入' : 'Register'}</Link>
           </div>
@@ -80,7 +81,7 @@ export const Footer = ({ isChinese }) => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-zinc-600 uppercase tracking-widest font-semibold">
+      <div className="max-w-7xl mx-auto px-8 mt-12 pt-6 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-zinc-600 uppercase tracking-widest font-semibold">
         <span>© {new Date().getFullYear()} WuMa Match. All rights reserved.</span>
         <div className="flex gap-4">
           <span className="hover:text-[#E74C3C] cursor-pointer">{isChinese ? '隐私政策' : 'Privacy Policy'}</span>

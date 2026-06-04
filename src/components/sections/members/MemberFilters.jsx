@@ -44,36 +44,26 @@ export const MemberFilters = ({
         />
 
         {/* Min Age Select */}
-        <div className="flex flex-col gap-1.5">
-          <label className="text-xs uppercase tracking-widest font-semibold text-[#9A8F8A]">
-            {isChinese ? '最小年龄' : 'Min Age'}
-          </label>
-          <select
-            value={filters.minAge}
-            onChange={(e) => onChange({ ...filters, minAge: Number(e.target.value) })}
-            className="w-full px-4 py-2.5 bg-zinc-900 border border-zinc-700/80 text-[#F5F0EB] rounded focus:outline-none focus:border-[#C0392B] focus:ring-1 focus:ring-[#C0392B] transition-all duration-300 text-sm"
-          >
-            {Array.from({ length: 33 }, (_, i) => i + 18).map((age) => (
-              <option key={age} value={age} className="bg-zinc-950">{age}</option>
-            ))}
-          </select>
-        </div>
+        <Select
+          label={isChinese ? '最小年龄' : 'Min Age'}
+          value={filters.minAge}
+          onChange={(e) => onChange({ ...filters, minAge: Number(e.target.value) })}
+          options={Array.from({ length: 33 }, (_, i) => {
+            const age = i + 18;
+            return { label: String(age), value: age };
+          })}
+        />
 
         {/* Max Age Select */}
-        <div className="flex flex-col gap-1.5">
-          <label className="text-xs uppercase tracking-widest font-semibold text-[#9A8F8A]">
-            {isChinese ? '最大年龄' : 'Max Age'}
-          </label>
-          <select
-            value={filters.maxAge}
-            onChange={(e) => onChange({ ...filters, maxAge: Number(e.target.value) })}
-            className="w-full px-4 py-2.5 bg-zinc-900 border border-zinc-700/80 text-[#F5F0EB] rounded focus:outline-none focus:border-[#C0392B] focus:ring-1 focus:ring-[#C0392B] transition-all duration-300 text-sm"
-          >
-            {Array.from({ length: 43 }, (_, i) => i + 28).map((age) => (
-              <option key={age} value={age} className="bg-zinc-950">{age}</option>
-            ))}
-          </select>
-        </div>
+        <Select
+          label={isChinese ? '最大年龄' : 'Max Age'}
+          value={filters.maxAge}
+          onChange={(e) => onChange({ ...filters, maxAge: Number(e.target.value) })}
+          options={Array.from({ length: 43 }, (_, i) => {
+            const age = i + 28;
+            return { label: String(age), value: age };
+          })}
+        />
 
         {/* Country Filter */}
         <Select

@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Lock } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
+import { SectionHeader } from '../../ui/SectionHeader';
 import { Card } from '../../ui/Card';
 import { Avatar } from '../../ui/Avatar';
 import { Button } from '../../ui/Button';
 import { mockMembers } from '../../../data/mockMembers';
+import { fadeUp, viewportOnce } from '../../../utils/motion';
 
 export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
   const navigate = useNavigate();
@@ -15,16 +17,15 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
 
   return (
     <SectionWrapper id="featured-members" bg="dark">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
-          {isChinese ? '邂逅优秀真实的TA' : 'Meet Some of Our Members'}
-        </h2>
-        <p className="text-sm md:text-base text-[#9A8F8A] font-light leading-relaxed">
-          {isChinese
+      <SectionHeader
+        eyebrow={isChinese ? '精选会员' : 'Featured Members'}
+        title={isChinese ? '邂逅优秀真实的TA' : 'Meet Some of Our Members'}
+        subtitle={
+          isChinese
             ? '所有会员均通过严格的实名与人脸身份校验。为了保护隐私，照片与关键信息在注册登录前将对公众模糊。'
-            : 'All members are identity-verified. Photos and sensitive details are blurred for public visitors.'}
-        </p>
-      </div>
+            : 'All members are identity-verified. Photos and sensitive details are blurred for public visitors.'
+        }
+      />
 
       {/* Responsive Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -32,11 +33,13 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
           return (
             <motion.div
               key={member.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(231,76,60,0.15)" }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              custom={idx * 0.08}
+              variants={fadeUp}
+              whileHover={{ y: -4 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 24 }}
               className="h-full"
             >
               <Card variant="glass" className="h-full p-6 flex flex-col items-center justify-between text-center relative group overflow-hidden border-[#C0392B]/10 hover:border-[#C0392B]/40 duration-300">

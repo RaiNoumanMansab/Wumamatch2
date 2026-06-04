@@ -17,7 +17,7 @@ export const SectionWrapper = ({
   return (
     <section
       id={id}
-      className={cn('py-16 md:py-24 px-6 text-center', backgrounds[bg], className)}
+      className={cn('py-16 md:py-24 px-8', backgrounds[bg], className)}
       {...props}
     >
       <div className="max-w-7xl mx-auto">

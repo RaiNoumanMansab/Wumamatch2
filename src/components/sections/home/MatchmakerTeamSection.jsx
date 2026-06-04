@@ -1,23 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Heart, MessageSquare } from 'lucide-react';
+import { Award, Heart } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
+import { SectionHeader } from '../../ui/SectionHeader';
 import { Card } from '../../ui/Card';
 import { Badge } from '../../ui/Badge';
 import { mockMatchmakers } from '../../../data/mockMatchmakers';
+import { fadeUp, viewportOnce } from '../../../utils/motion';
 
 export const MatchmakerTeamSection = ({ isChinese }) => {
   return (
     <SectionWrapper id="matchmaker-team" bg="darker">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
-          {isChinese ? '我们的资深红娘顾问' : 'Our Expert Matchmakers'}
-        </h2>
-        <p className="text-sm md:text-base text-[#9A8F8A] font-light leading-relaxed">
-          {isChinese
+      <SectionHeader
+        eyebrow={isChinese ? '专业团队' : 'Our Team'}
+        title={isChinese ? '我们的资深红娘顾问' : 'Our Expert Matchmakers'}
+        subtitle={
+          isChinese
             ? '资深情感辅导背景与多年的配对沉淀，秉持极高职业操守与同理心，为您指点迷津。'
-            : 'Combining years of interpersonal alignment expertise and relationship coaching to guide your path.'}</p>
-      </div>
+            : 'Combining years of interpersonal alignment expertise and relationship coaching to guide your path.'
+        }
+      />
 
       {/* Row with scroll on mobile */}
       <div className="flex flex-nowrap md:grid md:grid-cols-3 gap-8 overflow-x-auto md:overflow-visible pb-6 md:pb-0 scrollbar-thin px-4 max-w-5xl mx-auto">
@@ -25,10 +27,11 @@ export const MatchmakerTeamSection = ({ isChinese }) => {
           return (
             <motion.div
               key={matchmaker.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.2 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              custom={idx * 0.12}
+              variants={fadeUp}
               className="min-w-[280px] sm:min-w-[320px] md:min-w-0 flex-1 flex"
             >
               <Card
@@ -36,11 +39,11 @@ export const MatchmakerTeamSection = ({ isChinese }) => {
                 className="w-full flex flex-col justify-between p-6 border-[#D4A853]/20 hover:border-[#D4A853] hover:shadow-[0_10px_30px_rgba(212,168,83,0.15)] transition-all duration-500"
               >
                 {/* Photo & Badge */}
-                <div className="relative mb-6 rounded-2xl overflow-hidden aspect-[4/5] border border-zinc-800">
+                <div className="relative mb-6 rounded-2xl overflow-hidden aspect-[4/5] border border-zinc-800 group">
                   <img
                     src={matchmaker.photo}
                     alt={matchmaker.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                   />
                   <div className="absolute top-3 right-3 scale-90">
                     <Badge type="matchmaker" />

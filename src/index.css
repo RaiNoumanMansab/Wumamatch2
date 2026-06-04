@@ -150,3 +150,39 @@
   border-radius: 1px;
   margin-top: 2px;
 }
+
+/* ────────────────────────────────────────────────
+   Subtle ambient animations
+──────────────────────────────────────────────── */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+@keyframes softGlow {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 5s ease-in-out infinite;
+}
+
+.animate-soft-glow {
+  animation: softGlow 6s ease-in-out infinite;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-heart,
+  .animate-gentle-float,
+  .animate-soft-glow,
+  .shimmer,
+  .plan-featured {
+    animation: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

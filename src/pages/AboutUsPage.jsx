@@ -46,7 +46,7 @@ export const AboutUsPage = ({ isChinese }) => {
     <PageWrapper className="w-full pt-20">
       {/* 1. Hero banner */}
       <div 
-        className="relative pt-28 pb-14 px-6 text-center bg-cover bg-center overflow-hidden"
+        className="relative pt-28 pb-14 px-6 text-center bg-cover bg-center overflow-hidden border-b border-[#C0392B]"
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.95) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200')`
         }}
@@ -56,7 +56,7 @@ export const AboutUsPage = ({ isChinese }) => {
             {isChinese ? '我们的使命：传递真爱' : 'Our Mission: Meaningful Connections'}
           </h1>
           <p className="text-xs md:text-sm uppercase tracking-widest font-bold text-[#D4A853] mb-6">
-            {isChinese ? '用匠人之心，筑幸福良缘' : 'Elite global Chinese matchmaking service'}
+            {isChinese ? '用匠心之道，筑幸福良缘' : 'Elite global Chinese matchmaking service'}
           </p>
           <Divider icon className="!my-5" />
           <p className="text-xs md:text-sm text-[#9A8F8A] leading-relaxed max-w-3xl font-light">
@@ -69,7 +69,7 @@ export const AboutUsPage = ({ isChinese }) => {
 
       {/* 2. Our Story Section */}
       <SectionWrapper bg="dark" className="!pt-6 md:!pt-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto text-left">
           <div className="flex flex-col gap-5">
             <span className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C]">
               {isChinese ? '初衷与起源' : 'OUR FOUNDATION STORY'}
@@ -101,18 +101,22 @@ export const AboutUsPage = ({ isChinese }) => {
 
       {/* 3. Core Values */}
       <SectionWrapper bg="darker">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-6xl mx-auto mb-16">
+          <span className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C] block mb-3">
+            {isChinese ? '核心价值' : 'OUR FOUNDATION'}
+          </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
             {isChinese ? '我们的核心价值观' : 'Our Core Pillars'}
           </h2>
-          <p className="text-sm md:text-base text-[#9A8F8A] font-light leading-relaxed">
+          <Divider className="!my-5 max-w-xs mx-auto" />
+          <p className="text-sm md:text-base text-[#9A8F8A] font-light leading-relaxed max-w-2xl mx-auto">
             {isChinese
               ? '为了给会员建立一个崇高、私密、安全的寻爱空间，我们坚守以下四大原则：'
               : 'Our operations are guided by rigorous safety codes, strict privacy, and client dedication.'}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto text-left" style={{textAlign:'left'}}>
           {values.map((val, idx) => {
             const Icon = val.icon;
             return (
@@ -136,10 +140,14 @@ export const AboutUsPage = ({ isChinese }) => {
 
       {/* 4. Matchmaker Team profiles */}
       <SectionWrapper bg="dark">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-6xl mx-auto mb-16">
+          <span className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C] block mb-3">
+            {isChinese ? '专属顾问团队' : 'THE EXPERTS BEHIND WUMA'}
+          </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
             {isChinese ? '认识您的红娘顾问' : 'Meet Our Matchmaker Team'}
           </h2>
+          <Divider className="!my-5 max-w-xs mx-auto" />
           <p className="text-sm md:text-base text-[#9A8F8A] font-light">
             {isChinese
               ? '我们不仅是配对的搭桥人，更是您情感升温的顾问导师。'
@@ -147,7 +155,7 @@ export const AboutUsPage = ({ isChinese }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left" style={{textAlign:'left'}}>
           {mockMatchmakers.map((matchmaker) => (
             <Card key={matchmaker.id} variant="bordered" className="bg-[#111111] p-5 border-zinc-800">
               <div className="rounded-2xl overflow-hidden aspect-[4/5] mb-5">
@@ -171,7 +179,7 @@ export const AboutUsPage = ({ isChinese }) => {
 
       {/* 5. Verification & Safety standards */}
       <SectionWrapper bg="darker" className="border-t border-zinc-900">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10 text-left">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 text-left" style={{textAlign:'left'}}>
           <div className="flex flex-col gap-4 md:w-1/2">
             <span className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C]">
               {isChinese ? '极致的合规安全' : 'VERIFICATION & COMPLIANCE'}
@@ -200,8 +208,8 @@ export const AboutUsPage = ({ isChinese }) => {
             </div>
           </div>
 
-          <div className="md:w-1/2 bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex flex-col gap-4 text-center">
-            <div className="w-12 h-12 rounded-full bg-blue-950/60 border border-blue-500/40 text-blue-400 flex items-center justify-center mx-auto">
+          <div className="md:w-1/2 bg-[#161616] border border-[#C0392B]/30 p-6 rounded-2xl flex flex-col gap-4 text-center">
+            <div className="w-12 h-12 rounded-full bg-[#3B0000]/40 border border-[#C0392B]/40 text-[#E74C3C] flex items-center justify-center mx-auto">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <h3 className="font-serif text-lg font-bold text-[#F5F0EB]">

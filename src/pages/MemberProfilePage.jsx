@@ -46,9 +46,9 @@ export const MemberProfilePage = ({ isLoggedIn, isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-24 text-left">
-      <SectionWrapper bg="dark">
+      <SectionWrapper bg="dark" className="text-left">
         {/* Back Link */}
-        <div className="mb-8">
+        <div className="mb-8 max-w-6xl mx-auto w-full flex justify-start">
           <Link
             to="/members"
             className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#9A8F8A] hover:text-[#E74C3C] transition-colors"

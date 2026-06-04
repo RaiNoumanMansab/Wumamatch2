@@ -1,5 +1,7 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useScrollAnimation, useCountUp } from '../../../hooks/useScrollAnimation';
+import { fadeUp, staggerContainer, viewportOnce } from '../../../utils/motion';
 
 export const StatsBanner = ({ isChinese }) => {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -31,20 +33,29 @@ export const StatsBanner = ({ isChinese }) => {
   return (
     <div
       ref={ref}
-      className="w-full bg-[#180303] border-y border-[#C0392B]/20 py-10 px-6 relative z-10"
+      className="w-full bg-[#180303] border-y border-[#C0392B]/20 py-10 px-8 relative z-10"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8">
-        {stats.map((stat, idx) => (
-          <div key={idx} className="flex flex-col items-center">
+      <motion.div
+        initial="hidden"
+        animate={isVisible ? 'visible' : 'hidden'}
+        variants={staggerContainer}
+        className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8"
+      >
+        {stats.map((stat) => (
+          <motion.div
+            key={stat.label}
+            variants={fadeUp}
+            className="flex flex-col items-center"
+          >
             <span className="font-serif text-3xl md:text-5xl font-bold text-[#D4A853] tracking-tight mb-2 drop-shadow-[0_2px_10px_rgba(212,168,83,0.15)]">
               {stat.value}
             </span>
             <span className="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-[#9A8F8A]">
               {stat.label}
             </span>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

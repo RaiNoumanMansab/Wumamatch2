@@ -7,6 +7,7 @@ import { FeaturedMembersSection } from '../components/sections/home/FeaturedMemb
 import { WhyWuMaSection } from '../components/sections/home/WhyWuMaSection';
 import { MatchmakerTeamSection } from '../components/sections/home/MatchmakerTeamSection';
 import { SuccessStoriesPreview } from '../components/sections/home/SuccessStoriesPreview';
+import { BlogPreviewSection } from '../components/sections/home/BlogPreviewSection';
 import { CTASection } from '../components/sections/home/CTASection';
 
 export const HomePage = ({ isLoggedIn, isChinese }) => {
@@ -19,6 +20,7 @@ export const HomePage = ({ isLoggedIn, isChinese }) => {
       <WhyWuMaSection isChinese={isChinese} />
       <MatchmakerTeamSection isChinese={isChinese} />
       <SuccessStoriesPreview isChinese={isChinese} />
+      <BlogPreviewSection isChinese={isChinese} />
       <CTASection isChinese={isChinese} />
     </PageWrapper>
   );

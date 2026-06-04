@@ -1,38 +1,38 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Quote, Heart } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
+import { SectionHeader } from '../../ui/SectionHeader';
 import { Card } from '../../ui/Card';
 import { mockSuccessStories } from '../../../data/mockSuccessStories';
+import { fadeUp, viewportOnce } from '../../../utils/motion';
 
 export const SuccessStoriesPreview = ({ isChinese }) => {
-  const navigate = useNavigate();
-  // Get first 3 stories
   const stories = mockSuccessStories.slice(0, 3);
 
   return (
     <SectionWrapper id="success-stories-preview" bg="dark">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
-          {isChinese ? '在 WuMa 收获的真爱故事' : 'Love Stories That Started Here'}
-        </h2>
-        <p className="text-sm md:text-base text-[#9A8F8A] font-light leading-relaxed">
-          {isChinese
+      <SectionHeader
+        eyebrow={isChinese ? '真实故事' : 'Real Stories'}
+        title={isChinese ? '在 WuMa 收获的真爱故事' : 'Love Stories That Started Here'}
+        subtitle={
+          isChinese
             ? '真实会员的真心独白。保护隐私是我们的首要原则，名字均已脱敏，让我们一同见证他们的幸福时刻。'
-            : 'Genuine testimonials from verified members. Names and sensitive visual details are protected.'}
-        </p>
-      </div>
+            : 'Genuine testimonials from verified members. Names and sensitive visual details are protected.'
+        }
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
         {stories.map((story, idx) => {
           return (
             <motion.div
               key={story.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              custom={idx * 0.1}
+              variants={fadeUp}
               className="flex"
             >
               <Card
@@ -44,7 +44,7 @@ export const SuccessStoriesPreview = ({ isChinese }) => {
                   <img
                     src={story.photo}
                     alt={story.names}
-                    className="w-full h-full object-cover filter blur-[4px] brightness-50 scale-105 group-hover:scale-110 duration-700 select-none pointer-events-none"
+                    className="w-full h-full object-cover filter blur-[4px] brightness-50 scale-105 group-hover:scale-[1.03] duration-500 select-none pointer-events-none transition-transform"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent flex flex-col justify-end p-4">
                     <span className="text-xs text-[#D4A853] font-serif italic mb-0.5">

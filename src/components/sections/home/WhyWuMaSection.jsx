@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, ShieldCheck, MailX, BrainCircuit, Globe2, Compass } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
+import { SectionHeader } from '../../ui/SectionHeader';
 import { Card } from '../../ui/Card';
+import { fadeUp, viewportOnce } from '../../../utils/motion';
 
 export const WhyWuMaSection = ({ isChinese }) => {
   const features = [
@@ -52,16 +54,15 @@ export const WhyWuMaSection = ({ isChinese }) => {
 
   return (
     <SectionWrapper id="why-wuma" bg="gradient">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
-          {isChinese ? '为什么选择 WuMa Match' : 'Why WuMa Match Is Different'}
-        </h2>
-        <p className="text-sm md:text-base text-[#9A8F8A] font-light leading-relaxed">
-          {isChinese
+      <SectionHeader
+        eyebrow={isChinese ? '核心优势' : 'Why Us'}
+        title={isChinese ? '为什么选择 WuMa Match' : 'Why WuMa Match Is Different'}
+        subtitle={
+          isChinese
             ? '将严肃、定制的匠人精神带入现代婚恋，我们专注于质量而非速度，为您省去无谓的情感内耗。'
-            : 'We bring craftsmanship and premium concierge service back to dating. Quality is our sole focus.'}
-        </p>
-      </div>
+            : 'We bring craftsmanship and premium concierge service back to dating. Quality is our sole focus.'
+        }
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         {features.map((feature, idx) => {
@@ -69,10 +70,11 @@ export const WhyWuMaSection = ({ isChinese }) => {
           return (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              custom={idx * 0.07}
+              variants={fadeUp}
               className="text-left"
             >
               <Card

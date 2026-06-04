@@ -3,23 +3,26 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Heart, ShieldCheck, UserCheck, Star, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '../../ui/Button';
+import { EASE_OUT } from '../../../utils/motion';
 
-/* Stable heart positions so they don't re-randomise on every render */
-const HEARTS = Array.from({ length: 18 }, (_, i) => ({
+/* Fewer hearts — subtle ambient effect, not overwhelming */
+const HEARTS = Array.from({ length: 6 }, (_, i) => ({
   id: i,
-  left: `${(i * 5.7 + 3) % 95}%`,
-  delay: `${(i * 0.9) % 12}s`,
-  duration: `${14 + (i % 6) * 2}s`,
-  size: 10 + (i % 4) * 5,
-  color: i % 3 === 0 ? '#D4A853' : '#C0392B',
-  opacity: 0.15 + (i % 4) * 0.06,
+  left: `${12 + i * 15}%`,
+  delay: `${i * 2.5}s`,
+  duration: `${18 + i * 2}s`,
+  size: 12 + (i % 2) * 4,
+  color: i % 2 === 0 ? '#D4A853' : '#C0392B',
+  opacity: 0.12 + (i % 3) * 0.04,
 }));
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 32 },
+  initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.85, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.7, delay, ease: EASE_OUT },
 });
+
+const HERO_IMAGE = '/images/hero-couple.png';
 
 export const HeroSection = ({ isChinese }) => {
   const navigate = useNavigate();
@@ -29,7 +32,7 @@ export const HeroSection = ({ isChinese }) => {
 
       {/* ── Dark base + red radial glow ── */}
       <div className="absolute inset-0 bg-[#090909]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_30%_50%,rgba(150,0,15,0.22)_0%,transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_30%_50%,rgba(150,0,15,0.22)_0%,transparent_70%)] animate-soft-glow" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_70%_50%,rgba(192,57,43,0.08)_0%,transparent_65%)]" />
 
       {/* ── Floating heart particles ── */}
@@ -52,7 +55,7 @@ export const HeroSection = ({ isChinese }) => {
       </div>
 
       {/* ── Main grid: text left · image right ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[100svh]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[100svh]">
 
         {/* ── LEFT – Copy ── */}
         <div className="flex flex-col items-start justify-center h-[280px]">
@@ -136,9 +139,9 @@ export const HeroSection = ({ isChinese }) => {
 
         {/* ── RIGHT – Couple image composition ── */}
         <motion.div
-          initial={{ opacity: 0, x: 40, scale: 0.96 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.25, ease: EASE_OUT }}
           className="relative hidden lg:flex items-center justify-end"
         >
           {/* Glow blob behind image */}
@@ -147,7 +150,7 @@ export const HeroSection = ({ isChinese }) => {
           {/* Main couple photo */}
           <div className="relative w-full rounded-3xl overflow-hidden border border-white/8 shadow-[0_40px_80px_rgba(0,0,0,0.7)]">
             <img
-              src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=85&w=900"
+              src={HERO_IMAGE}
               alt="Happy couple"
               className="w-full h-[280px] object-cover object-center"
             />
@@ -172,7 +175,7 @@ export const HeroSection = ({ isChinese }) => {
           </div>
 
           {/* Small floating card – top right overlap */}
-          <div className="absolute top-8 -right-4 xl:right-0 bg-[#141414]/90 backdrop-blur-md border border-[#D4A853]/25 rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
+          <div className="absolute top-8 -right-4 xl:right-0 animate-gentle-float bg-[#141414]/90 backdrop-blur-md border border-[#D4A853]/25 rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-[#3B0000]/60 border border-[#C0392B]/40 flex items-center justify-center">
               <Heart className="w-4 h-4 text-[#C0392B] fill-current" />
             </div>
@@ -187,7 +190,10 @@ export const HeroSection = ({ isChinese }) => {
           </div>
 
           {/* Second floating card – middle left overlap */}
-          <div className="absolute left-0 xl:-left-6 top-1/2 -translate-y-1/2 bg-[#141414]/90 backdrop-blur-md border border-[#D4A853]/25 rounded-2xl px-4 py-3 shadow-xl">
+          <div
+            className="absolute left-0 xl:-left-6 top-1/2 -translate-y-1/2 animate-gentle-float bg-[#141414]/90 backdrop-blur-md border border-[#D4A853]/25 rounded-2xl px-4 py-3 shadow-xl"
+            style={{ animationDelay: '1.5s' }}
+          >
             <p className="text-[9px] uppercase tracking-widest text-[#D4A853] font-bold mb-1">
               {isChinese ? '红娘团队' : 'Matchmakers'}
             </p>
@@ -213,9 +219,9 @@ export const HeroSection = ({ isChinese }) => {
           className="lg:hidden relative rounded-2xl overflow-hidden border border-white/8 shadow-2xl"
         >
           <img
-            src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800"
+            src={HERO_IMAGE}
             alt="Happy couple"
-            className="w-full h-72 object-cover object-top"
+            className="w-full h-72 object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/70 via-transparent" />
         </motion.div>

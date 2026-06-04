@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X, Heart, Globe, User, ChevronDown } from 'lucide-react';
+import { Menu, X, Heart, User, ChevronDown } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Modal } from '../ui/Modal';
 import { Input } from '../ui/Input';
@@ -37,6 +37,7 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
     setUsername('');
     setPassword('');
     setLoginError('');
+    navigate('/dashboard');
   };
 
   // ── "Home" removed; "Plans" added ──
@@ -46,6 +47,7 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
     { to: '/success-stories', label: isChinese ? '成功案例'  : 'Success Stories'  },
     { to: '/about',           label: isChinese ? '关于我们'  : 'About Us'         },
     { to: '/events',          label: isChinese ? '高端活动'  : 'Events'           },
+    { to: '/blogs',           label: isChinese ? '博客'      : 'Blog'             },
     { to: '/contact',         label: isChinese ? '联系我们'  : 'Contact'          },
   ];
 
@@ -56,7 +58,7 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
   return (
     <>
       <nav className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${navBg}`}>
-        <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-8 h-[72px] flex items-center justify-between gap-6">
 
           {/* ── Logo ── */}
           <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
@@ -131,14 +133,27 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
             </div>
 
             {isLoggedIn ? (
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-[#D4A853]/10 border border-[#D4A853]/20">
-                  <User className="w-3.5 h-3.5 text-[#D4A853]" />
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4A853]">
-                    {isChinese ? '尊贵会员' : 'Premium Member'}
+              <div className="flex items-center gap-2">
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-1.5 rounded-2xl border transition-all duration-200 ${
+                      isActive
+                        ? 'bg-[#C0392B]/15 border-[#C0392B]/40 text-[#E74C3C]'
+                        : 'bg-[#D4A853]/10 border-[#D4A853]/20 text-[#D4A853] hover:bg-[#D4A853]/20'
+                    }`
+                  }
+                >
+                  <img
+                    src="https://randomuser.me/api/portraits/women/68.jpg"
+                    alt="me"
+                    className="w-5 h-5 rounded-full object-cover border border-[#D4A853]/40"
+                  />
+                  <span className="text-[10px] font-bold uppercase tracking-wider">
+                    {isChinese ? '个人资料' : 'Profile'}
                   </span>
-                </div>
-                <Button variant="ghost" size="sm" onClick={() => onLoginToggle(false)}>
+                </NavLink>
+                <Button variant="ghost" size="sm" onClick={() => { onLoginToggle(false); navigate('/'); }}>
                   {isChinese ? '退出' : 'Logout'}
                 </Button>
               </div>
@@ -224,11 +239,22 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
               <div className="border-t border-zinc-900 pt-5 flex flex-col gap-3">
                 {isLoggedIn ? (
                   <>
-                    <div className="flex items-center justify-center gap-2 py-2 text-xs font-bold uppercase tracking-wider text-[#D4A853]">
-                      <User className="w-4 h-4" />
-                      {isChinese ? '尊贵会员已激活' : 'Premium Access Active'}
-                    </div>
-                    <Button variant="ghost" className="w-full" onClick={() => onLoginToggle(false)}>
+                    <Link
+                      to="/dashboard"
+                      className="flex items-center gap-3 py-3 px-4 rounded-xl bg-[#D4A853]/10 border border-[#D4A853]/20"
+                    >
+                      <img
+                        src="https://randomuser.me/api/portraits/women/68.jpg"
+                        alt="me"
+                        className="w-8 h-8 rounded-xl object-cover border border-[#D4A853]/30"
+                      />
+                      <div>
+                        <p className="text-xs font-bold text-[#D4A853]">{isChinese ? '陈雨欣' : 'Sophia Chen'}</p>
+                        <p className="text-[10px] text-zinc-500">{isChinese ? '精英会员 · 已认证' : 'Elite · Verified'}</p>
+                      </div>
+                      <User className="w-4 h-4 text-[#D4A853] ml-auto" />
+                    </Link>
+                    <Button variant="ghost" className="w-full" onClick={() => { onLoginToggle(false); navigate('/'); }}>
                       {isChinese ? '安全退出' : 'Logout'}
                     </Button>
                   </>

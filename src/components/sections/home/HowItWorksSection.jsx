@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Headphones, HeartHandshake, CalendarHeart, Heart } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
+import { SectionHeader } from '../../ui/SectionHeader';
+import { fadeUp, viewportOnce } from '../../../utils/motion';
 
 export const HowItWorksSection = ({ isChinese }) => {
   const steps = [
@@ -49,16 +51,15 @@ export const HowItWorksSection = ({ isChinese }) => {
 
   return (
     <SectionWrapper id="how-it-works" bg="darker">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
-          {isChinese ? '通往真爱的高效坦途' : 'A Clear Path to Find Your Love Effortlessly'}
-        </h2>
-        <p className="text-sm md:text-base text-[#9A8F8A] font-light leading-relaxed">
-          {isChinese
+      <SectionHeader
+        eyebrow={isChinese ? '红娘流程' : 'Our Process'}
+        title={isChinese ? '通往真爱的高效坦途' : 'A Clear Path to Find Your Love Effortlessly'}
+        subtitle={
+          isChinese
             ? '我们规范细致的红娘工作流程，免除传统社交软件无意义的低效试错，让脱单更具目标与确定性。'
-            : 'Our structured, concierge-style process removes uncertainty and replaces it with intentional, guided matchmaking.'}
-        </p>
-      </div>
+            : 'Our structured, concierge-style process removes uncertainty and replaces it with intentional, guided matchmaking.'
+        }
+      />
 
       {/* Desktop Horizontal Timeline */}
       <div className="hidden lg:block relative max-w-6xl mx-auto py-10">
@@ -67,8 +68,8 @@ export const HowItWorksSection = ({ isChinese }) => {
           <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: '100%' }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            viewport={viewportOnce}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
             className="h-full bg-gradient-to-r from-[#C0392B] to-[#D4A853]"
           />
         </div>
@@ -79,10 +80,11 @@ export const HowItWorksSection = ({ isChinese }) => {
             return (
               <motion.div
                 key={step.num}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.2 }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={viewportOnce}
+                custom={idx * 0.1}
+                variants={fadeUp}
                 className="flex flex-col items-center px-2 text-center"
               >
                 {/* Step Circle Icon Wrapper */}
@@ -112,10 +114,11 @@ export const HowItWorksSection = ({ isChinese }) => {
           return (
             <motion.div
               key={step.num}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              custom={idx * 0.08}
+              variants={fadeUp}
               className="relative"
             >
               {/* Timeline dot overlay */}

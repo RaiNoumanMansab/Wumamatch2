@@ -12,6 +12,9 @@ import { ContactPage } from './pages/ContactPage';
 import { EventsPage } from './pages/EventsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { PlansPage } from './pages/PlansPage';
+import { BlogsPage } from './pages/BlogsPage';
+import { BlogDetailPage } from './pages/BlogDetailPage';
+import { MyDashboardPage } from './pages/MyDashboardPage';
 import { ScrollToTop } from './components/layout/ScrollToTop';
 
 export function App() {
@@ -76,6 +79,18 @@ export function App() {
             <Route 
               path="/events" 
               element={<EventsPage isChinese={isChinese} />} 
+            />
+            <Route 
+              path="/blogs" 
+              element={<BlogsPage isChinese={isChinese} />} 
+            />
+            <Route 
+              path="/blogs/:slug" 
+              element={<BlogDetailPage isChinese={isChinese} />} 
+            />
+            <Route 
+              path="/dashboard" 
+              element={<MyDashboardPage isChinese={isChinese} />} 
             />
             <Route 
               path="*" 
