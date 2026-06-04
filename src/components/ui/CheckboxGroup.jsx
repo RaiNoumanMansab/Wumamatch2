@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '../../utils/cn';
+import { formChoiceClass, formLabelClass } from '../../utils/formStyles';
 
 export const CheckboxGroup = ({
   label,
@@ -17,7 +18,6 @@ export const CheckboxGroup = ({
       newValue = value.filter((v) => v !== optValue);
     } else {
       if (maxSelected && value.length >= maxSelected) {
-        // Replace first element or don't add
         return;
       }
       newValue = [...value, optValue];
@@ -26,12 +26,10 @@ export const CheckboxGroup = ({
   };
 
   return (
-    <div className="w-full flex flex-col gap-2 text-left">
-      <div className="flex justify-between items-center">
+    <fieldset className="w-full flex flex-col gap-2 text-left border-0 p-0 m-0">
+      <div className="flex justify-between items-center gap-2 flex-wrap">
         {label && (
-          <span className="text-xs uppercase tracking-widest font-semibold text-[#9A8F8A]">
-            {label}
-          </span>
+          <legend className={cn(formLabelClass, 'mb-0')}>{label}</legend>
         )}
         {maxSelected && (
           <span className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wider">
@@ -39,40 +37,39 @@ export const CheckboxGroup = ({
           </span>
         )}
       </div>
-      <div className={cn(
-        inline ? 'flex flex-wrap items-center gap-3' : 'flex flex-col gap-3',
-        className
-      )}>
+      <div
+        className={cn(
+          inline ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3' : 'flex flex-col gap-3',
+          className
+        )}
+      >
         {options.map((opt) => {
           const isChecked = value.includes(opt.value);
           const isDisabled = maxSelected && value.length >= maxSelected && !isChecked;
           return (
             <label
               key={opt.value}
-              className={cn(
-                'flex items-center gap-3 px-4 py-3 rounded-2xl border cursor-pointer transition-all duration-300',
-                inline ? 'flex-1 min-w-[140px] justify-center' : '',
-                isDisabled && !isChecked ? 'opacity-50 cursor-not-allowed' : '',
-                isChecked
-                  ? 'bg-[#3B0000]/30 border-[#C0392B] text-[#F5F0EB]'
-                  : 'bg-zinc-900/60 border-zinc-800 text-[#9A8F8A] hover:bg-zinc-800/40 hover:border-zinc-700'
+              className={formChoiceClass(
+                isChecked,
+                cn('w-full', isDisabled && !isChecked && 'opacity-50 cursor-not-allowed')
               )}
             >
               <input
                 type="checkbox"
                 value={opt.value}
                 checked={isChecked}
+                disabled={isDisabled && !isChecked}
                 onChange={() => handleToggle(opt.value)}
-                className="w-4 h-4 rounded text-[#C0392B] bg-zinc-950 border-zinc-700 focus:ring-[#C0392B] focus:ring-offset-zinc-950"
+                className="w-4 h-4 shrink-0 rounded border-2 border-zinc-500 text-[#C0392B] bg-[#0D0D0D] focus:ring-[#C0392B] focus:ring-offset-[#141414]"
               />
-              <span className="text-sm select-none">{opt.label}</span>
+              <span className="text-sm select-none leading-snug">{opt.label}</span>
             </label>
           );
         })}
       </div>
       {error && (
-        <span className="text-xs text-red-500 mt-1">{error}</span>
+        <span className="text-xs text-red-400 font-medium mt-1">{error}</span>
       )}
-    </div>
+    </fieldset>
   );
 };

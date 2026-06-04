@@ -36,18 +36,19 @@ export const MemberCard = ({ member, isLoggedIn, isChinese }) => {
         </div>
 
         {/* Profile Avatar (blurred for guest) */}
-        <div className="mb-6 mt-4">
+        <div className="mb-8 mt-4 flex flex-col items-center w-full">
           <Avatar
             src={member.photo}
             size="lg"
             blurred={!isLoggedIn}
             badge={member.verificationStatus}
+            className="mx-auto"
           />
         </div>
 
         {/* Info */}
         <div className="flex-1 w-full flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-2 text-[#F5F0EB] text-lg font-bold font-serif">
+          <div className="flex items-center justify-center gap-2 mb-2 text-[#F5F0EB] text-lg font-bold font-serif w-full">
             <span>{isChinese ? `${member.age}岁` : `${member.age} Yrs`}</span>
             <span className="text-zinc-700">•</span>
             <span>{isChinese ? member.country : member.country}</span>

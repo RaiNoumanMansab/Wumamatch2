@@ -18,7 +18,7 @@ export const Button = React.forwardRef(({
   const variants = {
     primary: 'bg-[#C0392B] hover:bg-[#E74C3C] text-[#F5F0EB] hover:shadow-[0_0_20px_rgba(231,76,60,0.4)] shadow-md',
     secondary: 'bg-[#1E1E1E] text-[#F5F0EB] border border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700',
-    ghost: 'border border-[#C0392B]/70 text-[#E74C3C] hover:bg-[#C0392B]/10 hover:border-[#E74C3C]',
+    ghost: 'bg-[#141414]/60 text-[#E74C3C] border border-[#C0392B]/40 hover:bg-[#C0392B]/8 hover:border-[#E74C3C] shadow-sm',
     danger: 'bg-red-800 hover:bg-red-700 text-white shadow-sm',
     gold: 'bg-gradient-to-r from-[#D4A853] to-[#B38F44] hover:from-[#E5B865] hover:to-[#C59F53] text-[#0D0D0D] font-semibold hover:shadow-[0_0_15px_rgba(212,168,83,0.3)]'
   };

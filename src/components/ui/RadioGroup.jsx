@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '../../utils/cn';
+import { formChoiceClass, formLabelClass } from '../../utils/formStyles';
 
 export const RadioGroup = ({
   label,
@@ -12,28 +13,22 @@ export const RadioGroup = ({
   className
 }) => {
   return (
-    <div className="w-full flex flex-col gap-2 text-left">
+    <fieldset className="w-full flex flex-col gap-2 text-left border-0 p-0 m-0">
       {label && (
-        <span className="text-xs uppercase tracking-widest font-semibold text-[#9A8F8A]">
-          {label}
-        </span>
+        <legend className={cn(formLabelClass, 'mb-1')}>{label}</legend>
       )}
-      <div className={cn(
-        inline ? 'flex flex-wrap items-center gap-3' : 'flex flex-col gap-3',
-        className
-      )}>
+      <div
+        className={cn(
+          inline ? 'grid grid-cols-1 sm:grid-cols-2 gap-3' : 'flex flex-col gap-3',
+          className
+        )}
+      >
         {options.map((opt) => {
           const isChecked = value === opt.value;
           return (
             <label
               key={opt.value}
-              className={cn(
-                'flex items-center gap-3 px-4 py-3 rounded-2xl border cursor-pointer transition-all duration-300',
-                inline ? 'flex-1 min-w-[140px] justify-center' : '',
-                isChecked
-                  ? 'bg-[#3B0000]/30 border-[#C0392B] text-[#F5F0EB]'
-                  : 'bg-zinc-900/60 border-zinc-800 text-[#9A8F8A] hover:bg-zinc-800/40 hover:border-zinc-700'
-              )}
+              className={formChoiceClass(isChecked, inline ? 'w-full' : '')}
             >
               <input
                 type="radio"
@@ -41,16 +36,16 @@ export const RadioGroup = ({
                 value={opt.value}
                 checked={isChecked}
                 onChange={() => onChange(opt.value)}
-                className="w-4 h-4 text-[#C0392B] bg-zinc-950 border-zinc-700 focus:ring-[#C0392B] focus:ring-offset-zinc-950"
+                className="w-4 h-4 shrink-0 text-[#C0392B] bg-[#0D0D0D] border-2 border-zinc-500 focus:ring-[#C0392B] focus:ring-offset-[#141414]"
               />
-              <span className="text-sm select-none">{opt.label}</span>
+              <span className="text-sm select-none leading-snug">{opt.label}</span>
             </label>
           );
         })}
       </div>
       {error && (
-        <span className="text-xs text-red-500 mt-1">{error}</span>
+        <span className="text-xs text-red-400 font-medium mt-1">{error}</span>
       )}
-    </div>
+    </fieldset>
   );
 };

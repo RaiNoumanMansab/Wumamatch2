@@ -42,9 +42,9 @@ export const Avatar = ({
         )}
       </div>
 
-      {/* Absolutely positioned badge overlay on bottom right */}
+      {/* Verification badge — centered below avatar */}
       {badge && (
-        <div className="absolute -bottom-2 -right-2 transform scale-90 md:scale-95 shadow-md">
+        <div className="absolute left-1/2 -translate-x-1/2 -bottom-3 z-10 whitespace-nowrap scale-90 md:scale-95 shadow-md">
           <Badge type={badge} />
         </div>
       )}

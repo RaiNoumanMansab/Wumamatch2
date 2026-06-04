@@ -55,7 +55,7 @@ export const HeroSection = ({ isChinese }) => {
       </div>
 
       {/* ── Main grid: text left · image right ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[100svh]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[100svh] overflow-visible">
 
         {/* ── LEFT – Copy ── */}
         <div className="flex flex-col items-start justify-center min-h-[320px]">
@@ -96,21 +96,21 @@ export const HeroSection = ({ isChinese }) => {
               : 'No algorithms. No swiping. Just expert human matchmakers dedicated to your perfect match.'}
           </motion.p>
 
-          {/* CTA buttons */}
-          <motion.div {...fadeUp(0.4)} className="flex flex-row gap-3 w-full">
+          {/* CTA buttons — compact width, taller tap area */}
+          <motion.div {...fadeUp(0.4)} className="flex flex-col gap-3 items-start">
             <Button
               variant="primary"
               size="md"
-              className="group gap-2 px-7"
+              className="group gap-2 px-6 py-3.5 text-sm whitespace-nowrap w-fit"
               onClick={() => navigate('/register')}
             >
               {isChinese ? '开启寻爱之旅' : 'Begin Your Journey'}
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               variant="ghost"
               size="md"
-              className="px-7"
+              className="px-6 py-3.5 text-sm whitespace-nowrap w-fit"
               onClick={() => navigate('/plans')}
             >
               {isChinese ? '查看会员方案' : 'View Plans'}
@@ -130,7 +130,7 @@ export const HeroSection = ({ isChinese }) => {
               <div key={text} className="flex items-center gap-1.5">
                 <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
                 <span className="text-[10px] uppercase tracking-widest font-semibold text-[#9A8F8A]">
-                  ✓ {text}
+                  {text}
                 </span>
               </div>
             ))}
@@ -139,75 +139,68 @@ export const HeroSection = ({ isChinese }) => {
 
         {/* ── RIGHT – Couple image composition ── */}
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.25, ease: EASE_OUT }}
-          className="relative hidden lg:flex items-center justify-end"
+          className="relative hidden lg:flex items-center justify-end w-full overflow-visible lg:pr-4 xl:pr-0"
         >
           {/* Glow blob behind image */}
-          <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(192,57,43,0.25)_0%,transparent_70%)] blur-2xl scale-110" />
+          <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(192,57,43,0.25)_0%,transparent_70%)] blur-2xl scale-110 pointer-events-none" />
 
-          {/* Main couple photo */}
-          <div className="relative w-full rounded-3xl overflow-hidden border border-white/8 shadow-[0_40px_80px_rgba(0,0,0,0.7)]">
-            <img
-              src={HERO_IMAGE}
-              alt="Happy couple"
-              className="w-full h-[340px] xl:h-[380px] object-cover object-center"
-            />
-            {/* Gradient overlay so text badges read cleanly */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/80 via-transparent to-[#090909]/20" />
+          {/* Asymmetric margin: extra right space so New Match badge stays on border, not off-screen */}
+          <div className="relative w-full ml-6 lg:ml-8 mr-6 lg:mr-8">
+            <div className="relative w-full rounded-3xl overflow-hidden border border-white/8 shadow-[0_40px_80px_rgba(0,0,0,0.7)]">
+              <img
+                src={HERO_IMAGE}
+                alt="Happy couple"
+                width={800}
+                height={380}
+                className="w-full h-[340px] xl:h-[380px] object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/80 via-transparent to-[#090909]/20" />
 
-            {/* Floating stat badge – bottom left */}
-            <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-              <div className="bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-3">
-                <p className="text-[10px] uppercase tracking-widest text-[#9A8F8A] mb-0.5">
-                  {isChinese ? '成功牵线' : 'Matches Made'}
-                </p>
-                <p className="font-serif text-2xl font-bold text-gold-gradient">380+</p>
+              {/* New Match — inside image, top-right (no overflow past border) */}
+              <div className="absolute right-4 top-4 z-10">
+                <div className="bg-[#141414]/90 backdrop-blur-md border border-[#D4A853]/25 rounded-2xl px-3 py-2.5 shadow-xl flex items-center gap-2.5">
+                  <div className="w-8 h-8 shrink-0 rounded-full bg-[#3B0000]/60 border border-[#C0392B]/40 flex items-center justify-center">
+                    <Heart className="w-3.5 h-3.5 text-[#C0392B] fill-current" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[9px] uppercase tracking-widest text-[#9A8F8A] font-semibold">
+                      {isChinese ? '新配对' : 'New Match'}
+                    </p>
+                    <p className="text-[11px] font-bold text-[#F5F0EB] leading-tight">
+                      {isChinese ? '今日完成 3 对' : '3 Introductions Today'}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div className="bg-black/60 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-3 text-right">
-                <p className="text-[10px] uppercase tracking-widest text-[#9A8F8A] mb-0.5">
-                  {isChinese ? '满意度' : 'Satisfaction'}
+            </div>
+
+            {/* Matchmakers — fixed anchor on image left border center */}
+            <div className="absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
+              <div className="bg-[#141414]/90 backdrop-blur-md border border-[#D4A853]/25 rounded-2xl px-4 py-3 shadow-xl min-w-[148px]">
+                <p className="text-[9px] uppercase tracking-widest text-[#D4A853] font-bold mb-1">
+                  {isChinese ? '红娘团队' : 'Matchmakers'}
                 </p>
-                <p className="font-serif text-2xl font-bold text-gold-gradient">94%</p>
+                <div className="flex -space-x-2 h-8 items-center">
+                  {['women/32', 'women/44', 'men/33'].map((p) => (
+                    <img
+                      key={p}
+                      src={`https://randomuser.me/api/portraits/${p}.jpg`}
+                      width={32}
+                      height={32}
+                      loading="eager"
+                      className="w-8 h-8 shrink-0 rounded-full border-2 border-[#141414] object-cover"
+                      alt=""
+                    />
+                  ))}
+                </div>
+                <p className="text-[10px] text-[#9A8F8A] mt-1.5 font-medium">
+                  12 {isChinese ? '位专家在线' : 'experts online'}
+                </p>
               </div>
             </div>
-          </div>
-
-          {/* Small floating card – top right overlap */}
-          <div className="absolute top-8 -right-4 xl:right-0 animate-gentle-float bg-[#141414]/90 backdrop-blur-md border border-[#D4A853]/25 rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#3B0000]/60 border border-[#C0392B]/40 flex items-center justify-center">
-              <Heart className="w-4 h-4 text-[#C0392B] fill-current" />
-            </div>
-            <div>
-              <p className="text-[9px] uppercase tracking-widest text-[#9A8F8A] font-semibold">
-                {isChinese ? '新配对' : 'New Match'}
-              </p>
-              <p className="text-xs font-bold text-[#F5F0EB]">
-                {isChinese ? '今日完成 3 对' : '3 Introductions Today'}
-              </p>
-            </div>
-          </div>
-
-          {/* Second floating card – middle left overlap */}
-          <div
-            className="absolute left-0 xl:-left-6 top-1/2 -translate-y-1/2 animate-gentle-float bg-[#141414]/90 backdrop-blur-md border border-[#D4A853]/25 rounded-2xl px-4 py-3 shadow-xl"
-            style={{ animationDelay: '1.5s' }}
-          >
-            <p className="text-[9px] uppercase tracking-widest text-[#D4A853] font-bold mb-1">
-              {isChinese ? '红娘团队' : 'Matchmakers'}
-            </p>
-            <div className="flex -space-x-2">
-              {['women/32', 'women/44', 'men/33'].map((p) => (
-                <img
-                  key={p}
-                  src={`https://randomuser.me/api/portraits/${p}.jpg`}
-                  className="w-8 h-8 rounded-full border-2 border-[#141414] object-cover"
-                  alt="matchmaker"
-                />
-              ))}
-            </div>
-            <p className="text-[10px] text-[#9A8F8A] mt-1.5 font-medium">12 {isChinese ? '位专家在线' : 'experts online'}</p>
           </div>
         </motion.div>
 

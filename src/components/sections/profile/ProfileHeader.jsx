@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, Crown, Calendar, Lock, Check } from 'lucide-react';
+import { Crown, Calendar, Lock, Check } from 'lucide-react';
 import { Card } from '../../ui/Card';
 import { Avatar } from '../../ui/Avatar';
 import { Button } from '../../ui/Button';
@@ -43,22 +43,17 @@ export const ProfileHeader = ({ member, isLoggedIn, isChinese }) => {
             src={member.photo}
             size="xl"
             blurred={!isLoggedIn}
-            badge={member.verificationStatus}
           />
         </div>
 
-        <div className="w-full flex flex-col gap-2 items-center mb-6">
-          <div className="flex flex-wrap justify-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-blue-950/60 border border-blue-500/30 text-[10px] font-bold uppercase tracking-wider text-blue-300">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>{isChinese ? '基础实名验证' : 'Basic Verified'}</span>
-            </span>
+        {member.verificationStatus === 'premium-verified' && (
+          <div className="w-full flex justify-center mb-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-amber-950/60 border border-[#D4A853]/35 text-[10px] font-bold uppercase tracking-wider text-[#D4A853]">
               <Crown className="w-3.5 h-3.5" />
               <span>{isChinese ? '高端尊贵认证' : 'Premium Verified'}</span>
             </span>
           </div>
-        </div>
+        )}
 
         <div className="w-full flex flex-col gap-3 mb-6">
           {isLoggedIn ? (

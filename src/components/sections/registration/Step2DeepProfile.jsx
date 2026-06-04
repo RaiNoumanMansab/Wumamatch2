@@ -131,9 +131,9 @@ export const Step2DeepProfile = ({ data, onSubmit, onBack, isChinese }) => {
   };
 
   return (
-    <div className="flex flex-col gap-6 max-w-2xl mx-auto text-left pb-16">
+    <div className="flex flex-col gap-6 w-full text-left pb-16">
       {/* Progress header */}
-      <div className="bg-zinc-900 border border-zinc-800/80 p-5 rounded flex items-center justify-between">
+      <div className="bg-[#141414] border-2 border-zinc-600 p-5 rounded-xl flex items-center justify-between gap-4">
         <div>
           <span className="text-[10px] uppercase font-bold tracking-widest text-[#9A8F8A]">
             {isChinese ? '深度问卷完成率' : 'Deep Qs Progress'}
@@ -160,19 +160,19 @@ export const Step2DeepProfile = ({ data, onSubmit, onBack, isChinese }) => {
             <Card
               key={idx}
               variant="bordered"
-              className={`border-l-4 overflow-hidden bg-[#111111] transition-all duration-300 ${
-                isOpen 
-                  ? 'border-l-[#C0392B] border-zinc-800' 
-                  : isComplete 
-                    ? 'border-l-green-600 border-zinc-900/60'
-                    : 'border-l-zinc-800 border-zinc-900/60'
+              className={`border-2 border-l-4 overflow-hidden bg-[#111111] transition-all duration-300 !p-0 ${
+                isOpen
+                  ? 'border-l-[#C0392B] border-zinc-600'
+                  : isComplete
+                    ? 'border-l-green-600 border-zinc-600'
+                    : 'border-l-zinc-500 border-zinc-600'
               }`}
             >
               {/* Accordion Trigger */}
               <button
                 type="button"
                 onClick={() => toggleAccordion(idx)}
-                className="w-full px-5 py-4 flex items-center justify-between hover:bg-zinc-900/40 transition-colors"
+                className="w-full px-5 py-4 flex items-center justify-between hover:bg-[#1a1a1a] transition-colors border-b border-zinc-700/50"
               >
                 <div className="flex items-center gap-3">
                   {isComplete ? (
@@ -194,7 +194,7 @@ export const Step2DeepProfile = ({ data, onSubmit, onBack, isChinese }) => {
                     initial={{ height: 0 }}
                     animate={{ height: 'auto' }}
                     exit={{ height: 0 }}
-                    className="border-t border-zinc-850 px-5 py-6 bg-zinc-900/10 flex flex-col gap-6"
+                    className="border-t-2 border-zinc-700 px-5 md:px-6 py-6 bg-[#0d0d0d] flex flex-col gap-6"
                   >
                     {/* Render fields depending on section index */}
                     {idx === 0 && (

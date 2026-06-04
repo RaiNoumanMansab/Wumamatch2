@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShieldCheck } from 'lucide-react';
+import { ShieldCheck, ArrowRight } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
 import { SectionHeader } from '../../ui/SectionHeader';
 import { Card } from '../../ui/Card';
@@ -52,12 +52,13 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
                 </div>
 
                 {/* Profile Avatar (Blurred if public visitor) */}
-                <div className="mb-6 mt-4">
+                <div className="mb-8 mt-4 flex flex-col items-center w-full">
                   <Avatar
                     src={member.photo}
                     size="lg"
                     blurred={!isLoggedIn}
                     badge={member.verificationStatus}
+                    className="mx-auto"
                   />
                 </div>
 
@@ -127,9 +128,11 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
         <Button
           variant="secondary"
           size="lg"
+          className="group gap-2"
           onClick={() => navigate('/members')}
         >
           {isChinese ? '浏览更多精英会员' : 'Browse All Members'}
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </Button>
       </div>
     </SectionWrapper>

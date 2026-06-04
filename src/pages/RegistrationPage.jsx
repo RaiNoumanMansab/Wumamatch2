@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { SectionWrapper } from '../components/layout/SectionWrapper';
@@ -94,9 +95,9 @@ export const RegistrationPage = ({ isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-20">
-      <SectionWrapper bg="dark">
+      <SectionWrapper bg="dark" className="!px-4 md:!px-6 lg:!px-8">
         {!isSubmitted ? (
-          <div className="max-w-7xl mx-auto w-full px-4 md:px-8">
+          <div className="max-w-6xl mx-auto w-full px-2 sm:px-4">
             {/* Step Indicator */}
             <StepIndicator currentStep={currentStep} isChinese={isChinese} />
 

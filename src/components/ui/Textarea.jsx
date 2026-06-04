@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '../../utils/cn';
+import { formFieldClass, formLabelClass } from '../../utils/formStyles';
 
 export const Textarea = React.forwardRef(({
   label,
@@ -7,27 +8,29 @@ export const Textarea = React.forwardRef(({
   helperText,
   className,
   rows = 4,
+  id,
+  name,
   ...props
 }, ref) => {
+  const fieldId = id || name;
+
   return (
-    <div className="w-full flex flex-col gap-1.5 text-left">
+    <div className="w-full flex flex-col gap-2 text-left">
       {label && (
-        <label className="text-xs uppercase tracking-widest font-semibold text-[#9A8F8A]">
+        <label htmlFor={fieldId} className={formLabelClass}>
           {label}
         </label>
       )}
       <textarea
         ref={ref}
+        id={fieldId}
+        name={name}
         rows={rows}
-        className={cn(
-          'w-full px-4 py-2.5 bg-zinc-900 border border-zinc-700/80 text-[#F5F0EB] rounded-2xl focus:outline-none focus:border-[#C0392B] focus:ring-1 focus:ring-[#C0392B] transition-all duration-300 placeholder-zinc-600 text-sm resize-none',
-          error && 'border-red-500 focus:border-red-500 focus:ring-red-500',
-          className
-        )}
+        className={cn(formFieldClass(error), 'resize-y min-h-[100px]', className)}
         {...props}
       />
       {error && (
-        <span className="text-xs text-red-500 mt-0.5">{error}</span>
+        <span className="text-xs text-red-400 font-medium">{error}</span>
       )}
       {!error && helperText && (
         <span className="text-[11px] text-zinc-500">{helperText}</span>

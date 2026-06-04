@@ -5,6 +5,7 @@ import { Select } from '../../ui/Select';
 import { RadioGroup } from '../../ui/RadioGroup';
 import { CheckboxGroup } from '../../ui/CheckboxGroup';
 import { Button } from '../../ui/Button';
+import { formSectionCardClass, formSectionTitleClass } from '../../../utils/formStyles';
 
 export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
   const [formData, setFormData] = useState({
@@ -96,14 +97,14 @@ export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-8 w-full mx-auto text-left pb-16">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-8 w-full text-left pb-16">
       {/* 1. About You */}
-      <Card variant="bordered" className="p-6 bg-[#111111] border-zinc-800/80">
-        <h3 className="font-serif text-lg font-bold text-[#F5F0EB] border-b border-zinc-800 pb-3 mb-6">
+      <Card variant="bordered" className={formSectionCardClass}>
+        <h3 className={formSectionTitleClass}>
           {isChinese ? '一、关于您 (About You)' : '1. About You'}
         </h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
           {/* Row 1: Name + DOB */}
           <Input
             label={isChinese ? '真实姓名 (不会公开显示)' : 'Full Name (Kept Confidential)'}
@@ -125,6 +126,7 @@ export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
           {/* Row 2: Nationality + Phone */}
           <Select
             label={isChinese ? '国籍/背景' : 'Nationality'}
+            name="nationality"
             value={formData.nationality}
             onChange={(e) => setFormData({ ...formData, nationality: e.target.value })}
             options={nationalityOptions}
@@ -133,6 +135,7 @@ export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
           />
           <Input
             label={isChinese ? '电话号码 (验证使用)' : 'Phone Number'}
+            name="phone"
             type="tel"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -143,6 +146,7 @@ export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
           {/* Row 3: Email + Residence */}
           <Input
             label={isChinese ? '电子邮箱 (联络使用)' : 'Email Address (Confidential)'}
+            name="email"
             type="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -151,6 +155,7 @@ export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
           />
           <Input
             label={isChinese ? '居住城市与国家' : 'City & Country of Residence'}
+            name="residence"
             value={formData.residence}
             onChange={(e) => setFormData({ ...formData, residence: e.target.value })}
             error={errors.residence}
@@ -194,12 +199,12 @@ export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
       </Card>
 
       {/* 2. Physical & Personal */}
-      <Card variant="bordered" className="p-6 bg-[#111111] border-zinc-800/80">
-        <h3 className="font-serif text-lg font-bold text-[#F5F0EB] border-b border-zinc-800 pb-3 mb-6">
+      <Card variant="bordered" className={formSectionCardClass}>
+        <h3 className={formSectionTitleClass}>
           {isChinese ? '二、身体及个人背景 (Physical & Personal)' : '2. Physical & Personal'}
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 
           {/* Height (full width) */}
           <div className="md:col-span-2">
@@ -276,7 +281,7 @@ export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
 
           {/* Conditional children questions */}
           {formData.hasChildren === 'Yes' && (
-            <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4 border border-zinc-800 bg-zinc-950/40 p-5 rounded-xl">
+            <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-4 border-2 border-zinc-600 bg-[#0a0a0a] p-5 rounded-xl">
               <RadioGroup
                 label={isChinese ? '子女数量' : 'Number of Children'}
                 name="childrenCount"
@@ -333,6 +338,7 @@ export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
           />
           <Input
             label={isChinese ? '目前具体职业' : 'Current Occupation'}
+            name="occupation"
             value={formData.occupation}
             onChange={(e) => setFormData({ ...formData, occupation: e.target.value })}
             error={errors.occupation}
@@ -343,12 +349,12 @@ export const Step1BasicInfo = ({ data, onNext, isChinese }) => {
       </Card>
 
       {/* 3. Your Intentions */}
-      <Card variant="bordered" className="p-6 bg-[#111111] border-zinc-800/80">
-        <h3 className="font-serif text-lg font-bold text-[#F5F0EB] border-b border-zinc-800 pb-3 mb-6">
+      <Card variant="bordered" className={formSectionCardClass}>
+        <h3 className={formSectionTitleClass}>
           {isChinese ? '三、寻找愿景与习惯 (Your Intentions)' : '3. Your Intentions'}
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 
           {/* Relationship Goal (full width) */}
           <div className="md:col-span-2">
