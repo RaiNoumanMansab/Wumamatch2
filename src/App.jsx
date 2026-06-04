@@ -90,7 +90,7 @@ export function App() {
             />
             <Route 
               path="/dashboard" 
-              element={<MyDashboardPage isChinese={isChinese} />} 
+              element={<MyDashboardPage isChinese={isChinese} onLoginToggle={handleLoginToggle} />} 
             />
             <Route 
               path="*" 

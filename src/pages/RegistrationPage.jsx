@@ -96,7 +96,7 @@ export const RegistrationPage = ({ isChinese }) => {
     <PageWrapper className="w-full pt-20">
       <SectionWrapper bg="dark">
         {!isSubmitted ? (
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-7xl mx-auto w-full px-4 md:px-8">
             {/* Step Indicator */}
             <StepIndicator currentStep={currentStep} isChinese={isChinese} />
 

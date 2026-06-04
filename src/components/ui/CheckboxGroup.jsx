@@ -40,17 +40,19 @@ export const CheckboxGroup = ({
         )}
       </div>
       <div className={cn(
-        'grid gap-3',
-        inline ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1',
+        inline ? 'flex flex-wrap items-center gap-3' : 'flex flex-col gap-3',
         className
       )}>
         {options.map((opt) => {
           const isChecked = value.includes(opt.value);
+          const isDisabled = maxSelected && value.length >= maxSelected && !isChecked;
           return (
             <label
               key={opt.value}
               className={cn(
                 'flex items-center gap-3 px-4 py-3 rounded-2xl border cursor-pointer transition-all duration-300',
+                inline ? 'flex-1 min-w-[140px] justify-center' : '',
+                isDisabled && !isChecked ? 'opacity-50 cursor-not-allowed' : '',
                 isChecked
                   ? 'bg-[#3B0000]/30 border-[#C0392B] text-[#F5F0EB]'
                   : 'bg-zinc-900/60 border-zinc-800 text-[#9A8F8A] hover:bg-zinc-800/40 hover:border-zinc-700'

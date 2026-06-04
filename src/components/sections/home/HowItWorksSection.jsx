@@ -63,18 +63,17 @@ export const HowItWorksSection = ({ isChinese }) => {
 
       {/* Desktop Horizontal Timeline */}
       <div className="hidden lg:block relative max-w-6xl mx-auto py-10">
-        {/* Draw Timeline line */}
-        <div className="absolute top-[48px] left-[10%] right-[10%] h-[2px] bg-zinc-800 z-0">
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: '100%' }}
-            viewport={viewportOnce}
-            transition={{ duration: 1.2, ease: 'easeInOut' }}
-            className="h-full bg-gradient-to-r from-[#C0392B] to-[#D4A853]"
-          />
-        </div>
-
-        <div className="grid grid-cols-5 gap-4 relative z-10">
+        <div className="grid grid-cols-5 gap-4 relative">
+          {/* Timeline line — centered through icon circles (w-16 / 2 = top-8) */}
+          <div className="absolute top-8 left-[10%] right-[10%] -translate-y-1/2 h-[2px] bg-zinc-800 z-0">
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: '100%' }}
+              viewport={viewportOnce}
+              transition={{ duration: 1.2, ease: 'easeInOut' }}
+              className="h-full bg-gradient-to-r from-[#C0392B] to-[#D4A853]"
+            />
+          </div>
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
@@ -88,7 +87,7 @@ export const HowItWorksSection = ({ isChinese }) => {
                 className="flex flex-col items-center px-2 text-center"
               >
                 {/* Step Circle Icon Wrapper */}
-                <div className="w-16 h-16 rounded-full bg-[#1A1A1A] border-2 border-zinc-850 flex items-center justify-center text-zinc-400 mb-6 hover:border-[#C0392B] hover:text-[#E74C3C] hover:shadow-[0_0_20px_rgba(231,76,60,0.3)] transition-all duration-300 relative group">
+                <div className="w-16 h-16 rounded-full bg-[#1A1A1A] border-2 border-zinc-850 flex items-center justify-center text-zinc-400 mb-6 hover:border-[#C0392B] hover:text-[#E74C3C] hover:shadow-[0_0_20px_rgba(231,76,60,0.3)] transition-all duration-300 relative z-10 group">
                   <Icon className="w-6 h-6" />
                   <span className="absolute -top-2 -right-2 text-[10px] font-bold bg-[#C0392B] text-white rounded-full w-5 h-5 flex items-center justify-center shadow-md">
                     {step.num}

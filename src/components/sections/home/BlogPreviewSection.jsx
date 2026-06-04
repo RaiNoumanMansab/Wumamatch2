@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
 import { SectionHeader } from '../../ui/SectionHeader';
+import { Button } from '../../ui/Button';
 import { BlogCard } from '../blogs/BlogCard';
 import { mockBlogs } from '../../../data/mockBlogs';
 
 export const BlogPreviewSection = ({ isChinese }) => {
+  const navigate = useNavigate();
   const latest = mockBlogs.slice(0, 3);
 
   return (
@@ -27,13 +30,14 @@ export const BlogPreviewSection = ({ isChinese }) => {
       </div>
 
       <div className="text-center">
-        <Link
-          to="/blogs"
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#E74C3C] hover:text-[#D4A853] hover:underline transition-all duration-300"
+        <Button 
+          variant="secondary" 
+          onClick={() => navigate('/blogs')}
+          className="group px-8 hover:bg-zinc-800"
         >
-          <span>{isChinese ? '阅读全部文章' : 'View All Articles'}</span>
-          <span>→</span>
-        </Link>
+          {isChinese ? '阅读全部文章' : 'View All Articles'}
+          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+        </Button>
       </div>
     </SectionWrapper>
   );

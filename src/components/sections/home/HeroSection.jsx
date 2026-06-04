@@ -58,12 +58,12 @@ export const HeroSection = ({ isChinese }) => {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[100svh]">
 
         {/* ── LEFT – Copy ── */}
-        <div className="flex flex-col items-start justify-center h-[280px]">
+        <div className="flex flex-col items-start justify-center min-h-[320px]">
 
           {/* Eyebrow badge */}
-          <motion.div {...fadeUp(0)} className="mb-3">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[9px] font-bold tracking-[0.2em] uppercase bg-[#1a0505] border border-[#C0392B]/30 text-[#E74C3C] shadow-[0_0_20px_rgba(192,57,43,0.15)]">
-              <Star className="w-2.5 h-2.5 fill-current text-[#D4A853]" />
+          <motion.div {...fadeUp(0)} className="mb-4">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase bg-[#1a0505] border border-[#C0392B]/30 text-[#E74C3C] shadow-[0_0_20px_rgba(192,57,43,0.15)]">
+              <Star className="w-3 h-3 fill-current text-[#D4A853]" />
               {isChinese ? '全球顶级华人私密婚恋' : 'Elite Human-Curated Matchmaking'}
             </span>
           </motion.div>
@@ -71,7 +71,7 @@ export const HeroSection = ({ isChinese }) => {
           {/* Headline */}
           <motion.h1
             {...fadeUp(0.15)}
-            className="font-serif text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] font-bold leading-[1.1] text-[#F5F0EB] mb-3"
+            className="font-serif text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-bold leading-[1.1] text-[#F5F0EB] mb-4"
           >
             {isChinese ? (
               <>
@@ -89,7 +89,7 @@ export const HeroSection = ({ isChinese }) => {
           {/* Sub-copy */}
           <motion.p
             {...fadeUp(0.28)}
-            className="text-[#9A8F8A] text-xs leading-relaxed max-w-[420px] mb-4 font-light"
+            className="text-[#9A8F8A] text-sm md:text-base leading-relaxed max-w-[460px] mb-5 font-light"
           >
             {isChinese
               ? 'WuMa Match 是专为海外华人精英设计的人工定制红娘服务。无算法、无划卡——由资深红娘顾问为您手工甄选完美伴侣。'
@@ -100,8 +100,8 @@ export const HeroSection = ({ isChinese }) => {
           <motion.div {...fadeUp(0.4)} className="flex flex-row gap-3 w-full">
             <Button
               variant="primary"
-              size="sm"
-              className="group gap-2 px-6"
+              size="md"
+              className="group gap-2 px-7"
               onClick={() => navigate('/register')}
             >
               {isChinese ? '开启寻爱之旅' : 'Begin Your Journey'}
@@ -109,8 +109,8 @@ export const HeroSection = ({ isChinese }) => {
             </Button>
             <Button
               variant="ghost"
-              size="sm"
-              className="px-6"
+              size="md"
+              className="px-7"
               onClick={() => navigate('/plans')}
             >
               {isChinese ? '查看会员方案' : 'View Plans'}
@@ -128,8 +128,8 @@ export const HeroSection = ({ isChinese }) => {
               { icon: Sparkles,    color: '#D4A853', text: isChinese ? '管家服务' : 'Concierge Service' },
             ].map(({ icon: Icon, color, text }) => (
               <div key={text} className="flex items-center gap-1.5">
-                <Icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color }} />
-                <span className="text-[9px] uppercase tracking-widest font-semibold text-[#9A8F8A]">
+                <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
+                <span className="text-[10px] uppercase tracking-widest font-semibold text-[#9A8F8A]">
                   ✓ {text}
                 </span>
               </div>
@@ -152,7 +152,7 @@ export const HeroSection = ({ isChinese }) => {
             <img
               src={HERO_IMAGE}
               alt="Happy couple"
-              className="w-full h-[280px] object-cover object-center"
+              className="w-full h-[340px] xl:h-[380px] object-cover object-center"
             />
             {/* Gradient overlay so text badges read cleanly */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/80 via-transparent to-[#090909]/20" />
@@ -221,7 +221,7 @@ export const HeroSection = ({ isChinese }) => {
           <img
             src={HERO_IMAGE}
             alt="Happy couple"
-            className="w-full h-72 object-cover object-center"
+            className="w-full h-80 object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/70 via-transparent" />
         </motion.div>

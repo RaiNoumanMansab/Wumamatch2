@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Shield, Mail, Phone, MapPin } from 'lucide-react';
+import { Shield, Mail, Phone, MapPin } from 'lucide-react';
+
+const LOGO_SRC = '/images/wuma-logo.png';
 
 export const Footer = ({ isChinese }) => {
   return (
@@ -8,11 +10,12 @@ export const Footer = ({ isChinese }) => {
       <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* About column */}
         <div className="flex flex-col gap-4">
-          <Link to="/" className="flex items-center gap-2">
-            <Heart className="w-5 h-5 text-[#C0392B] fill-current" />
-            <span className="font-serif text-lg tracking-wider font-bold text-[#F5F0EB]">
-              WuMa <span className="text-[#C0392B]">Match</span>
-            </span>
+          <Link to="/" className="inline-flex w-fit hover:opacity-90 transition-opacity">
+            <img
+              src={LOGO_SRC}
+              alt="WuMa Match"
+              className="h-9 w-auto object-contain"
+            />
           </Link>
           <p className="text-xs text-[#9A8F8A] leading-relaxed">
             {isChinese

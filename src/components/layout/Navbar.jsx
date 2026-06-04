@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X, Heart, User, ChevronDown } from 'lucide-react';
+import { Menu, X, User, ChevronDown } from 'lucide-react';
+
+const LOGO_SRC = '/images/wuma-logo.png';
 import { Button } from '../ui/Button';
 import { Modal } from '../ui/Modal';
 import { Input } from '../ui/Input';
@@ -59,13 +61,12 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
 
           {/* ── Logo ── */}
           <div className="flex">
-            <Link to="/" className="flex items-center gap-2.5 group w-fit">
-              <div className="w-8 h-8 rounded-full bg-[#C0392B]/15 border border-[#C0392B]/40 flex items-center justify-center group-hover:bg-[#C0392B]/25 transition-colors duration-300">
-                <Heart className="w-4 h-4 text-[#C0392B] fill-current" />
-              </div>
-              <span className="font-serif text-[1.15rem] tracking-wide font-bold text-[#F5F0EB]">
-                WuMa <span className="text-[#C0392B]">Match</span>
-              </span>
+            <Link to="/" className="flex items-center group w-fit shrink-0">
+              <img
+                src={LOGO_SRC}
+                alt="WuMa Match"
+                className="h-9 md:h-10 w-auto object-contain group-hover:opacity-90 transition-opacity duration-300"
+              />
             </Link>
           </div>
 
@@ -136,25 +137,19 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
                 <NavLink
                   to="/dashboard"
                   className={({ isActive }) =>
-                    `flex items-center gap-2 px-3 py-1.5 rounded-2xl border transition-all duration-200 ${
+                    `flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-200 overflow-hidden ${
                       isActive
-                        ? 'bg-[#C0392B]/15 border-[#C0392B]/40 text-[#E74C3C]'
-                        : 'bg-[#D4A853]/10 border-[#D4A853]/20 text-[#D4A853] hover:bg-[#D4A853]/20'
+                        ? 'border-[#C0392B]'
+                        : 'border-[#D4A853]/40 hover:border-[#D4A853]'
                     }`
                   }
                 >
                   <img
                     src="https://randomuser.me/api/portraits/women/68.jpg"
-                    alt="me"
-                    className="w-5 h-5 rounded-full object-cover border border-[#D4A853]/40"
+                    alt="profile"
+                    className="w-full h-full object-cover"
                   />
-                  <span className="text-[10px] font-bold uppercase tracking-wider">
-                    {isChinese ? '个人资料' : 'Profile'}
-                  </span>
                 </NavLink>
-                <Button variant="ghost" size="sm" onClick={() => { onLoginToggle(false); navigate('/'); }}>
-                  {isChinese ? '退出' : 'Logout'}
-                </Button>
               </div>
             ) : (
               <>
@@ -237,26 +232,21 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
 
               <div className="border-t border-zinc-900 pt-5 flex flex-col gap-3">
                 {isLoggedIn ? (
-                  <>
-                    <Link
-                      to="/dashboard"
-                      className="flex items-center gap-3 py-3 px-4 rounded-xl bg-[#D4A853]/10 border border-[#D4A853]/20"
-                    >
-                      <img
-                        src="https://randomuser.me/api/portraits/women/68.jpg"
-                        alt="me"
-                        className="w-8 h-8 rounded-xl object-cover border border-[#D4A853]/30"
-                      />
-                      <div>
-                        <p className="text-xs font-bold text-[#D4A853]">{isChinese ? '陈雨欣' : 'Sophia Chen'}</p>
-                        <p className="text-[10px] text-zinc-500">{isChinese ? '精英会员 · 已认证' : 'Elite · Verified'}</p>
-                      </div>
-                      <User className="w-4 h-4 text-[#D4A853] ml-auto" />
-                    </Link>
-                    <Button variant="ghost" className="w-full" onClick={() => { onLoginToggle(false); navigate('/'); }}>
-                      {isChinese ? '安全退出' : 'Logout'}
-                    </Button>
-                  </>
+                  <Link
+                    to="/dashboard"
+                    className="flex items-center gap-3 py-3 px-4 rounded-xl bg-[#D4A853]/10 border border-[#D4A853]/20"
+                  >
+                    <img
+                      src="https://randomuser.me/api/portraits/women/68.jpg"
+                      alt="me"
+                      className="w-8 h-8 rounded-xl object-cover border border-[#D4A853]/30"
+                    />
+                    <div>
+                      <p className="text-xs font-bold text-[#D4A853]">{isChinese ? '陈雨欣' : 'Sophia Chen'}</p>
+                      <p className="text-[10px] text-zinc-500">{isChinese ? '精英会员 · 已认证' : 'Elite · Verified'}</p>
+                    </div>
+                    <User className="w-4 h-4 text-[#D4A853] ml-auto" />
+                  </Link>
                 ) : (
                   <>
                     <Button variant="secondary" className="w-full" onClick={() => { setShowLoginModal(true); setIsOpen(false); }}>

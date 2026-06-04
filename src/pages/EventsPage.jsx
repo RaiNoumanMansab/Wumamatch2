@@ -1,23 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { SectionWrapper } from '../components/layout/SectionWrapper';
 import { Card } from '../components/ui/Card';
-import { Button } from '../components/ui/Button';
-import { Modal } from '../components/ui/Modal';
 import { Divider } from '../components/ui/Divider';
 import { mockEvents } from '../data/mockEvents';
-import { Calendar, MapPin, Users, Ticket, CheckCircle2 } from 'lucide-react';
+import { Calendar, MapPin, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const EventsPage = ({ isChinese }) => {
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const [registeredSuccess, setRegisteredSuccess] = useState(false);
-
-  const handleRegisterSubmit = (e) => {
-    e.preventDefault();
-    setRegisteredSuccess(true);
-  };
-
   return (
     <PageWrapper className="w-full pt-20">
       <div className="bg-gradient-to-b from-[#180303] via-[#0D0D0D] to-[#0D0D0D] pt-20 pb-8 px-6 text-center">
@@ -37,9 +27,8 @@ export const EventsPage = ({ isChinese }) => {
         </div>
       </div>
 
-      {/* Main Section */}
       <SectionWrapper bg="dark" className="!pt-6 md:!pt-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {mockEvents.map((event, idx) => (
             <motion.div
               key={event.id}
@@ -51,127 +40,54 @@ export const EventsPage = ({ isChinese }) => {
             >
               <Card
                 variant="bordered"
-                className="w-full bg-[#111111] hover:bg-[#151515] border-zinc-800 flex flex-col justify-between overflow-hidden"
+                className="w-full bg-[#111111] hover:bg-[#151515] border-zinc-800 flex flex-col overflow-hidden"
               >
-                {/* Event Image Banner */}
-                <div className="relative aspect-[16/9] border-b border-zinc-900">
+                <div className="relative aspect-[2/1] border-b border-zinc-900">
                   <img
                     src={event.photo}
                     alt={event.title}
                     className="w-full h-full object-cover"
                   />
-                  {/* Status Overlay */}
-                  <div className="absolute top-4 right-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-950/80 border border-[#D4A853]/40 text-[#D4A853] shadow-md animate-pulse">
-                      Ticket Reserved for Members
+                  <div className="absolute top-2.5 right-2.5">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-amber-950/80 border border-[#D4A853]/40 text-[#D4A853] shadow-md">
+                      {isChinese ? '会员预留席位' : 'Ticket Reserved for Members'}
                     </span>
                   </div>
                 </div>
 
-                {/* Details Body */}
-                <div className="p-6 text-left flex-grow flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-serif text-xl font-bold text-[#F5F0EB] mb-4">
-                      {event.title}
-                    </h3>
-                    
-                    {/* Meta lists */}
-                    <div className="flex flex-col gap-2.5 text-xs text-[#9A8F8A] mb-6">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-[#C0392B]" />
-                        <span>{event.date}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-[#C0392B]" />
-                        <span>{event.location}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4 text-[#C0392B]" />
-                        <span className="text-[#D4A853] font-bold">
-                          {isChinese 
-                            ? `仅剩 ${event.spotsRemaining} 个名额 / 总共 ${event.totalSpots} 位` 
-                            : `${event.spotsRemaining} spots left / ${event.totalSpots} seats total`
-                          }
-                        </span>
-                      </div>
-                    </div>
+                <div className="p-4 text-left">
+                  <h3 className="font-serif text-base font-bold text-[#F5F0EB] mb-2.5 leading-snug">
+                    {event.title}
+                  </h3>
 
-                    <p className="text-xs text-[#9A8F8A] leading-relaxed mb-6 font-light">
-                      {event.description}
-                    </p>
+                  <div className="flex flex-col gap-1.5 text-[11px] text-[#9A8F8A] mb-3">
+                    <div className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5 text-[#C0392B] flex-shrink-0" />
+                      <span>{event.date}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#C0392B] flex-shrink-0" />
+                      <span>{event.location}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <Users className="w-3.5 h-3.5 text-[#C0392B] flex-shrink-0" />
+                      <span className="text-[#D4A853] font-bold">
+                        {isChinese
+                          ? `仅剩 ${event.spotsRemaining} 个名额 / 总共 ${event.totalSpots} 位`
+                          : `${event.spotsRemaining} spots left / ${event.totalSpots} seats total`}
+                      </span>
+                    </div>
                   </div>
 
-                  <Button
-                    variant="primary"
-                    className="w-full text-xs"
-                    onClick={() => {
-                      setSelectedEvent(event);
-                      setRegisteredSuccess(false);
-                    }}
-                  >
-                    <Ticket className="w-4 h-4 mr-2" />
-                    <span>{isChinese ? '申请入场预约' : 'Register Interest'}</span>
-                  </Button>
+                  <p className="text-[11px] text-[#9A8F8A] leading-relaxed font-light line-clamp-3">
+                    {event.description}
+                  </p>
                 </div>
               </Card>
             </motion.div>
           ))}
         </div>
       </SectionWrapper>
-
-      {/* Booking Modal */}
-      <Modal
-        isOpen={!!selectedEvent}
-        onClose={() => setSelectedEvent(null)}
-        title={selectedEvent ? (isChinese ? '预约席位申请' : 'Register for Event') : ''}
-      >
-        {selectedEvent && (
-          <div className="text-xs md:text-sm text-[#9A8F8A]">
-            {!registeredSuccess ? (
-              <form onSubmit={handleRegisterSubmit} className="flex flex-col gap-4">
-                <p className="leading-relaxed">
-                  {isChinese
-                    ? `您正在申请参加：${selectedEvent.title}。`
-                    : `You are requesting entry to: ${selectedEvent.title}.`}
-                </p>
-                <div className="bg-[#3B0000]/10 border border-[#C0392B]/20 p-3.5 rounded-2xl text-left">
-                  <span className="font-bold text-[#E74C3C] block mb-1">
-                    {isChinese ? '✓ 实名实人入场把关' : '✓ Verification Entry Requirement'}
-                  </span>
-                  <p className="text-[11px] leading-relaxed">
-                    {isChinese
-                      ? '为了保障活动安全与品质，所有线下社交Mixer仅对完成实名征信认证的WuMa会员开放。初审通过后，我们将为您锁定名额并由红娘顾问团队进行邮件通知确认。'
-                      : 'To preserve matchmaking quality and security, mixers are strictly for verified members. If approved, we will lock your seat and notify you by email.'}
-                  </p>
-                </div>
-                <div className="flex justify-end gap-3 mt-4">
-                  <Button variant="secondary" size="sm" onClick={() => setSelectedEvent(null)}>
-                    {isChinese ? '取消' : 'Cancel'}
-                  </Button>
-                  <Button type="submit" variant="primary" size="sm">
-                    {isChinese ? '确认申请预约' : 'Confirm Registration'}
-                  </Button>
-                </div>
-              </form>
-            ) : (
-              <div className="py-6 text-center flex flex-col items-center gap-4">
-                <CheckCircle2 className="w-12 h-12 text-[#E74C3C] animate-bounce" />
-                <h3 className="font-serif text-lg font-bold text-[#F5F0EB]">
-                  {isChinese ? '预约席位已提交！' : 'Interest Logged Successfully'}
-                </h3>
-                <p className="text-[11px] text-[#9A8F8A] leading-relaxed max-w-sm mx-auto">
-                  {isChinese
-                    ? '您的活动席位申请已提交至红娘团队审核，我们将在审核完成并校验会员状态后，于1-2个工作日内向您发送正式确认及地点门票信息。'
-                    : 'Your seat request has been logged. Our concierge will verify your membership and mail event directions.'}
-                </p>
-                <Button variant="ghost" size="sm" className="mt-2" onClick={() => setSelectedEvent(null)}>
-                  {isChinese ? '关闭' : 'Close'}
-                </Button>
-              </div>
-            )}
-          </div>
-        )}
-      </Modal>
     </PageWrapper>
   );
 };

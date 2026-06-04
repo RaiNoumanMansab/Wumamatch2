@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
@@ -31,6 +31,7 @@ import {
   MessageSquareText,
   ChevronRight,
   Award,
+  LogOut,
 } from 'lucide-react';
 
 /* ─── helpers ─────────────────────────────────── */
@@ -574,8 +575,9 @@ const TABS = [
   { id: 'profile',  en: 'My Profile',  zh: '我的档案', Icon: UserCircle2     },
 ];
 
-export const MyDashboardPage = ({ isChinese }) => {
+export const MyDashboardPage = ({ isChinese, onLoginToggle }) => {
   const [activeTab, setActiveTab] = useState('overview');
+  const navigate = useNavigate();
 
   return (
     <PageWrapper className="w-full pt-20">
@@ -600,25 +602,40 @@ export const MyDashboardPage = ({ isChinese }) => {
             </Link>
           </div>
 
-          {/* Tab navigation */}
-          <div className="flex gap-1 overflow-x-auto scrollbar-none mt-4">
-            {TABS.map(({ id, en, zh, Icon }) => {
-              const isActive = activeTab === id;
-              return (
-                <button
-                  key={id}
-                  onClick={() => setActiveTab(id)}
-                  className={`flex items-center gap-2 px-4 py-3 text-xs font-semibold whitespace-nowrap border-b-2 transition-all duration-200 ${
-                    isActive
-                      ? 'border-[#C0392B] text-[#E74C3C]'
-                      : 'border-transparent text-zinc-500 hover:text-[#F5F0EB]'
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  {isChinese ? zh : en}
-                </button>
-              );
-            })}
+          {/* Tab navigation & Logout */}
+          <div className="flex items-center justify-between mt-4">
+            <div className="flex gap-1 overflow-x-auto scrollbar-none">
+              {TABS.map(({ id, en, zh, Icon }) => {
+                const isActive = activeTab === id;
+                return (
+                  <button
+                    key={id}
+                    onClick={() => setActiveTab(id)}
+                    className={`flex items-center gap-2 px-4 py-3 text-xs font-semibold whitespace-nowrap border-b-2 transition-all duration-200 ${
+                      isActive
+                        ? 'border-[#C0392B] text-[#E74C3C]'
+                        : 'border-transparent text-zinc-500 hover:text-[#F5F0EB]'
+                    }`}
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    {isChinese ? zh : en}
+                  </button>
+                );
+              })}
+            </div>
+            
+            <button
+              onClick={() => {
+                if (onLoginToggle) {
+                  onLoginToggle(false);
+                  navigate('/');
+                }
+              }}
+              className="flex items-center gap-2 text-[#E74C3C] hover:text-white border border-[#E74C3C]/40 hover:bg-[#C0392B] text-xs font-bold px-3 py-1.5 rounded-xl transition-all duration-200 mb-1"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              {isChinese ? '安全退出' : 'Logout'}
+            </button>
           </div>
         </div>
       </div>

@@ -19,8 +19,7 @@ export const RadioGroup = ({
         </span>
       )}
       <div className={cn(
-        'grid gap-3',
-        inline ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-1',
+        inline ? 'flex flex-wrap items-center gap-3' : 'flex flex-col gap-3',
         className
       )}>
         {options.map((opt) => {
@@ -30,6 +29,7 @@ export const RadioGroup = ({
               key={opt.value}
               className={cn(
                 'flex items-center gap-3 px-4 py-3 rounded-2xl border cursor-pointer transition-all duration-300',
+                inline ? 'flex-1 min-w-[140px] justify-center' : '',
                 isChecked
                   ? 'bg-[#3B0000]/30 border-[#C0392B] text-[#F5F0EB]'
                   : 'bg-zinc-900/60 border-zinc-800 text-[#9A8F8A] hover:bg-zinc-800/40 hover:border-zinc-700'

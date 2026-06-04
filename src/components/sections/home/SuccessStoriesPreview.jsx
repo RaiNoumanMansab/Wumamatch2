@@ -1,14 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Quote, Heart } from 'lucide-react';
+import { Quote, Heart, ArrowRight } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
 import { SectionHeader } from '../../ui/SectionHeader';
 import { Card } from '../../ui/Card';
+import { Button } from '../../ui/Button';
 import { mockSuccessStories } from '../../../data/mockSuccessStories';
 import { fadeUp, viewportOnce } from '../../../utils/motion';
 
 export const SuccessStoriesPreview = ({ isChinese }) => {
+  const navigate = useNavigate();
   const stories = mockSuccessStories.slice(0, 3);
 
   return (
@@ -84,13 +86,14 @@ export const SuccessStoriesPreview = ({ isChinese }) => {
       </div>
 
       <div className="text-center">
-        <Link
-          to="/success-stories"
-          className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#E74C3C] hover:text-[#D4A853] hover:underline transition-all duration-300"
+        <Button 
+          variant="secondary" 
+          onClick={() => navigate('/success-stories')}
+          className="group px-8 hover:bg-zinc-800"
         >
-          <span>{isChinese ? '阅读更多成功故事' : 'Read More Stories'}</span>
-          <span>→</span>
-        </Link>
+          {isChinese ? '阅读更多成功故事' : 'Read More Stories'}
+          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+        </Button>
       </div>
     </SectionWrapper>
   );
