@@ -20,7 +20,7 @@ export const Input = React.forwardRef(({
         ref={ref}
         type={type}
         className={cn(
-          'w-full px-4 py-2.5 bg-zinc-900 border border-zinc-700/80 text-[#F5F0EB] rounded focus:outline-none focus:border-[#C0392B] focus:ring-1 focus:ring-[#C0392B] transition-all duration-300 placeholder-zinc-600 text-sm',
+          'w-full px-4 py-2.5 bg-zinc-900 border border-zinc-700/80 text-[#F5F0EB] rounded-2xl focus:outline-none focus:border-[#C0392B] focus:ring-1 focus:ring-[#C0392B] transition-all duration-300 placeholder-zinc-600 text-sm',
           error && 'border-red-500 focus:border-red-500 focus:ring-red-500',
           className
         )}

@@ -50,7 +50,7 @@ export const CheckboxGroup = ({
             <label
               key={opt.value}
               className={cn(
-                'flex items-center gap-3 px-4 py-3 rounded border cursor-pointer transition-all duration-300',
+                'flex items-center gap-3 px-4 py-3 rounded-2xl border cursor-pointer transition-all duration-300',
                 isChecked
                   ? 'bg-[#3B0000]/30 border-[#C0392B] text-[#F5F0EB]'
                   : 'bg-zinc-900/60 border-zinc-800 text-[#9A8F8A] hover:bg-zinc-800/40 hover:border-zinc-700'

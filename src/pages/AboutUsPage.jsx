@@ -46,20 +46,20 @@ export const AboutUsPage = ({ isChinese }) => {
     <PageWrapper className="w-full pt-20">
       {/* 1. Hero banner */}
       <div 
-        className="relative py-28 px-6 text-center bg-cover bg-center overflow-hidden border-b border-[#C0392B]/15"
+        className="relative pt-28 pb-14 px-6 text-center bg-cover bg-center overflow-hidden"
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.95) 100%), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200')`
         }}
       >
-        <div className="max-w-3xl mx-auto flex flex-col items-center">
+        <div className="max-w-6xl mx-auto flex flex-col items-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#F5F0EB] mb-4">
             {isChinese ? '我们的使命：传递真爱' : 'Our Mission: Meaningful Connections'}
           </h1>
           <p className="text-xs md:text-sm uppercase tracking-widest font-bold text-[#D4A853] mb-6">
             {isChinese ? '用匠人之心，筑幸福良缘' : 'Elite global Chinese matchmaking service'}
           </p>
-          <Divider icon />
-          <p className="text-xs md:text-sm text-[#9A8F8A] leading-relaxed max-w-xl font-light">
+          <Divider icon className="!my-5" />
+          <p className="text-xs md:text-sm text-[#9A8F8A] leading-relaxed max-w-3xl font-light">
             {isChinese
               ? 'WuMa Match 专为寻求婚姻伴侣的海外单身华人精英量身打造。由资深红娘顾问团队进行多维度适配把关，致力于打破冰冷算法，帮您寻找真正的心灵归宿。'
               : 'WuMa Match is a premium, concierge matchmaking platform connecting diasporas worldwide with shared values and deep relationship goals.'}
@@ -68,7 +68,7 @@ export const AboutUsPage = ({ isChinese }) => {
       </div>
 
       {/* 2. Our Story Section */}
-      <SectionWrapper bg="dark">
+      <SectionWrapper bg="dark" className="!pt-6 md:!pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto text-left">
           <div className="flex flex-col gap-5">
             <span className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C]">
@@ -88,7 +88,7 @@ export const AboutUsPage = ({ isChinese }) => {
                 : 'That is why we launched WuMa. We combine rigorous verification, deep psychological profiling, and personal concierge introduction facilitation. Our expert matchmakers ensure that every single interaction has weight, purpose, and clear direction.'}
             </p>
           </div>
-          <div className="rounded overflow-hidden aspect-[4/3] border border-zinc-800 shadow-2xl relative">
+          <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-zinc-800 shadow-2xl relative">
             <img 
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" 
               alt="Team office working" 
@@ -121,7 +121,7 @@ export const AboutUsPage = ({ isChinese }) => {
                 variant="default" 
                 className="p-6 bg-[#161616] border-zinc-800 hover:border-[#C0392B]/40 hover:bg-[#1A1A1A] transition-all duration-300 flex flex-col gap-4"
               >
-                <div className="w-10 h-10 rounded bg-[#3B0000]/30 border border-[#C0392B]/30 flex items-center justify-center text-[#E74C3C]">
+                <div className="w-10 h-10 rounded-xl bg-[#3B0000]/30 border border-[#C0392B]/30 flex items-center justify-center text-[#E74C3C]">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
@@ -150,7 +150,7 @@ export const AboutUsPage = ({ isChinese }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto text-left">
           {mockMatchmakers.map((matchmaker) => (
             <Card key={matchmaker.id} variant="bordered" className="bg-[#111111] p-5 border-zinc-800">
-              <div className="rounded overflow-hidden aspect-[4/5] mb-5">
+              <div className="rounded-2xl overflow-hidden aspect-[4/5] mb-5">
                 <img 
                   src={matchmaker.photo} 
                   alt={matchmaker.name}
@@ -200,7 +200,7 @@ export const AboutUsPage = ({ isChinese }) => {
             </div>
           </div>
 
-          <div className="md:w-1/2 bg-zinc-900 border border-zinc-800 p-6 rounded flex flex-col gap-4 text-center">
+          <div className="md:w-1/2 bg-zinc-900 border border-zinc-800 p-6 rounded-2xl flex flex-col gap-4 text-center">
             <div className="w-12 h-12 rounded-full bg-blue-950/60 border border-blue-500/40 text-blue-400 flex items-center justify-center mx-auto">
               <ShieldCheck className="w-6 h-6" />
             </div>

@@ -9,6 +9,7 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showLangDropdown, setShowLangDropdown] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -88,18 +89,50 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
 
           {/* ── Right actions (desktop) ── */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-            {/* Language toggle */}
-            <button
-              onClick={onLanguageToggle}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/8 text-[10px] font-bold tracking-widest text-[#9A8F8A] hover:text-[#F5F0EB] hover:bg-white/10 transition-all duration-200"
-            >
-              <Globe className="w-3.5 h-3.5" />
-              {isChinese ? 'EN' : '中文'}
-            </button>
+            {/* Language dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setShowLangDropdown((p) => !p)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-white/5 border border-white/8 text-[10px] font-bold tracking-widest text-[#9A8F8A] hover:text-[#F5F0EB] hover:bg-white/10 transition-all duration-200"
+              >
+                <img
+                  src={isChinese ? 'https://flagcdn.com/w80/cn.png' : 'https://flagcdn.com/w80/us.png'}
+                  alt={isChinese ? 'CN' : 'US'}
+                  className="w-5 h-3.5 object-cover rounded-sm"
+                />
+                <span>{isChinese ? '中文' : 'EN'}</span>
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${showLangDropdown ? 'rotate-180' : ''}`} />
+              </button>
+              {showLangDropdown && (
+                <div className="absolute right-0 top-full mt-2 w-40 bg-[#141414] border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden z-50">
+                  <button
+                    onClick={() => { if (isChinese) onLanguageToggle(); setShowLangDropdown(false); }}
+                    className={`w-full flex items-center gap-3 px-4 py-3 text-xs font-semibold transition-colors duration-200 ${
+                      !isChinese ? 'text-[#F5F0EB] bg-[#C0392B]/15' : 'text-[#9A8F8A] hover:text-[#F5F0EB] hover:bg-white/5'
+                    }`}
+                  >
+                    <img src="https://flagcdn.com/w80/us.png" alt="US" className="w-5 h-3.5 object-cover rounded-sm flex-shrink-0" />
+                    <span>English</span>
+                    {!isChinese && <span className="ml-auto text-[#C0392B] text-[10px]">✓</span>}
+                  </button>
+                  <div className="h-px bg-zinc-800" />
+                  <button
+                    onClick={() => { if (!isChinese) onLanguageToggle(); setShowLangDropdown(false); }}
+                    className={`w-full flex items-center gap-3 px-4 py-3 text-xs font-semibold transition-colors duration-200 ${
+                      isChinese ? 'text-[#F5F0EB] bg-[#C0392B]/15' : 'text-[#9A8F8A] hover:text-[#F5F0EB] hover:bg-white/5'
+                    }`}
+                  >
+                    <img src="https://flagcdn.com/w80/cn.png" alt="CN" className="w-5 h-3.5 object-cover rounded-sm flex-shrink-0" />
+                    <span>中文</span>
+                    {isChinese && <span className="ml-auto text-[#C0392B] text-[10px]">✓</span>}
+                  </button>
+                </div>
+              )}
+            </div>
 
             {isLoggedIn ? (
               <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#D4A853]/10 border border-[#D4A853]/20">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-[#D4A853]/10 border border-[#D4A853]/20">
                   <User className="w-3.5 h-3.5 text-[#D4A853]" />
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4A853]">
                     {isChinese ? '尊贵会员' : 'Premium Member'}
@@ -123,16 +156,46 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
 
           {/* ── Mobile right: lang + hamburger ── */}
           <div className="flex lg:hidden items-center gap-2">
-            <button
-              onClick={onLanguageToggle}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white/5 border border-white/8 text-[10px] font-bold text-[#9A8F8A]"
-            >
-              <Globe className="w-3.5 h-3.5" />
-              {isChinese ? 'EN' : '中文'}
-            </button>
+            {/* Mobile language dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setShowLangDropdown((p) => !p)}
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-2xl bg-white/5 border border-white/8 text-[10px] font-bold text-[#9A8F8A]"
+              >
+                <img
+                  src={isChinese ? 'https://flagcdn.com/w80/cn.png' : 'https://flagcdn.com/w80/us.png'}
+                  alt={isChinese ? 'CN' : 'US'}
+                  className="w-5 h-3.5 object-cover rounded-sm"
+                />
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${showLangDropdown ? 'rotate-180' : ''}`} />
+              </button>
+              {showLangDropdown && (
+                <div className="absolute right-0 top-full mt-2 w-36 bg-[#141414] border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden z-50">
+                  <button
+                    onClick={() => { if (isChinese) onLanguageToggle(); setShowLangDropdown(false); }}
+                    className={`w-full flex items-center gap-3 px-4 py-3 text-xs font-semibold ${
+                      !isChinese ? 'text-[#F5F0EB] bg-[#C0392B]/15' : 'text-[#9A8F8A]'
+                    }`}
+                  >
+                    <img src="https://flagcdn.com/w80/us.png" alt="US" className="w-5 h-3.5 object-cover rounded-sm flex-shrink-0" /><span>English</span>
+                    {!isChinese && <span className="ml-auto text-[#C0392B] text-[10px]">✓</span>}
+                  </button>
+                  <div className="h-px bg-zinc-800" />
+                  <button
+                    onClick={() => { if (!isChinese) onLanguageToggle(); setShowLangDropdown(false); }}
+                    className={`w-full flex items-center gap-3 px-4 py-3 text-xs font-semibold ${
+                      isChinese ? 'text-[#F5F0EB] bg-[#C0392B]/15' : 'text-[#9A8F8A]'
+                    }`}
+                  >
+                    <img src="https://flagcdn.com/w80/cn.png" alt="CN" className="w-5 h-3.5 object-cover rounded-sm flex-shrink-0" /><span>中文</span>
+                    {isChinese && <span className="ml-auto text-[#C0392B] text-[10px]">✓</span>}
+                  </button>
+                </div>
+              )}
+            </div>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-[#9A8F8A] hover:text-[#F5F0EB] hover:bg-white/5 transition-colors"
+              className="p-2 rounded-2xl text-[#9A8F8A] hover:text-[#F5F0EB] hover:bg-white/5 transition-colors"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -188,7 +251,7 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
       {/* ── Login Modal ── */}
       <Modal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} title={isChinese ? '会员安全登录' : 'Member Login'}>
         <form onSubmit={handleLoginSubmit} className="flex flex-col gap-5">
-          <div className="bg-[#1a0a0a] border border-[#C0392B]/20 rounded-xl p-4 text-xs text-[#9A8F8A] leading-relaxed">
+          <div className="bg-[#1a0a0a] border border-[#C0392B]/20 rounded-2xl p-4 text-xs text-[#9A8F8A] leading-relaxed">
             💡 {isChinese
               ? '演示模式：输入任意邮箱与密码即可登录，解锁会员照片预览。'
               : 'Demo: enter any email & password to simulate a logged-in premium state and unlock member photos.'}

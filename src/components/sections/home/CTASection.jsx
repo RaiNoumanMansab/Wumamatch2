@@ -29,7 +29,7 @@ export const CTASection = ({ isChinese }) => {
           onClick={() => navigate('/register')}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-10 py-4 border-2 border-[#F5F0EB] text-[#F5F0EB] font-semibold text-xs uppercase tracking-widest rounded bg-transparent hover:bg-[#F5F0EB] hover:text-[#C0392B] transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+          className="px-10 py-4 border-2 border-[#F5F0EB] text-[#F5F0EB] font-semibold text-xs uppercase tracking-widest rounded-2xl bg-transparent hover:bg-[#F5F0EB] hover:text-[#C0392B] transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.15)]"
         >
           {isChinese ? '立即注册加入' : 'Start Your Journey'}
         </motion.button>

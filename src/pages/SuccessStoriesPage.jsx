@@ -6,6 +6,7 @@ import { Divider } from '../components/ui/Divider';
 import { mockSuccessStories } from '../data/mockSuccessStories';
 import { Quote, Heart, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { FAQSection } from '../components/sections/home/FAQSection';
 
 export const SuccessStoriesPage = ({ isChinese }) => {
   const featuredStory = mockSuccessStories[0];
@@ -14,20 +15,20 @@ export const SuccessStoriesPage = ({ isChinese }) => {
   return (
     <PageWrapper className="w-full pt-20">
       {/* Hero Headings */}
-      <div className="bg-gradient-to-b from-[#180303] via-[#0D0D0D] to-[#0D0D0D] py-16 px-6 text-center border-b border-[#C0392B]/10">
-        <div className="max-w-3xl mx-auto flex flex-col items-center">
+      <div className="bg-gradient-to-b from-[#180303] via-[#0D0D0D] to-[#0D0D0D] pt-20 pb-6 px-6 text-center">
+        <div className="max-w-6xl mx-auto flex flex-col items-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#F5F0EB] mb-4">
             {isChinese ? '在 WuMa 收获的真爱故事' : 'Love Stories That Started Here'}
           </h1>
           <p className="text-xs md:text-sm uppercase tracking-widest font-semibold text-[#D4A853] mb-6">
             {isChinese ? '相知于人海，相守于白头' : 'Where intentional matching results in lifetime commitment'}
           </p>
-          <Divider icon />
+          <Divider icon className="!mt-6 !mb-2" />
         </div>
       </div>
 
       {/* Main Section */}
-      <SectionWrapper bg="dark">
+      <SectionWrapper bg="dark" className="!pt-6 md:!pt-10">
         <div className="max-w-6xl mx-auto flex flex-col gap-12">
           
           {/* 1. Featured full-width story */}
@@ -41,7 +42,7 @@ export const SuccessStoriesPage = ({ isChinese }) => {
               <Card variant="gold" className="p-6 md:p-10 bg-[#161616] border-[#D4A853]/30">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
                   {/* Photo Left */}
-                  <div className="lg:col-span-5 relative rounded overflow-hidden aspect-[4/3] border border-zinc-800 shadow-2xl">
+                  <div className="lg:col-span-5 relative rounded-2xl overflow-hidden aspect-[4/3] border border-zinc-800 shadow-2xl">
                     <img
                       src={featuredStory.photo}
                       alt={featuredStory.names}
@@ -99,7 +100,7 @@ export const SuccessStoriesPage = ({ isChinese }) => {
                   variant="bordered"
                   className="w-full p-6 bg-[#111111]/85 hover:bg-[#151515] border-zinc-800/80 flex flex-col justify-between text-left relative overflow-hidden"
                 >
-                  <div className="relative mb-6 rounded overflow-hidden aspect-[16/10] border border-zinc-900 shadow-md">
+                  <div className="relative mb-6 rounded-2xl overflow-hidden aspect-[16/10] border border-zinc-900 shadow-md">
                     <img
                       src={story.photo}
                       alt={story.names}
@@ -135,6 +136,9 @@ export const SuccessStoriesPage = ({ isChinese }) => {
 
         </div>
       </SectionWrapper>
+
+      {/* FAQ Section */}
+      <FAQSection isChinese={isChinese} />
     </PageWrapper>
   );
 };

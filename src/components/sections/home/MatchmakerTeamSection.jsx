@@ -36,7 +36,7 @@ export const MatchmakerTeamSection = ({ isChinese }) => {
                 className="w-full flex flex-col justify-between p-6 border-[#D4A853]/20 hover:border-[#D4A853] hover:shadow-[0_10px_30px_rgba(212,168,83,0.15)] transition-all duration-500"
               >
                 {/* Photo & Badge */}
-                <div className="relative mb-6 rounded overflow-hidden aspect-[4/5] border border-zinc-800">
+                <div className="relative mb-6 rounded-2xl overflow-hidden aspect-[4/5] border border-zinc-800">
                   <img
                     src={matchmaker.photo}
                     alt={matchmaker.name}

@@ -139,7 +139,7 @@ export const PlansPage = ({ isChinese }) => {
       {/* ── Hero header ── */}
       <div className="relative py-20 px-6 text-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(192,57,43,0.18)_0%,transparent_70%)]" />
-        <div className="relative max-w-3xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           <motion.div {...fadeUp(0)} className="mb-5">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase bg-[#1a0505] border border-[#C0392B]/30 text-[#E74C3C]">
               <Sparkles className="w-3 h-3 fill-current text-[#D4A853]" />
@@ -151,7 +151,7 @@ export const PlansPage = ({ isChinese }) => {
             {isChinese ? '选择适合您的\n会员方案' : 'Choose Your\nMembership Plan'}
           </motion.h1>
 
-          <motion.p {...fadeUp(0.2)} className="text-[#9A8F8A] text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-10">
+          <motion.p {...fadeUp(0.2)} className="text-[#9A8F8A] text-sm md:text-base leading-relaxed max-w-3xl mx-auto mb-10">
             {isChinese
               ? '每项方案均包含实名认证、红娘人工配对及隐私保护。无隐藏费用，无自动续费陷阱。'
               : 'All plans include identity verification, human matchmaker support, and full privacy protection. No hidden fees.'}

@@ -91,7 +91,7 @@ export const MembersPage = ({ isLoggedIn, isChinese }) => {
             ))}
           </div>
         ) : (
-          <div className="bg-zinc-950/40 border border-zinc-900 rounded-lg p-16 text-center max-w-lg mx-auto">
+          <div className="bg-zinc-950/40 border border-zinc-900 rounded-2xl p-16 text-center max-w-lg mx-auto">
             <Sparkles className="w-10 h-10 text-[#D4A853] mx-auto mb-4 animate-pulse" />
             <h3 className="font-serif text-lg font-bold text-[#F5F0EB] mb-2">
               {isChinese ? '未找到符合条件的会员' : 'No Members Match Your Criteria'}

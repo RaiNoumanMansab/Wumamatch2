@@ -7,7 +7,7 @@ export const Card = ({
   className,
   ...props
 }) => {
-  const baseStyles = 'rounded transition-all duration-300 overflow-hidden';
+  const baseStyles = 'rounded-2xl transition-all duration-300 overflow-hidden';
   
   const variants = {
     default: 'bg-[#1E1E1E] border border-zinc-800/80',

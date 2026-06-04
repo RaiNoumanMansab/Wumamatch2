@@ -63,11 +63,11 @@ export const ContactPage = ({ isChinese }) => {
   return (
     <PageWrapper className="w-full pt-20 text-left">
       <SectionWrapper bg="dark">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-6xl mx-auto mb-16">
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
             {isChinese ? '联系我们' : 'Contact Our Concierge'}
           </h1>
-          <p className="text-sm md:text-base text-[#9A8F8A] font-light max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-[#9A8F8A] font-light max-w-3xl mx-auto leading-relaxed">
             {isChinese
               ? '如果您有任何关于红娘配对、实名申请或商务合作的疑问，欢迎随时留言或通过以下方式联络我们。'
               : 'Our concierge and senior matchmakers are ready to assist you. Drop us a note or visit our branches.'}
@@ -84,44 +84,49 @@ export const ContactPage = ({ isChinese }) => {
                 <span>{isChinese ? '专属红娘客服' : 'Concierge Service'}</span>
               </h3>
               
-              <div className="flex flex-col gap-6 text-xs md:text-sm text-[#9A8F8A]">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded bg-zinc-900 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+              <div className="flex flex-col gap-5 text-xs md:text-sm text-[#9A8F8A]">
+
+                {/* Email */}
+                <div className="flex items-center gap-4">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
-                  <div>
-                    <span className="block font-bold text-zinc-400 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '电子邮箱' : 'Email Us'}</span>
-                    <span className="text-[#F5F0EB] font-medium">concierge@wumamatch.com</span>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-zinc-500 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '电子邮箱' : 'Email Us'}</span>
+                    <span className="text-[#F5F0EB] font-medium text-sm">concierge@wumamatch.com</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded bg-zinc-900 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+                {/* Phone */}
+                <div className="flex items-center gap-4">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
-                  <div>
-                    <span className="block font-bold text-zinc-400 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '热线电话' : 'Phone Call'}</span>
-                    <span className="text-[#F5F0EB] font-medium">+1 (800) 888-WUMA</span>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-zinc-500 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '热线电话' : 'Phone Call'}</span>
+                    <span className="text-[#F5F0EB] font-medium text-sm">+1 (800) 888-WUMA</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded bg-zinc-900 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+                {/* Office Hours */}
+                <div className="flex items-center gap-4">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
                     <Clock className="w-4 h-4" />
                   </div>
-                  <div>
-                    <span className="block font-bold text-zinc-400 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '工作时间' : 'Office Hours'}</span>
-                    <span className="text-[#F5F0EB] font-medium">{isChinese ? '周一至周五 09:00 - 18:00 (当地时间)' : 'Monday - Friday 09:00 - 18:00 (Local Time)'}</span>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-zinc-500 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '工作时间' : 'Office Hours'}</span>
+                    <span className="text-[#F5F0EB] font-medium text-sm">{isChinese ? '周一至周五 09:00 - 18:00 (当地时间)' : 'Monday – Friday  09:00 – 18:00 (Local Time)'}</span>
                   </div>
                 </div>
 
+                {/* Locations */}
                 <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded bg-zinc-900 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <div>
-                    <span className="block font-bold text-zinc-400 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '服务网点' : 'Global Locations'}</span>
-                    <span className="text-[#F5F0EB] leading-relaxed">
+                  <div className="flex flex-col">
+                    <span className="font-bold text-zinc-500 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '服务网点' : 'Global Locations'}</span>
+                    <span className="text-[#F5F0EB] text-sm leading-relaxed">
                       {isChinese ? (
                         <>
                           美国：旧金山、纽约 <br />
@@ -140,6 +145,7 @@ export const ContactPage = ({ isChinese }) => {
                     </span>
                   </div>
                 </div>
+
               </div>
             </Card>
           </div>

@@ -52,15 +52,15 @@ export const HeroSection = ({ isChinese }) => {
       </div>
 
       {/* ── Main grid: text left · image right ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center min-h-[100svh]">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-24 pb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[100svh]">
 
         {/* ── LEFT – Copy ── */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start justify-center h-[280px]">
 
           {/* Eyebrow badge */}
-          <motion.div {...fadeUp(0)} className="mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase bg-[#1a0505] border border-[#C0392B]/30 text-[#E74C3C] shadow-[0_0_20px_rgba(192,57,43,0.15)]">
-              <Star className="w-3 h-3 fill-current text-[#D4A853]" />
+          <motion.div {...fadeUp(0)} className="mb-3">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[9px] font-bold tracking-[0.2em] uppercase bg-[#1a0505] border border-[#C0392B]/30 text-[#E74C3C] shadow-[0_0_20px_rgba(192,57,43,0.15)]">
+              <Star className="w-2.5 h-2.5 fill-current text-[#D4A853]" />
               {isChinese ? '全球顶级华人私密婚恋' : 'Elite Human-Curated Matchmaking'}
             </span>
           </motion.div>
@@ -68,7 +68,7 @@ export const HeroSection = ({ isChinese }) => {
           {/* Headline */}
           <motion.h1
             {...fadeUp(0.15)}
-            className="font-serif text-[2.6rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[4.6rem] font-bold leading-[1.05] text-[#F5F0EB] mb-6"
+            className="font-serif text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] font-bold leading-[1.1] text-[#F5F0EB] mb-3"
           >
             {isChinese ? (
               <>
@@ -77,9 +77,8 @@ export const HeroSection = ({ isChinese }) => {
               </>
             ) : (
               <>
-                Where Serious<br />
-                Hearts Find Their<br />
-                <span className="text-rose-gradient italic">Forever</span>
+                Where Serious Hearts<br />
+                Find Their <span className="text-rose-gradient italic">Forever</span>
               </>
             )}
           </motion.h1>
@@ -87,47 +86,47 @@ export const HeroSection = ({ isChinese }) => {
           {/* Sub-copy */}
           <motion.p
             {...fadeUp(0.28)}
-            className="text-[#9A8F8A] text-sm md:text-base leading-relaxed max-w-[480px] mb-10 font-light"
+            className="text-[#9A8F8A] text-xs leading-relaxed max-w-[420px] mb-4 font-light"
           >
             {isChinese
               ? 'WuMa Match 是专为海外华人精英设计的人工定制红娘服务。无算法、无划卡——由资深红娘顾问为您手工甄选完美伴侣。'
-              : 'WuMa Match is an exclusive concierge matchmaking service. No algorithms. No swiping. Just expert human matchmakers dedicated to your perfect match.'}
+              : 'No algorithms. No swiping. Just expert human matchmakers dedicated to your perfect match.'}
           </motion.p>
 
           {/* CTA buttons */}
-          <motion.div {...fadeUp(0.4)} className="flex flex-col sm:flex-row gap-4 mb-14 w-full sm:w-auto">
+          <motion.div {...fadeUp(0.4)} className="flex flex-row gap-3 w-full">
             <Button
               variant="primary"
-              size="lg"
-              className="group gap-2 px-9"
+              size="sm"
+              className="group gap-2 px-6"
               onClick={() => navigate('/register')}
             >
               {isChinese ? '开启寻爱之旅' : 'Begin Your Journey'}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               variant="ghost"
-              size="lg"
-              className="px-9"
+              size="sm"
+              className="px-6"
               onClick={() => navigate('/plans')}
             >
-              {isChinese ? '查看会员方案' : 'View Membership Plans'}
+              {isChinese ? '查看会员方案' : 'View Plans'}
             </Button>
           </motion.div>
 
           {/* Trust pillars */}
           <motion.div
             {...fadeUp(0.52)}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-xl pt-8 border-t border-white/5"
+            className="flex gap-5 w-full mt-4 pt-4 border-t border-white/5"
           >
             {[
-              { icon: ShieldCheck, color: '#D4A853', text: isChinese ? '100% 实名认证' : 'Identity Verified' },
-              { icon: UserCheck,   color: '#C0392B', text: isChinese ? '专属人工红娘' : 'Human Matchmakers' },
-              { icon: Sparkles,    color: '#D4A853', text: isChinese ? '尊享管家服务' : 'Concierge Service' },
+              { icon: ShieldCheck, color: '#D4A853', text: isChinese ? '实名认证' : 'Identity Verified' },
+              { icon: UserCheck,   color: '#C0392B', text: isChinese ? '人工红娘' : 'Human Matchmakers' },
+              { icon: Sparkles,    color: '#D4A853', text: isChinese ? '管家服务' : 'Concierge Service' },
             ].map(({ icon: Icon, color, text }) => (
-              <div key={text} className="flex items-center gap-2">
-                <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
-                <span className="text-[10px] uppercase tracking-widest font-semibold text-[#9A8F8A]">
+              <div key={text} className="flex items-center gap-1.5">
+                <Icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color }} />
+                <span className="text-[9px] uppercase tracking-widest font-semibold text-[#9A8F8A]">
                   ✓ {text}
                 </span>
               </div>
@@ -140,17 +139,17 @@ export const HeroSection = ({ isChinese }) => {
           initial={{ opacity: 0, x: 40, scale: 0.96 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="relative hidden lg:flex items-center justify-center"
+          className="relative hidden lg:flex items-center justify-end"
         >
           {/* Glow blob behind image */}
           <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(192,57,43,0.25)_0%,transparent_70%)] blur-2xl scale-110" />
 
           {/* Main couple photo */}
-          <div className="relative w-full max-w-[520px] rounded-3xl overflow-hidden border border-white/8 shadow-[0_40px_80px_rgba(0,0,0,0.7)]">
+          <div className="relative w-full rounded-3xl overflow-hidden border border-white/8 shadow-[0_40px_80px_rgba(0,0,0,0.7)]">
             <img
               src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=85&w=900"
               alt="Happy couple"
-              className="w-full h-[600px] object-cover object-center"
+              className="w-full h-[280px] object-cover object-center"
             />
             {/* Gradient overlay so text badges read cleanly */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/80 via-transparent to-[#090909]/20" />

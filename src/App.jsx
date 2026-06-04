@@ -12,6 +12,7 @@ import { ContactPage } from './pages/ContactPage';
 import { EventsPage } from './pages/EventsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { PlansPage } from './pages/PlansPage';
+import { ScrollToTop } from './components/layout/ScrollToTop';
 
 export function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,6 +28,7 @@ export function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-[#0D0D0D] text-[#F5F0EB] flex flex-col justify-between selection:bg-[#C0392B] selection:text-white">
         {/* Navigation Bar */}
         <Navbar

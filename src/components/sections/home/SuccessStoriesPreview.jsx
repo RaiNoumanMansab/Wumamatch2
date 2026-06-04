@@ -40,7 +40,7 @@ export const SuccessStoriesPreview = ({ isChinese }) => {
                 className="w-full p-6 bg-[#111111]/80 hover:bg-[#151515] border-zinc-800 flex flex-col justify-between text-left relative group overflow-hidden"
               >
                 {/* Silhouette background placeholder to keep romance theme */}
-                <div className="relative mb-6 rounded overflow-hidden aspect-[16/10] border border-zinc-900">
+                <div className="relative mb-6 rounded-2xl overflow-hidden aspect-[16/10] border border-zinc-900">
                   <img
                     src={story.photo}
                     alt={story.names}
