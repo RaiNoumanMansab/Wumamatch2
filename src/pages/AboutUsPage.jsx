@@ -157,12 +157,16 @@ export const AboutUsPage = ({ isChinese }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left" style={{textAlign:'left'}}>
           {mockMatchmakers.map((matchmaker) => (
-            <Card key={matchmaker.id} variant="bordered" className="bg-[#111111] p-5 border-zinc-800">
-              <div className="rounded-2xl overflow-hidden aspect-[4/5] mb-5">
-                <img 
-                  src={matchmaker.photo} 
+            <Card
+              key={matchmaker.id}
+              variant="bordered"
+              className="group bg-[#111111] p-5 border-zinc-800 cursor-pointer hover:border-[#D4A853] hover:bg-[#1A1A1A] hover:shadow-[0_10px_30px_rgba(212,168,83,0.15)] hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="rounded-2xl overflow-hidden aspect-[4/5] mb-5 border border-zinc-800 group-hover:border-[#D4A853]/30 transition-colors duration-300">
+                <img
+                  src={matchmaker.photo}
                   alt={matchmaker.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                 />
               </div>
               <h3 className="font-serif text-lg font-bold text-[#F5F0EB] mb-1">{matchmaker.name}</h3>
