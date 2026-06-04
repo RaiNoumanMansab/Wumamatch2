@@ -88,7 +88,7 @@ export const ContactPage = ({ isChinese }) => {
 
                 {/* Email */}
                 <div className="flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+                  <div className="w-9 h-9 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
@@ -99,7 +99,7 @@ export const ContactPage = ({ isChinese }) => {
 
                 {/* Phone */}
                 <div className="flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+                  <div className="w-9 h-9 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
@@ -110,7 +110,7 @@ export const ContactPage = ({ isChinese }) => {
 
                 {/* Office Hours */}
                 <div className="flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+                  <div className="w-9 h-9 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
@@ -121,7 +121,7 @@ export const ContactPage = ({ isChinese }) => {
 
                 {/* Locations */}
                 <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">

@@ -175,7 +175,7 @@ export const FAQSection = ({ isChinese }) => {
       </div>
 
       {/* FAQ Accordion */}
-      <div className="max-w-3xl mx-auto space-y-3">
+      <div className="max-w-6xl mx-auto space-y-3">
         {faqs.map((faq, idx) => (
           <FAQItem
             key={idx}

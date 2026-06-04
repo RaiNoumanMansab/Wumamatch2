@@ -125,7 +125,7 @@ export const AboutUsPage = ({ isChinese }) => {
                 variant="default" 
                 className="p-6 bg-[#161616] border-zinc-800 hover:border-[#C0392B]/40 hover:bg-[#1A1A1A] transition-all duration-300 flex flex-col gap-4"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#3B0000]/30 border border-[#C0392B]/30 flex items-center justify-center text-[#E74C3C]">
+                <div className="w-10 h-10 rounded-2xl bg-[#3B0000]/30 border border-[#C0392B]/30 flex items-center justify-center text-[#E74C3C]">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>

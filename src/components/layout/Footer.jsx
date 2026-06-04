@@ -82,7 +82,7 @@ export const Footer = ({ isChinese }) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-8 mt-12 pt-6 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-zinc-600 uppercase tracking-widest font-semibold">
-        <span>© {new Date().getFullYear()} WuMa Match. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} WuMa Match. {isChinese ? '保留所有权利。' : 'All rights reserved.'}</span>
         <div className="flex gap-4">
           <span className="hover:text-[#E74C3C] cursor-pointer">{isChinese ? '隐私政策' : 'Privacy Policy'}</span>
           <span>•</span>

@@ -129,7 +129,7 @@ export const PlansPage = ({ isChinese }) => {
   const [openFaq, setOpenFaq] = useState(null);
 
   const getPrice = (base) => {
-    if (billingCycle === 'annual') return Math.round(base * 0.75);
+    if (billingCycle === 'annual') return Math.round(base * 0.75 * 12);
     return base;
   };
 
@@ -245,9 +245,9 @@ export const PlansPage = ({ isChinese }) => {
                       {getPrice(plan.price).toLocaleString()}
                     </span>
                     <span className="text-xs text-[#9A8F8A] mb-2">
-                      / {isChinese ? '月' : 'mo'}
+                      / {billingCycle === 'annual' ? (isChinese ? '年' : 'yr') : (isChinese ? '月' : 'mo')}
                       {billingCycle === 'annual' && (
-                        <span className="ml-1 line-through opacity-50">${plan.price}</span>
+                        <span className="ml-2 line-through opacity-50">${plan.price * 12}</span>
                       )}
                     </span>
                   </div>

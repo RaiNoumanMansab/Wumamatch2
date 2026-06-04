@@ -149,7 +149,7 @@ function ProfileSidebar({ isChinese }) {
           <img
             src={u.matchmakerPhoto}
             alt={u.matchmakerName}
-            className="w-10 h-10 rounded-xl object-cover border border-[#D4A853]/40"
+            className="w-10 h-10 rounded-2xl object-cover border border-[#D4A853]/40"
           />
           <div>
             <p className="text-sm font-bold text-[#F5F0EB]">{u.matchmakerName}</p>
@@ -178,7 +178,7 @@ function OverviewTab({ isChinese }) {
     <div className="flex flex-col gap-6">
       {/* Welcome banner */}
       <div className="rounded-2xl bg-gradient-to-r from-[#1A0000] via-[#160000] to-[#0D0D0D] border border-[#C0392B]/20 p-5 flex items-center gap-4">
-        <div className="w-10 h-10 rounded-xl bg-[#3B0000]/50 border border-[#C0392B]/30 flex items-center justify-center text-[#E74C3C] shrink-0">
+        <div className="w-10 h-10 rounded-2xl bg-[#3B0000]/50 border border-[#C0392B]/30 flex items-center justify-center text-[#E74C3C] shrink-0">
           <Award className="w-5 h-5" />
         </div>
         <div>
@@ -206,7 +206,7 @@ function OverviewTab({ isChinese }) {
               return (
                 <Card key={m.id} variant="default" className="p-4 flex items-center gap-4">
                   <img src={m.memberPhoto} alt={m.memberName}
-                    className="w-12 h-12 rounded-xl object-cover border border-zinc-800 shrink-0" />
+                    className="w-12 h-12 rounded-2xl object-cover border border-zinc-800 shrink-0" />
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-bold text-[#F5F0EB] truncate">{m.memberName}</p>
                     <p className="text-[10px] text-zinc-500 mt-0.5">{m.memberProfession}</p>
@@ -241,7 +241,7 @@ function OverviewTab({ isChinese }) {
               <Card key={r.id} variant="bordered" className="p-4">
                 <div className="flex items-start gap-4">
                   <img src={r.photo} alt={r.name}
-                    className="w-12 h-12 rounded-xl object-cover border border-zinc-800 shrink-0" />
+                    className="w-12 h-12 rounded-2xl object-cover border border-zinc-800 shrink-0" />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 flex-wrap">
                       <p className="text-sm font-bold text-[#F5F0EB]">{r.name}</p>
@@ -319,7 +319,7 @@ function MyMatchesTab({ isChinese }) {
   const [sub, setSub] = useState('received');
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex gap-1 bg-zinc-900 rounded-xl p-1 w-fit">
+      <div className="flex gap-1 bg-zinc-900 rounded-2xl p-1 w-fit">
         {[
           { key: 'received', label: isChinese ? '收到的请求' : 'Received', Icon: Inbox,  count: receivedRequests.length },
           { key: 'sent',     label: isChinese ? '我发出的请求' : 'Sent',    Icon: Send,   count: sentRequests.length    },
@@ -327,7 +327,7 @@ function MyMatchesTab({ isChinese }) {
           <button
             key={key}
             onClick={() => setSub(key)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all duration-200 ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-xs font-semibold transition-all duration-200 ${
               sub === key
                 ? 'bg-[#C0392B] text-white shadow'
                 : 'text-zinc-500 hover:text-[#F5F0EB]'
@@ -408,7 +408,7 @@ function MeetingCard({ m, isChinese }) {
           </div>
 
           {m.matchmakerNote && (
-            <div className="mt-3 bg-[#3B0000]/20 border border-[#C0392B]/20 rounded-xl p-3">
+            <div className="mt-3 bg-[#3B0000]/20 border border-[#C0392B]/20 rounded-2xl p-3">
               <p className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C] mb-1">
                 {isChinese ? '红娘备注' : 'Matchmaker Note'}
               </p>
@@ -417,7 +417,7 @@ function MeetingCard({ m, isChinese }) {
           )}
 
           {m.status === 'completed' && m.yourRating && (
-            <div className="mt-3 bg-zinc-900 rounded-xl p-3">
+            <div className="mt-3 bg-zinc-900 rounded-2xl p-3">
               <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-600 mb-2">
                 {isChinese ? '您的反馈' : 'Your Feedback'}
               </p>

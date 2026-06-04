@@ -33,7 +33,7 @@ export const MemberFilters = ({
   ];
 
   return (
-    <div className="w-full bg-[#141414] border border-zinc-800/80 rounded p-6 shadow-lg text-left relative z-20">
+    <div className="w-full bg-[#141414] border border-zinc-800/80 rounded-2xl p-6 shadow-lg text-left relative z-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-end">
         {/* Gender Filter */}
         <Select

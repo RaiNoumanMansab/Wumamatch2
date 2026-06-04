@@ -43,12 +43,9 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
   // ── "Home" removed; "Plans" added ──
   const navLinks = [
     { to: '/members',         label: isChinese ? '精选会员'  : 'Members'         },
-    { to: '/plans',           label: isChinese ? '会员方案'  : 'Plans'            },
-    { to: '/success-stories', label: isChinese ? '成功案例'  : 'Success Stories'  },
     { to: '/about',           label: isChinese ? '关于我们'  : 'About Us'         },
     { to: '/events',          label: isChinese ? '高端活动'  : 'Events'           },
     { to: '/blogs',           label: isChinese ? '博客'      : 'Blog'             },
-    { to: '/contact',         label: isChinese ? '联系我们'  : 'Contact'          },
   ];
 
   const navBg = isScrolled
@@ -61,17 +58,19 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
         <div className="max-w-7xl mx-auto px-8 h-[72px] flex items-center justify-between gap-6">
 
           {/* ── Logo ── */}
-          <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
-            <div className="w-8 h-8 rounded-full bg-[#C0392B]/15 border border-[#C0392B]/40 flex items-center justify-center group-hover:bg-[#C0392B]/25 transition-colors duration-300">
-              <Heart className="w-4 h-4 text-[#C0392B] fill-current" />
-            </div>
-            <span className="font-serif text-[1.15rem] tracking-wide font-bold text-[#F5F0EB]">
-              WuMa <span className="text-[#C0392B]">Match</span>
-            </span>
-          </Link>
+          <div className="flex">
+            <Link to="/" className="flex items-center gap-2.5 group w-fit">
+              <div className="w-8 h-8 rounded-full bg-[#C0392B]/15 border border-[#C0392B]/40 flex items-center justify-center group-hover:bg-[#C0392B]/25 transition-colors duration-300">
+                <Heart className="w-4 h-4 text-[#C0392B] fill-current" />
+              </div>
+              <span className="font-serif text-[1.15rem] tracking-wide font-bold text-[#F5F0EB]">
+                WuMa <span className="text-[#C0392B]">Match</span>
+              </span>
+            </Link>
+          </div>
 
           {/* ── Desktop nav links ── */}
-          <div className="hidden lg:flex items-center gap-7">
+          <div className="hidden lg:flex items-center gap-7 ml-auto mr-12">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
