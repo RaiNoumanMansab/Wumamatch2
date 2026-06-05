@@ -44,8 +44,8 @@ export const Avatar = ({
 
       {/* Verification badge — centered below avatar */}
       {badge && (
-        <div className="absolute left-1/2 -translate-x-1/2 -bottom-3 z-10 whitespace-nowrap scale-90 md:scale-95 shadow-md">
-          <Badge type={badge} />
+        <div className="absolute left-1/2 -translate-x-1/2 -bottom-3 z-10 whitespace-nowrap scale-90 md:scale-95">
+          <Badge type={badge} className="shadow-md" />
         </div>
       )}
     </div>

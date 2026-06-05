@@ -1,183 +1,169 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Shield, Star, Crown, Check, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
-import { Card } from '../../ui/Card';
-import { Button } from '../../ui/Button';
-
-const PLANS = [
-  {
-    id: 'essential',
-    name: 'Essential',
-    nameCN: '基础会员',
-    price: 299,
-    icon: Shield,
-    accentColor: '#0F8A96',
-    borderColor: 'border-zinc-200/80',
-    bgColor: 'bg-white',
-    features: [
-      { text: 'Identity verification badge', textCN: '实名身份认证徽章' },
-      { text: 'Up to 2 curated introductions/mo', textCN: '每月最多2次精选引荐' },
-    ],
-  },
-  {
-    id: 'premium',
-    name: 'Premium',
-    nameCN: '高端会员',
-    price: 699,
-    badge: 'Most Popular',
-    badgeCN: '最受欢迎',
-    icon: Star,
-    accentColor: '#0F8A96',
-    borderColor: 'border-teal-500/20',
-    bgColor: 'bg-[#E6F7F6]/30',
-    features: [
-      { text: 'Up to 5 curated introductions/mo', textCN: '每月最多5次精选引荐' },
-      { text: 'Full matchmaker report per match', textCN: '每次配对含完整红娘评估报告' },
-      { text: 'Dedicated senior matchmaker', textCN: '专属资深红娘顾问' },
-    ],
-  },
-  {
-    id: 'elite',
-    name: 'Elite',
-    nameCN: '顶级尊享',
-    price: 1499,
-    icon: Crown,
-    accentColor: '#D4A853',
-    borderColor: 'border-[#D4A853]/40',
-    bgColor: 'bg-[#FDFBF7]',
-    features: [
-      { text: 'Unlimited curated introductions', textCN: '无限次精选引荐' },
-      { text: 'Dedicated executive matchmaker', textCN: '专属高级执行红娘' },
-    ],
-  },
-];
 
 export const PlansPreviewSection = ({ isChinese }) => {
   const navigate = useNavigate();
 
   return (
-    <SectionWrapper id="plans-preview" bg="dark" className="border-t border-zinc-250/20">
-      <div className="text-center max-w-2xl mx-auto mb-14">
+    <SectionWrapper id="plans-preview" bg="light" className="py-20">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-8 pt-8">
+        
+        {/* FREE PLAN */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 bg-[#D4A853]/5 border border-[#D4A853]/20 rounded-full px-4 py-1.5 mb-5"
+          transition={{ duration: 0.6 }}
+          className="w-full md:w-[320px] bg-white rounded-3xl border border-zinc-200/80 shadow-sm p-8 flex flex-col mt-4"
         >
-          <Crown className="w-3.5 h-3.5 text-[#D4A853]" />
-          <span className="text-[10px] uppercase tracking-widest font-bold text-[#D4A853]">
-            {isChinese ? '会员方案' : 'Membership Plans'}
-          </span>
+          <h3 className="text-xl font-bold text-zinc-600 mb-2">Free</h3>
+          <div className="flex items-baseline gap-1 mb-8">
+            <span className="text-4xl font-black text-zinc-900">$0</span>
+            <span className="text-sm font-medium text-zinc-400">/ forever</span>
+          </div>
+
+          <ul className="flex flex-col gap-4 mb-8 flex-1">
+            {[
+              'Browse profiles',
+              '5 conversations per day',
+              '1 priority introduction per month',
+              'Guided bio builder',
+              'Event browsing'
+            ].map((f, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-zinc-100 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-zinc-400" />
+                </div>
+                <span className="text-sm text-zinc-600 font-medium">{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            onClick={() => navigate('/register')}
+            className="w-full py-3.5 rounded-2xl bg-zinc-100 text-zinc-600 font-bold text-sm transition-colors hover:bg-zinc-200 mt-auto"
+          >
+            Get Started
+          </button>
         </motion.div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl md:text-5xl font-bold tracking-tight text-[#053C42] mb-4 font-serif"
-        >
-          {isChinese ? '选择您的专属定制方案' : 'Choose Your Membership'}
-        </motion.h2>
-
+        {/* FOUNDING MEMBER PLAN */}
         <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="section-rule"
-        />
-        
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="text-sm md:text-base text-zinc-450 font-light leading-relaxed mt-4"
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="relative w-full md:w-[360px] bg-[#11B6A7] rounded-3xl shadow-xl shadow-[#11B6A7]/20 p-8 flex flex-col z-10 md:scale-105"
         >
-          {isChinese 
-            ? '不同层级的红娘服务，满足您对另一半的极致追求。' 
-            : 'Select the level of matchmaking support that fits your journey.'}
-        </motion.p>
-      </div>
+          {/* Most Popular Badge */}
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+            <div className="bg-white text-[#11B6A7] text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-sm">
+              Most Popular
+            </div>
+          </div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {PLANS.map((plan, index) => {
-          const Icon = plan.icon;
-          return (
-            <motion.div
-              key={plan.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-            >
-              <Card 
-                className={`relative h-full flex flex-col p-6 lg:p-8 ${plan.bgColor} ${plan.borderColor} ${plan.badge ? 'border-2 scale-105 z-10 shadow-xl shadow-[#0F8A96]/5' : 'border border-zinc-200/60 shadow-sm'}`}
-              >
-                {plan.badge && (
-                  <div className="absolute top-5 right-5">
-                    <span 
-                      className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-md"
-                      style={{ background: 'linear-gradient(135deg,#0F8A96,#3AAEA9)', color: '#fff' }}
-                    >
-                      {isChinese ? plan.badgeCN : plan.badge}
-                    </span>
-                  </div>
-                )}
+          <h3 className="text-xl font-bold text-white mb-2">Founding Member</h3>
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex flex-col">
+              <span className="text-white text-base font-bold">From</span>
+              <span className="text-4xl font-black text-white">$11.99/mo</span>
+            </div>
+            <span className="text-xs font-medium text-white/80 w-16 leading-tight">
+              / lock in forever
+            </span>
+          </div>
 
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-10 h-10 rounded-2xl flex items-center justify-center`} style={{ backgroundColor: `${plan.accentColor}12`, color: plan.accentColor, border: `1px solid ${plan.accentColor}30` }}>
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-xl font-serif font-bold text-[#053C42]">
-                    {isChinese ? plan.nameCN : plan.name}
-                  </h3>
+          <div className="w-full h-px bg-white/20 mb-6" />
+
+          <ul className="flex flex-col gap-4 mb-8 flex-1">
+            {/* Sub-pricing lines */}
+            {[
+              '1 Month — $19.99',
+              '3 Months — $14.99 per month',
+              '6 Months — $11.99 per month'
+            ].map((f, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
                 </div>
-
-                <div className="mb-6">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-bold text-[#053C42]">$</span>
-                    <span className="text-4xl font-bold tracking-tight text-[#053C42]">{plan.price}</span>
-                    <span className="text-xs text-zinc-450 ml-1 uppercase font-semibold">/ {isChinese ? '月' : 'mo'}</span>
-                  </div>
+                <span className="text-sm text-white font-medium">{f}</span>
+              </li>
+            ))}
+            
+            {/* Features */}
+            {[
+              'Everything in Free',
+              '10 conversations per day',
+              'Unlimited priority introductions',
+              'See who liked you',
+              'Advanced filters',
+              'Priority in discover',
+              'Event discounts'
+            ].map((f, i) => (
+              <li key={i + 10} className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-white" />
                 </div>
+                <span className="text-sm text-white font-medium">{f}</span>
+              </li>
+            ))}
+          </ul>
 
-                <ul className="flex flex-col gap-3 mb-8 flex-1">
-                  {plan.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <Check className="w-4 h-4 text-[#0F8A96] shrink-0 mt-0.5" />
-                      <span className="text-xs text-zinc-650 leading-relaxed font-medium">
-                        {isChinese ? f.textCN : f.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </motion.div>
-          );
-        })}
-      </div>
+          <button
+            onClick={() => navigate('/register')}
+            className="w-full py-3.5 rounded-2xl bg-white text-[#11B6A7] font-bold text-sm transition-colors hover:bg-zinc-50 shadow-md mt-auto"
+          >
+            Upgrade Now
+          </button>
+        </motion.div>
 
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="mt-12 text-center"
-      >
-        <Button 
-          variant="secondary" 
-          onClick={() => navigate('/plans')}
-          className="group px-8"
+        {/* SVIP PLAN */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="w-full md:w-[320px] bg-white rounded-3xl border border-zinc-200/80 shadow-sm p-8 flex flex-col mt-4"
         >
-          {isChinese ? '查看所有会员权益' : 'View All Plans'}
-          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-        </Button>
-      </motion.div>
+          <h3 className="text-xl font-bold text-[#A855F7] mb-2">SVIP</h3>
+          <div className="flex items-baseline gap-1 mb-8">
+            <span className="text-4xl font-black text-zinc-900">$600</span>
+            <span className="text-sm font-medium text-zinc-400">/ setup fee</span>
+          </div>
+
+          <ul className="flex flex-col gap-4 mb-8 flex-1">
+            {[
+              'Everything in Founding Member',
+              'Personal matchmaker',
+              'Handpicked introductions',
+              'Unlimited priority introductions',
+              'Unlimited conversations',
+              'VIP event access',
+              'Concierge support'
+            ].map((f, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-purple-50 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-[#A855F7]" />
+                </div>
+                <span className="text-sm text-zinc-600 font-medium">{f}</span>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            onClick={() => navigate('/register')}
+            className="w-full py-3.5 rounded-2xl bg-[#F3E8FF] text-[#A855F7] font-bold text-sm transition-colors hover:bg-[#E9D5FF] mt-auto"
+          >
+            Apply Now
+          </button>
+        </motion.div>
+
+      </div>
     </SectionWrapper>
   );
 };
+
+export default PlansPreviewSection;

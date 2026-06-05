@@ -51,7 +51,7 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
   ];
 
   const navBg = isScrolled
-    ? 'bg-[#EDF6F6]/90 backdrop-blur-xl border-b border-zinc-200/50 shadow-sm'
+    ? 'bg-[#EDF6F6]/95 backdrop-blur-xl border-b border-[#0F8A96]/10 shadow-md'
     : 'bg-transparent border-b border-transparent';
 
   return (

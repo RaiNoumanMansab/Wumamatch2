@@ -89,7 +89,7 @@ export const SuccessStoriesPreview = ({ isChinese }) => {
         <Button 
           variant="secondary" 
           onClick={() => navigate('/success-stories')}
-          className="group px-8"
+          className="group px-8 !border-[#D4A853]/50 hover:!border-[#D4A853] hover:shadow-[0_0_15px_rgba(212,168,83,0.15)] transition-all"
         >
           {isChinese ? '阅读更多成功故事' : 'Read More Stories'}
           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

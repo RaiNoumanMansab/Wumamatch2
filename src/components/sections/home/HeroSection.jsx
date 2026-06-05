@@ -5,15 +5,15 @@ import { Heart, ShieldCheck, UserCheck, Star, ArrowRight, Sparkles } from 'lucid
 import { Button } from '../../ui/Button';
 import { EASE_OUT } from '../../../utils/motion';
 
-/* Fewer hearts — subtle ambient effect, not overwhelming */
-const HEARTS = Array.from({ length: 6 }, (_, i) => ({
+/* More hearts with brighter colors and higher opacity */
+const HEARTS = Array.from({ length: 15 }, (_, i) => ({
   id: i,
-  left: `${12 + i * 15}%`,
-  delay: `${i * 2.5}s`,
-  duration: `${18 + i * 2}s`,
-  size: 12 + (i % 2) * 4,
-  color: i % 2 === 0 ? '#D4A853' : '#0F8A96',
-  opacity: 0.12 + (i % 3) * 0.04,
+  left: `${5 + (i * 6.5)}%`,
+  delay: `${i * 1.2}s`,
+  duration: `${14 + (i % 4) * 3}s`,
+  size: 14 + (i % 3) * 6,
+  color: i % 2 === 0 ? '#B38F44' : '#0A636D', // Darker gold and teal
+  opacity: 0.6 + (i % 3) * 0.2, // Higher opacity (0.6 to 1.0)
 }));
 
 const fadeUp = (delay = 0) => ({
@@ -22,7 +22,7 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.7, delay, ease: EASE_OUT },
 });
 
-const HERO_IMAGE = '/images/hero-couple.png';
+const HERO_IMAGE = 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80';
 
 export const HeroSection = ({ isChinese }) => {
   const navigate = useNavigate();
@@ -55,10 +55,10 @@ export const HeroSection = ({ isChinese }) => {
       </div>
 
       {/* ── Main grid: text left · image right ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center overflow-visible">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center overflow-visible">
 
         {/* ── LEFT – Copy ── */}
-        <div className="flex flex-col items-start justify-center min-h-[320px]">
+        <div className="flex flex-col items-start justify-center min-h-[320px] lg:col-span-5">
 
           {/* Eyebrow badge */}
           <motion.div {...fadeUp(0)} className="mb-4">
@@ -107,14 +107,6 @@ export const HeroSection = ({ isChinese }) => {
               {isChinese ? '开启寻爱之旅' : 'Begin Your Journey'}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button
-              variant="secondary"
-              size="md"
-              className="px-6 py-3.5 text-sm whitespace-nowrap w-fit"
-              onClick={() => navigate('/plans')}
-            >
-              {isChinese ? '查看会员方案' : 'View Plans'}
-            </Button>
           </motion.div>
 
           {/* Trust pillars */}
@@ -143,7 +135,7 @@ export const HeroSection = ({ isChinese }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.25, ease: EASE_OUT }}
-          className="relative hidden lg:flex items-center justify-end w-full overflow-visible"
+          className="relative hidden lg:flex items-center justify-end w-full lg:col-span-7 overflow-visible pl-4"
         >
           {/* Glow blob behind image */}
           <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(15,138,150,0.15)_0%,transparent_70%)] blur-2xl scale-110 pointer-events-none" />
@@ -158,7 +150,10 @@ export const HeroSection = ({ isChinese }) => {
                 height={520}
                 className="block w-full h-[360px] xl:h-[400px] object-cover object-[center_35%]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#EDF6F6]/40 via-transparent pointer-events-none" />
+              {/* Teal and gold tint to perfectly match theme */}
+              <div className="absolute inset-0 bg-[#0F8A96]/10 mix-blend-color pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0F8A96]/10 to-[#D4A853]/10 mix-blend-overlay pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#EDF6F6]/80 via-transparent pointer-events-none" />
             </div>
 
             {/* New Match tag */}
@@ -179,7 +174,7 @@ export const HeroSection = ({ isChinese }) => {
             </div>
 
             {/* Matchmakers tag */}
-            <div className="absolute left-0 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
+            <div className="absolute left-0 bottom-6 z-20 -translate-x-1/3">
               <div className="bg-white/95 backdrop-blur-md border border-[#D4A853]/30 rounded-2xl px-4 py-3 shadow-lg min-w-[148px]">
                 <p className="text-[9px] uppercase tracking-widest text-[#D4A853] font-bold mb-1">
                   {isChinese ? '红娘团队' : 'Matchmakers'}

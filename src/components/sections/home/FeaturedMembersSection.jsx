@@ -128,7 +128,7 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
         <Button
           variant="secondary"
           size="lg"
-          className="group gap-2"
+          className="group gap-2 !border-[#D4A853]/50 hover:!border-[#D4A853] hover:shadow-[0_0_15px_rgba(212,168,83,0.15)] transition-all"
           onClick={() => navigate('/members')}
         >
           {isChinese ? '浏览更多精英会员' : 'Browse All Members'}

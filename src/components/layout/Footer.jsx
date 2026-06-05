@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Shield, Mail, Phone, MapPin } from 'lucide-react';
 
-const LOGO_SRC = '/images/wuma-logo.png';
+const LOGO_SRC = '/images/wuma-logo-gold.png';
 
 export const Footer = ({ isChinese }) => {
   return (
@@ -14,7 +14,7 @@ export const Footer = ({ isChinese }) => {
             <img
               src={LOGO_SRC}
               alt="WuMa Matchmaking New York"
-              className="h-16 w-auto object-contain"
+              className="h-24 md:h-28 w-auto object-contain scale-105 origin-left"
             />
           </Link>
           <p className="text-xs text-[#9A8F8A] leading-relaxed">
