@@ -55,15 +55,15 @@ export const HeroSection = ({ isChinese }) => {
       </div>
 
       {/* ── Main grid: text left · image right ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center overflow-visible">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center overflow-visible">
 
-        {/* ── LEFT – Copy ── */}
-        <div className="flex flex-col items-start justify-center min-h-[320px] lg:col-span-5">
+        {/* ── LEFT – Copy (centered on mobile, left on desktop) ── */}
+        <div className="flex flex-col items-stretch text-center lg:items-start lg:text-left justify-center min-h-[320px] lg:col-span-5 w-full">
 
           {/* Eyebrow badge */}
           <motion.div {...fadeUp(0)} className="mb-4">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase bg-[#E6F7F6] border border-[#0F8A96]/20 text-[#0F8A96] shadow-[0_0_20px_rgba(15,138,150,0.05)]">
-              <Star className="w-3 h-3 fill-current text-[#D4A853]" />
+            <span className="inline-flex items-center gap-1 md:gap-2 px-2 py-0.5 md:px-3.5 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-bold tracking-[0.1em] md:tracking-[0.2em] uppercase leading-tight bg-[#E6F7F6] border border-[#0F8A96]/20 text-[#0F8A96] shadow-[0_0_20px_rgba(15,138,150,0.05)]">
+              <Star className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 fill-current text-[#D4A853] shrink-0" />
               {isChinese ? '全球顶级华人私密婚恋' : 'Elite Human-Curated Matchmaking'}
             </span>
           </motion.div>
@@ -71,17 +71,19 @@ export const HeroSection = ({ isChinese }) => {
           {/* Headline */}
           <motion.h1
             {...fadeUp(0.15)}
-            className="font-serif text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-bold leading-[1.1] text-[#053C42] mb-4"
+            className="font-serif w-full text-[clamp(1.75rem,7vw,3rem)] font-bold leading-[1.15] text-[#053C42] mb-4 text-balance"
           >
             {isChinese ? (
               <>
-                让真诚的灵魂<br />
+                让真诚的灵魂
+                <br className="hidden sm:block" />
                 在<span className="text-teal-gradient italic"> 此相遇</span>
               </>
             ) : (
               <>
-                Where Serious Hearts<br />
-                Find Their <span className="text-teal-gradient italic">Forever</span>
+                Where Serious Hearts
+                <br className="hidden sm:block" />
+                {' '}Find Their <span className="text-teal-gradient italic">Forever</span>
               </>
             )}
           </motion.h1>
@@ -89,7 +91,7 @@ export const HeroSection = ({ isChinese }) => {
           {/* Sub-copy */}
           <motion.p
             {...fadeUp(0.28)}
-            className="text-zinc-655 text-sm md:text-base leading-relaxed max-w-[460px] mb-5 font-light"
+            className="text-zinc-655 text-sm md:text-base leading-relaxed w-full max-w-[460px] mb-5 font-light mx-auto lg:mx-0"
           >
             {isChinese
               ? 'WuMa Match 是专为海外华人精英设计的人工定制红娘服务。无算法、无划卡——由资深红娘顾问为您手工甄选完美伴侣。'
@@ -97,7 +99,7 @@ export const HeroSection = ({ isChinese }) => {
           </motion.p>
 
           {/* CTA buttons — compact width, taller tap area */}
-          <motion.div {...fadeUp(0.4)} className="flex flex-row gap-3 items-center flex-wrap">
+          <motion.div {...fadeUp(0.4)} className="flex flex-row gap-3 items-center flex-wrap justify-center lg:justify-start w-full">
             <Button
               variant="primary"
               size="md"
@@ -112,14 +114,14 @@ export const HeroSection = ({ isChinese }) => {
           {/* Trust pillars */}
           <motion.div
             {...fadeUp(0.52)}
-            className="flex gap-6 w-full mt-5 pt-4 border-t border-zinc-200/60"
+            className="flex flex-wrap gap-x-5 gap-y-3 w-full mt-5 pt-4 border-t border-zinc-200/60 justify-center lg:justify-start"
           >
             {[
               { icon: ShieldCheck, color: '#D4A853', text: isChinese ? '实名认证' : 'Identity Verified' },
               { icon: UserCheck,   color: '#0F8A96', text: isChinese ? '人工红娘' : 'Human Matchmakers' },
               { icon: Sparkles,    color: '#D4A853', text: isChinese ? '管家服务' : 'Concierge Service' },
             ].map(({ icon: Icon, color, text }) => (
-              <div key={text} className="flex items-center gap-1.5">
+              <div key={text} className="flex items-center gap-1.5 justify-center">
                 <Icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color }} />
                 <span className="text-[10px] uppercase tracking-widest font-semibold text-zinc-450">
                   {text}
@@ -205,7 +207,7 @@ export const HeroSection = ({ isChinese }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.4 }}
-          className="lg:hidden relative rounded-2xl overflow-hidden border border-zinc-200/60 shadow-lg"
+          className="lg:hidden relative w-full max-w-md mx-auto rounded-2xl overflow-hidden border border-zinc-200/60 shadow-lg"
         >
           <img
             src={HERO_IMAGE}

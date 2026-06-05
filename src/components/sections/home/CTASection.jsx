@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
+import { ArrowRight, Heart } from 'lucide-react';
+import { Button } from '../../ui/Button';
 import { fadeUp, viewportOnce } from '../../../utils/motion';
 
 export const CTASection = ({ isChinese }) => {
@@ -30,12 +31,13 @@ export const CTASection = ({ isChinese }) => {
             : 'Join serious members who chose intentional matchmaking over endless swiping.'}
         </p>
 
-        <button
+        <Button
           onClick={() => navigate('/register')}
-          className="px-10 py-4 border-2 border-white text-white font-bold text-xs uppercase tracking-widest rounded-2xl bg-transparent hover:bg-white hover:text-[#0F8A96] transition-all duration-300 hover:-translate-y-0.5 shadow-md"
+          className="group gap-2 px-6 py-2 text-sm font-bold uppercase tracking-widest whitespace-nowrap w-fit !bg-transparent !border !border-white !text-white hover:!bg-white hover:!text-[#0F8A96] hover:-translate-y-0.5 !shadow-md"
         >
           {isChinese ? '立即注册加入' : 'Start Your Journey'}
-        </button>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </Button>
       </motion.div>
     </div>
   );

@@ -166,26 +166,32 @@ export const AboutUsPage = ({ isChinese }) => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left" style={{textAlign:'left'}}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
           {mockMatchmakers.map((matchmaker) => (
             <Card
               key={matchmaker.id}
               variant="bordered"
-              className="group bg-white p-5 border-zinc-200/80 shadow-sm cursor-pointer hover:border-[#D4A853] hover:bg-white hover:shadow-[0_10px_30px_rgba(212,168,83,0.15)] hover:-translate-y-1 transition-all duration-300"
+              className="group bg-white p-5 border-zinc-200/80 shadow-sm cursor-pointer hover:border-[#D4A853] hover:bg-white hover:shadow-[0_10px_30px_rgba(212,168,83,0.15)] hover:-translate-y-1 transition-all duration-300 h-full flex flex-col text-left"
             >
-              <div className="rounded-2xl overflow-hidden aspect-[4/5] mb-5 border border-zinc-200/80 shadow-sm group-hover:border-[#D4A853]/30 transition-colors duration-300">
+              <div className="rounded-2xl overflow-hidden aspect-[4/5] mb-5 border border-zinc-200/80 shadow-sm group-hover:border-[#D4A853]/30 transition-colors duration-300 shrink-0">
                 <img
                   src={matchmaker.photo}
                   alt={matchmaker.name}
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                 />
               </div>
-              <h3 className="font-serif text-lg font-bold text-zinc-800 mb-1">{matchmaker.name}</h3>
-              <p className="text-xs text-[#D4A853] uppercase tracking-wider font-bold mb-3">{matchmaker.title}</p>
-              <p className="text-xs text-zinc-550 leading-relaxed font-light mb-4">{matchmaker.bio}</p>
-              <div className="border-t border-zinc-150 pt-3 text-[10px] text-zinc-450 font-semibold uppercase tracking-widest flex justify-between">
-                <span>{isChinese ? `成功牵线: ${matchmaker.successMatches}对` : `Success: ${matchmaker.successMatches}`}</span>
-                <span>{isChinese ? `熟练母语: 中/英` : `Bilingual: EN/ZH`}</span>
+              <div className="flex flex-col flex-1 text-left">
+                <h3 className="font-serif text-lg font-bold text-zinc-800 mb-1 text-left">{matchmaker.name}</h3>
+                <p className="text-xs text-[#D4A853] uppercase tracking-wider font-bold mb-3 text-left min-h-[2.5rem] line-clamp-2">
+                  {matchmaker.title}
+                </p>
+                <p className="text-xs text-zinc-550 leading-relaxed font-light text-left flex-1">
+                  {matchmaker.bio}
+                </p>
+                <div className="border-t border-zinc-150 pt-3 mt-4 text-[10px] text-zinc-450 font-semibold uppercase tracking-widest flex justify-between items-center">
+                  <span className="text-left">{isChinese ? `成功牵线: ${matchmaker.successMatches}对` : `Success: ${matchmaker.successMatches}`}</span>
+                  <span className="text-right shrink-0">{isChinese ? `熟练母语: 中/英` : `Bilingual: EN/ZH`}</span>
+                </div>
               </div>
             </Card>
           ))}
