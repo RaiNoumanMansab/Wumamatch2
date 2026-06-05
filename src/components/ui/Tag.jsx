@@ -16,7 +16,7 @@ export const Tag = ({
         onClick && 'cursor-pointer',
         active
           ? 'bg-[#0F8A96] border-[#3AAEA9] text-white shadow-[0_0_10px_rgba(15,138,150,0.15)]'
-          : 'bg-white border-zinc-200 text-zinc-600 hover:bg-[#FAF7F2] hover:text-[#0F8A96]',
+          : 'bg-white border-zinc-200 text-zinc-600 hover:bg-[#EDF6F6] hover:text-[#0F8A96]',
         className
       )}
       {...props}

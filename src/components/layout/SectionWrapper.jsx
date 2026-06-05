@@ -9,9 +9,9 @@ export const SectionWrapper = ({
   ...props
 }) => {
   const backgrounds = {
-    dark: 'bg-[#FAF7F2]',
+    dark: 'bg-[#EDF6F6]',
     darker: 'bg-white',
-    gradient: 'bg-gradient-to-b from-[#FAF7F2] via-[#FAF6F0] to-[#FAF7F2]'
+    gradient: 'bg-gradient-to-b from-[#EDF6F6] via-[#FAF6F0] to-[#EDF6F6]'
   };
 
   return (

@@ -60,7 +60,7 @@ export const CheckboxGroup = ({
                 checked={isChecked}
                 disabled={isDisabled && !isChecked}
                 onChange={() => handleToggle(opt.value)}
-                className="w-4 h-4 shrink-0 rounded border-2 border-zinc-300 text-[#0F8A96] bg-[#FAF7F2] focus:ring-[#0F8A96] focus:ring-offset-[#FAF7F2]"
+                className="w-4 h-4 shrink-0 rounded border-2 border-zinc-300 text-[#0F8A96] bg-[#EDF6F6] focus:ring-[#0F8A96] focus:ring-offset-[#EDF6F6]"
               />
               <span className="text-sm select-none leading-snug">{opt.label}</span>
             </label>

@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 export const EventsPage = ({ isChinese }) => {
   return (
     <PageWrapper className="w-full pt-20">
-      <div className="relative bg-[#FAF7F2] pt-20 pb-10 px-6 text-center overflow-hidden border-b border-zinc-200/60">
+      <div className="relative bg-[#EDF6F6] pt-20 pb-10 px-6 text-center overflow-hidden border-b border-zinc-200/60">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(15,138,150,0.08)_0%,transparent_70%)]" />
         <div className="relative max-w-6xl mx-auto flex flex-col items-center">
           <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-[#053C42] mb-4">

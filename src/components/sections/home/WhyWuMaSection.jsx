@@ -79,7 +79,7 @@ export const WhyWuMaSection = ({ isChinese }) => {
             >
               <Card
                 variant="default"
-                className="p-6 h-full flex gap-5 border-zinc-200/80 bg-white hover:border-[#0F8A96]/30 hover:bg-[#FAF7F2]/30 transition-all duration-300 group shadow-sm"
+                className="p-6 h-full flex gap-5 border-zinc-200/80 bg-white hover:border-[#0F8A96]/30 hover:bg-[#EDF6F6]/30 transition-all duration-300 group shadow-sm"
               >
                 <div className="flex-shrink-0 w-12 h-12 rounded bg-[#E6F7F6] border border-[#0F8A96]/20 flex items-center justify-center text-[#0F8A96] group-hover:bg-[#0F8A96] group-hover:text-white transition-all duration-500 shadow-sm">
                   <Icon className="w-5 h-5" />

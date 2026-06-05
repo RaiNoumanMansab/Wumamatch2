@@ -360,7 +360,7 @@ export const PlansPage = ({ isChinese }) => {
                   { label: isChinese ? '专属国际人脉' : 'Global Match Network',     e: false, p: false, el: true  },
                   { label: isChinese ? '24/7 热线服务' : '24/7 Phone Access',       e: false, p: false, el: true  },
                 ].map((row, i) => (
-                  <tr key={i} className={`border-b border-zinc-100 ${i % 2 === 0 ? 'bg-white' : 'bg-[#FAF7F2]/60'}`}>
+                  <tr key={i} className={`border-b border-zinc-100 ${i % 2 === 0 ? 'bg-white' : 'bg-[#EDF6F6]/60'}`}>
                     <td className="px-6 py-4 text-zinc-550 font-medium">{row.label}</td>
                     {[row.e, row.p, row.el].map((val, j) => (
                       <td key={j} className="px-6 py-4 text-center">

@@ -15,7 +15,7 @@ export const SuccessStoriesPage = ({ isChinese }) => {
   return (
     <PageWrapper className="w-full pt-20">
       {/* Hero Headings */}
-      <div className="relative bg-[#FAF7F2] pt-20 pb-10 px-6 text-center overflow-hidden border-b border-zinc-200/60">
+      <div className="relative bg-[#EDF6F6] pt-20 pb-10 px-6 text-center overflow-hidden border-b border-zinc-200/60">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(15,138,150,0.08)_0%,transparent_70%)]" />
         <div className="relative max-w-6xl mx-auto flex flex-col items-center">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase bg-[#E6F7F6] border border-[#0F8A96]/20 text-[#0F8A96] mb-5">

@@ -36,7 +36,7 @@ export const RadioGroup = ({
                 value={opt.value}
                 checked={isChecked}
                 onChange={() => onChange(opt.value)}
-                className="w-4 h-4 shrink-0 text-[#0F8A96] bg-[#FAF7F2] border-2 border-zinc-300 focus:ring-[#0F8A96] focus:ring-offset-[#FAF7F2]"
+                className="w-4 h-4 shrink-0 text-[#0F8A96] bg-[#EDF6F6] border-2 border-zinc-300 focus:ring-[#0F8A96] focus:ring-offset-[#EDF6F6]"
               />
               <span className="text-sm select-none leading-snug">{opt.label}</span>
             </label>

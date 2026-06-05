@@ -47,7 +47,7 @@ export const MembersPage = ({ isLoggedIn, isChinese }) => {
           <Button
             variant="secondary"
             size="sm"
-            className="bg-[#FAF7F2] text-white hover:bg-zinc-800 hover:text-white border-none py-1.5 px-4 font-bold scale-90 sm:scale-100"
+            className="bg-[#EDF6F6] text-white hover:bg-zinc-800 hover:text-white border-none py-1.5 px-4 font-bold scale-90 sm:scale-100"
             onClick={() => navigate('/register')}
           >
             {isChinese ? '立即注册' : 'Register Now'}

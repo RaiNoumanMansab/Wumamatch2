@@ -37,7 +37,7 @@ export const BlogCard = ({ blog, isChinese, index = 0, featured = false }) => {
               className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/60 via-transparent to-transparent" />
-            <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#FAF7F2]/80 border border-[#0F8A96]/30 text-[#0F8A96] backdrop-blur-sm">
+            <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#EDF6F6]/80 border border-[#0F8A96]/30 text-[#0F8A96] backdrop-blur-sm">
               {getCategoryLabel(blog.category, isChinese)}
             </span>
           </div>

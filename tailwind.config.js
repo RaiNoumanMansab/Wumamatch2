@@ -45,7 +45,7 @@ export default {
           accent:  '#3AAEA9',
           gold:    '#D4A853',
           cream:   '#FDFBF7',
-          sand:    '#FAF7F2',
+          sand:    '#EDF6F6',
           darkTeal: '#053C42',
           charcoal: '#2D3748',
         },

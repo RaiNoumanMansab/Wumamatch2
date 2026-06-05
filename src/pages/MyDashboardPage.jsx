@@ -582,7 +582,7 @@ export const MyDashboardPage = ({ isChinese, onLoginToggle }) => {
   return (
     <PageWrapper className="w-full pt-20">
       {/* Page header */}
-      <div className="border-b border-zinc-150 bg-[#FAF7F2] px-8 pt-10 pb-0">
+      <div className="border-b border-zinc-150 bg-[#EDF6F6] px-8 pt-10 pb-0">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-end justify-between gap-4 mb-0 flex-wrap">
             <div>
@@ -641,7 +641,7 @@ export const MyDashboardPage = ({ isChinese, onLoginToggle }) => {
       </div>
 
       {/* Body */}
-      <div className="px-8 py-10 bg-[#FAF7F2] min-h-screen">
+      <div className="px-8 py-10 bg-[#EDF6F6] min-h-screen">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Sidebar */}

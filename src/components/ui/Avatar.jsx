@@ -33,7 +33,7 @@ export const Avatar = ({
 
         {/* Blurred/Lock overlay */}
         {blurred && (
-          <div className="absolute inset-0 bg-[#FAF7F2]/65 flex flex-col items-center justify-center p-2 text-center">
+          <div className="absolute inset-0 bg-[#EDF6F6]/65 flex flex-col items-center justify-center p-2 text-center">
             <Lock className="w-4 h-4 md:w-5 md:h-5 text-[#D4A853] mb-1 animate-pulse" />
             <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-[#D4A853]">
               Join To View

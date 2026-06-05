@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, User, ChevronDown } from 'lucide-react';
 
-const LOGO_SRC = '/images/wuma-logo.png';
+const LOGO_SRC = '/images/wuma-logo-gold.png';
 import { Button } from '../ui/Button';
 import { Modal } from '../ui/Modal';
 import { Input } from '../ui/Input';
@@ -51,13 +51,13 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
   ];
 
   const navBg = isScrolled
-    ? 'bg-[#FAF7F2]/90 backdrop-blur-xl border-b border-zinc-200/50 shadow-sm'
+    ? 'bg-[#EDF6F6]/90 backdrop-blur-xl border-b border-zinc-200/50 shadow-sm'
     : 'bg-transparent border-b border-transparent';
 
   return (
     <>
       <nav className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${navBg}`}>
-        <div className="max-w-7xl mx-auto px-8 h-[72px] flex items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-8 h-[88px] flex items-center justify-between gap-6">
 
           {/* ── Logo ── */}
           <div className="flex">
@@ -65,7 +65,7 @@ export const Navbar = ({ isLoggedIn, onLoginToggle, isChinese, onLanguageToggle 
               <img
                 src={LOGO_SRC}
                 alt="WuMa Matchmaking New York"
-                className="h-14 md:h-16 w-auto object-contain group-hover:opacity-90 transition-opacity duration-300"
+                className="h-[72px] md:h-[84px] py-1 w-auto object-contain group-hover:opacity-90 transition-opacity duration-300 scale-105 origin-left"
               />
             </Link>
           </div>

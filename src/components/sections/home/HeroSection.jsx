@@ -28,10 +28,10 @@ export const HeroSection = ({ isChinese }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative min-h-[100svh] w-full flex flex-col items-center">
+    <div className="relative min-h-[100svh] w-full flex flex-col items-center justify-center pt-[88px] pb-12 lg:pb-0">
 
       {/* ── Light base + teal/gold radial glow ── */}
-      <div className="absolute inset-0 bg-[#FAF7F2]" />
+      <div className="absolute inset-0 bg-[#EDF6F6]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_30%_50%,rgba(15,138,150,0.12)_0%,transparent_70%)] animate-soft-glow" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_70%_50%,rgba(212,168,83,0.06)_0%,transparent_65%)]" />
 
@@ -55,7 +55,7 @@ export const HeroSection = ({ isChinese }) => {
       </div>
 
       {/* ── Main grid: text left · image right ── */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 pt-24 pb-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center overflow-visible">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-8 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center overflow-visible">
 
         {/* ── LEFT – Copy ── */}
         <div className="flex flex-col items-start justify-center min-h-[320px]">
@@ -158,7 +158,7 @@ export const HeroSection = ({ isChinese }) => {
                 height={520}
                 className="block w-full h-[360px] xl:h-[400px] object-cover object-[center_35%]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2]/40 via-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#EDF6F6]/40 via-transparent pointer-events-none" />
             </div>
 
             {/* New Match tag */}
@@ -217,14 +217,14 @@ export const HeroSection = ({ isChinese }) => {
             alt="Happy couple"
             className="w-full h-80 object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2]/50 via-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#EDF6F6]/50 via-transparent" />
         </motion.div>
 
       </div>
 
 
       {/* ── Bottom fade into next section ── */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#FAF7F2] to-transparent pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#EDF6F6] to-transparent pointer-events-none z-20" />
     </div>
   );
 };
