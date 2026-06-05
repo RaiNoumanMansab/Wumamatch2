@@ -1,15 +1,44 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Crown } from 'lucide-react';
 import { SectionWrapper } from '../../layout/SectionWrapper';
+import { fadeUp, viewportOnce } from '../../../utils/motion';
 
 export const PlansPreviewSection = ({ isChinese }) => {
   const navigate = useNavigate();
 
   return (
     <SectionWrapper id="plans-preview" bg="light" className="py-20">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-8 pt-8">
+      <div className="max-w-3xl mx-auto text-center mb-16 px-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeUp}
+        >
+          <div className="mb-6 flex justify-center">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase bg-[#FAF7F2] border border-[#D4A853]/30 text-[#D4A853]">
+              <Crown className="w-3.5 h-3.5" />
+              {isChinese ? '会员方案' : 'Membership Plans'}
+            </span>
+          </div>
+          
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#053C42] mb-6">
+            {isChinese ? '选择您的会员方案' : 'Choose Your Membership'}
+          </h2>
+          
+          <div className="w-16 h-0.5 bg-gradient-to-r from-[#0F8A96] to-[#D4A853] mx-auto mb-6" />
+          
+          <p className="text-zinc-550 text-sm md:text-base leading-relaxed">
+            {isChinese 
+              ? '选择适合您的红娘配对服务，开启您的寻爱之旅。' 
+              : 'Select the level of matchmaking support that fits your journey.'}
+          </p>
+        </motion.div>
+      </div>
+
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-6 lg:gap-8">
         
         {/* FREE PLAN */}
         <motion.div

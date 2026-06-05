@@ -58,7 +58,7 @@ export const HeroSection = ({ isChinese }) => {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center overflow-visible">
 
         {/* ── LEFT – Copy (centered on mobile, left on desktop) ── */}
-        <div className="flex flex-col items-stretch text-center lg:items-start lg:text-left justify-center min-h-[320px] lg:col-span-5 w-full">
+        <div className="flex flex-col items-stretch text-center lg:items-start lg:text-left justify-center min-h-[320px] lg:col-span-6 w-full pr-4">
 
           {/* Eyebrow badge */}
           <motion.div {...fadeUp(0)} className="mb-4">
@@ -91,7 +91,7 @@ export const HeroSection = ({ isChinese }) => {
           {/* Sub-copy */}
           <motion.p
             {...fadeUp(0.28)}
-            className="text-zinc-655 text-sm md:text-base leading-relaxed w-full max-w-[460px] mb-5 font-light mx-auto lg:mx-0"
+            className="text-zinc-655 text-sm md:text-base leading-relaxed w-full max-w-[560px] mb-5 font-light mx-auto lg:mx-0"
           >
             {isChinese
               ? 'WuMa Match 是专为海外华人精英设计的人工定制红娘服务。无算法、无划卡——由资深红娘顾问为您手工甄选完美伴侣。'
@@ -137,7 +137,7 @@ export const HeroSection = ({ isChinese }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9, delay: 0.25, ease: EASE_OUT }}
-          className="relative hidden lg:flex items-center justify-end w-full lg:col-span-7 overflow-visible pl-4"
+          className="relative hidden lg:flex items-center justify-end w-full lg:col-span-6 overflow-visible lg:pl-8"
         >
           {/* Glow blob behind image */}
           <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_center,rgba(15,138,150,0.15)_0%,transparent_70%)] blur-2xl scale-110 pointer-events-none" />
@@ -150,7 +150,7 @@ export const HeroSection = ({ isChinese }) => {
                 alt="Happy couple"
                 width={800}
                 height={520}
-                className="block w-full h-[360px] xl:h-[400px] object-cover object-[center_35%]"
+                className="block w-full aspect-[4/3] lg:aspect-[16/10] object-cover object-[center_35%]"
               />
               {/* Teal and gold tint to perfectly match theme */}
               <div className="absolute inset-0 bg-[#0F8A96]/10 mix-blend-color pointer-events-none" />
