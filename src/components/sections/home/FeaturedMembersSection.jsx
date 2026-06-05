@@ -122,18 +122,17 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
             </motion.div>
           );
         })}
-      </div>
+      </div>  
 
       <div className="mt-12 text-center">
         <Button
-          variant="secondary"
-          size="lg"
-          className="group gap-2 !border-[#D4A853]/50 hover:!border-[#D4A853] hover:shadow-[0_0_15px_rgba(212,168,83,0.15)] transition-all"
-          onClick={() => navigate('/members')}
-        >
-          {isChinese ? '浏览更多精英会员' : 'Browse All Members'}
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </Button>
+  variant="secondary"
+  onClick={() => navigate('/members')}
+  className="group px-8 !border-[#D4A853]/50 hover:!border-[#D4A853] hover:shadow-[0_0_15px_rgba(212,168,83,0.15)] transition-all"
+>
+  {isChinese ? '浏览更多精英会员' : 'Browse All Members'}
+  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+</Button>
       </div>
     </SectionWrapper>
   );
