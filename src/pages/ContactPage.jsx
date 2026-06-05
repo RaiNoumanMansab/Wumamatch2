@@ -64,10 +64,10 @@ export const ContactPage = ({ isChinese }) => {
     <PageWrapper className="w-full pt-20 text-left">
       <SectionWrapper bg="dark">
         <div className="text-center max-w-6xl mx-auto mb-16">
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-800 mb-4">
             {isChinese ? '联系我们' : 'Contact Our Concierge'}
           </h1>
-          <p className="text-sm md:text-base text-[#9A8F8A] font-light max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm md:text-base text-zinc-550 font-light max-w-3xl mx-auto leading-relaxed">
             {isChinese
               ? '如果您有任何关于红娘配对、实名申请或商务合作的疑问，欢迎随时留言或通过以下方式联络我们。'
               : 'Our concierge and senior matchmakers are ready to assist you. Drop us a note or visit our branches.'}
@@ -78,55 +78,55 @@ export const ContactPage = ({ isChinese }) => {
           
           {/* Left: Contact Info */}
           <div className="lg:col-span-5 flex flex-col gap-6">
-            <Card variant="bordered" className="p-6 bg-[#111111] border-zinc-800">
-              <h3 className="font-serif text-lg font-bold text-[#F5F0EB] mb-6 flex items-center gap-2">
-                <MessageSquare className="w-4 h-4 text-[#C0392B]" />
+            <Card variant="bordered" className="p-6 bg-white border-zinc-200/80 shadow-sm">
+              <h3 className="font-serif text-lg font-bold text-zinc-800 mb-6 flex items-center gap-2">
+                <MessageSquare className="w-4 h-4 text-[#0F8A96]" />
                 <span>{isChinese ? '专属红娘客服' : 'Concierge Service'}</span>
               </h3>
               
-              <div className="flex flex-col gap-5 text-xs md:text-sm text-[#9A8F8A]">
+              <div className="flex flex-col gap-5 text-xs md:text-sm text-zinc-550">
 
                 {/* Email */}
                 <div className="flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+                  <div className="w-9 h-9 rounded-2xl bg-zinc-100 border border-zinc-200/80 shadow-sm flex items-center justify-center text-[#D4A853] flex-shrink-0">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-bold text-zinc-500 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '电子邮箱' : 'Email Us'}</span>
-                    <span className="text-[#F5F0EB] font-medium text-sm">concierge@wumamatch.com</span>
+                    <span className="font-bold text-zinc-450 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '电子邮箱' : 'Email Us'}</span>
+                    <span className="text-zinc-800 font-medium text-sm">concierge@wumamatch.com</span>
                   </div>
                 </div>
 
                 {/* Phone */}
                 <div className="flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+                  <div className="w-9 h-9 rounded-2xl bg-zinc-100 border border-zinc-200/80 shadow-sm flex items-center justify-center text-[#D4A853] flex-shrink-0">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-bold text-zinc-500 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '热线电话' : 'Phone Call'}</span>
-                    <span className="text-[#F5F0EB] font-medium text-sm">+1 (800) 888-WUMA</span>
+                    <span className="font-bold text-zinc-450 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '热线电话' : 'Phone Call'}</span>
+                    <span className="text-zinc-800 font-medium text-sm">+1 (800) 888-WUMA</span>
                   </div>
                 </div>
 
                 {/* Office Hours */}
                 <div className="flex items-center gap-4">
-                  <div className="w-9 h-9 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0">
+                  <div className="w-9 h-9 rounded-2xl bg-zinc-100 border border-zinc-200/80 shadow-sm flex items-center justify-center text-[#D4A853] flex-shrink-0">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-bold text-zinc-500 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '工作时间' : 'Office Hours'}</span>
-                    <span className="text-[#F5F0EB] font-medium text-sm">{isChinese ? '周一至周五 09:00 - 18:00 (当地时间)' : 'Monday – Friday  09:00 – 18:00 (Local Time)'}</span>
+                    <span className="font-bold text-zinc-450 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '工作时间' : 'Office Hours'}</span>
+                    <span className="text-zinc-800 font-medium text-sm">{isChinese ? '周一至周五 09:00 - 18:00 (当地时间)' : 'Monday – Friday  09:00 – 18:00 (Local Time)'}</span>
                   </div>
                 </div>
 
                 {/* Locations */}
                 <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#D4A853] flex-shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-2xl bg-zinc-100 border border-zinc-200/80 shadow-sm flex items-center justify-center text-[#D4A853] flex-shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-bold text-zinc-500 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '服务网点' : 'Global Locations'}</span>
-                    <span className="text-[#F5F0EB] text-sm leading-relaxed">
+                    <span className="font-bold text-zinc-450 text-[10px] uppercase tracking-wider mb-0.5">{isChinese ? '服务网点' : 'Global Locations'}</span>
+                    <span className="text-zinc-800 text-sm leading-relaxed">
                       {isChinese ? (
                         <>
                           美国：旧金山、纽约 <br />
@@ -152,10 +152,10 @@ export const ContactPage = ({ isChinese }) => {
 
           {/* Right: Contact Form */}
           <div className="lg:col-span-7 w-full">
-            <Card variant="default" className="p-6 md:p-8 bg-[#1A1A1A]">
+            <Card variant="default" className="p-6 md:p-8 bg-white">
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                  <h3 className="font-serif text-lg font-bold text-[#F5F0EB] border-b border-zinc-800 pb-3 mb-4">
+                  <h3 className="font-serif text-lg font-bold text-zinc-800 border-b border-zinc-200/80 shadow-sm pb-3 mb-4">
                     {isChinese ? '给我们留言' : 'Send Us a Message'}
                   </h3>
 
@@ -215,11 +215,11 @@ export const ContactPage = ({ isChinese }) => {
                   animate={{ opacity: 1, scale: 1 }}
                   className="py-12 text-center flex flex-col items-center gap-4"
                 >
-                  <CheckCircle2 className="w-16 h-16 text-[#E74C3C] mb-2 animate-bounce" />
-                  <h3 className="font-serif text-xl font-bold text-[#F5F0EB]">
+                  <CheckCircle2 className="w-16 h-16 text-[#0F8A96] mb-2 animate-bounce" />
+                  <h3 className="font-serif text-xl font-bold text-zinc-800">
                     {isChinese ? '留言发送成功！' : 'Message Sent Successfully'}
                   </h3>
-                  <p className="text-xs md:text-sm text-[#9A8F8A] max-w-sm leading-relaxed mb-6 font-light">
+                  <p className="text-xs md:text-sm text-zinc-550 max-w-sm leading-relaxed mb-6 font-light">
                     {isChinese
                       ? '感谢您的留言。我们的顾问红娘已收到您的留言信息，我们通常会在1个工作日内与您联络。'
                       : 'We have received your message. Our concierge team will review it and follow up within 1 business day.'}

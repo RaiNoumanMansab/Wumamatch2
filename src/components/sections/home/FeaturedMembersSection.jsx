@@ -42,11 +42,11 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
               transition={{ type: 'spring', stiffness: 300, damping: 24 }}
               className="h-full"
             >
-              <Card variant="glass" className="h-full p-6 flex flex-col items-center justify-between text-center relative group overflow-hidden border-[#C0392B]/10 hover:border-[#C0392B]/40 duration-300">
+              <Card variant="glass" className="h-full p-6 flex flex-col items-center justify-between text-center relative group overflow-hidden border-teal-500/10 hover:border-[#0F8A96]/35 duration-300">
                 {/* Status Badges */}
                 <div className="absolute top-4 left-4">
-                  <div className="flex items-center gap-1 text-[9px] uppercase font-bold tracking-widest text-zinc-400 bg-zinc-950/80 px-2 py-0.5 border border-zinc-800 rounded-full">
-                    <ShieldCheck className="w-3 h-3 text-blue-400" />
+                  <div className="flex items-center gap-1 text-[9px] uppercase font-bold tracking-widest text-zinc-450 bg-white/90 px-2 py-0.5 border border-zinc-200 rounded-full shadow-sm">
+                    <ShieldCheck className="w-3 h-3 text-teal-500" />
                     <span>{isChinese ? '身份核验' : 'Verified'}</span>
                   </div>
                 </div>
@@ -64,9 +64,9 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
 
                 {/* Member Basic Info (Visible) */}
                 <div className="flex-1 w-full mb-6">
-                  <div className="flex items-center justify-center gap-2 mb-2 text-[#F5F0EB] text-lg font-bold font-serif">
+                  <div className="flex items-center justify-center gap-2 mb-2 text-[#053C42] text-lg font-bold font-serif">
                     <span>{isChinese ? `${member.age}岁` : `${member.age} Yrs`}</span>
-                    <span className="text-zinc-700">•</span>
+                    <span className="text-zinc-650">•</span>
                     <span>{isChinese ? member.country : member.country}</span>
                   </div>
 
@@ -76,12 +76,12 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
 
                   {/* Blurred Bio teaser */}
                   <div className="relative">
-                    <p className={`text-xs text-[#9A8F8A] leading-relaxed transition-all duration-500 px-2 ${!isLoggedIn && 'filter blur-[3px] select-none pointer-events-none'}`}>
+                    <p className={`text-xs text-zinc-450 leading-relaxed transition-all duration-500 px-2 ${!isLoggedIn && 'filter blur-[3px] select-none pointer-events-none'}`}>
                       {member.bio}
                     </p>
                     {!isLoggedIn && (
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#D4A853] bg-zinc-950/60 px-2 py-1 rounded">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-[#0F8A96] bg-white/90 px-2.5 py-1.5 rounded-xl border border-teal-500/10 shadow-sm">
                           {isChinese ? '加入以查看自我介绍' : 'Bio Locked'}
                         </span>
                       </div>
@@ -90,14 +90,14 @@ export const FeaturedMembersSection = ({ isLoggedIn, isChinese }) => {
                 </div>
 
                 {/* Details list */}
-                <div className="w-full grid grid-cols-2 gap-2 text-[10px] uppercase tracking-widest text-zinc-500 font-semibold border-t border-zinc-850 pt-4 mb-6">
+                <div className="w-full grid grid-cols-2 gap-2 text-[10px] uppercase tracking-widest text-zinc-450 font-semibold border-t border-zinc-100 pt-4 mb-6">
                   <div>
-                    <span className="block text-zinc-600 mb-0.5">{isChinese ? '身高' : 'Height'}</span>
-                    <span className="text-[#F5F0EB] text-xs font-normal">{member.height}</span>
+                    <span className="block text-zinc-450 mb-0.5">{isChinese ? '身高' : 'Height'}</span>
+                    <span className="text-zinc-700 text-xs font-normal">{member.height}</span>
                   </div>
                   <div>
-                    <span className="block text-zinc-600 mb-0.5">{isChinese ? '教育背景' : 'Education'}</span>
-                    <span className="text-[#F5F0EB] text-xs font-normal truncate block">{member.education}</span>
+                    <span className="block text-zinc-450 mb-0.5">{isChinese ? '教育背景' : 'Education'}</span>
+                    <span className="text-zinc-700 text-xs font-normal truncate block">{member.education}</span>
                   </div>
                 </div>
 

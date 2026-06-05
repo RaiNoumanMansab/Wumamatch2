@@ -33,7 +33,7 @@ export const MemberFilters = ({
   ];
 
   return (
-    <div className="w-full bg-[#141414] border border-zinc-800/80 rounded-2xl p-6 shadow-lg text-left relative z-20">
+    <div className="w-full bg-white border border-zinc-200/60 shadow-sm rounded-2xl p-6 shadow-lg text-left relative z-20">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 items-end">
         {/* Gender Filter */}
         <Select
@@ -82,7 +82,7 @@ export const MemberFilters = ({
         />
       </div>
 
-      <div className="mt-5 flex justify-end gap-3 border-t border-zinc-850 pt-5">
+      <div className="mt-5 flex justify-end gap-3 border-t border-zinc-150 pt-5">
         <Button
           variant="secondary"
           size="sm"

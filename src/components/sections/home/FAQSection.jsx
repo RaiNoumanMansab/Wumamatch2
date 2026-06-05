@@ -76,22 +76,22 @@ const FAQItem = ({ faq, index, isOpen, onToggle }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.07 }}
-      className="border border-zinc-800 rounded-2xl overflow-hidden bg-[#111111]/60 hover:border-zinc-700 transition-colors duration-300"
+      className="border border-zinc-200 rounded-2xl overflow-hidden bg-white hover:border-zinc-300 transition-colors duration-300 shadow-sm"
     >
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left group"
         aria-expanded={isOpen}
       >
-        <span className="text-sm md:text-base font-semibold text-[#F5F0EB] group-hover:text-[#D4A853] transition-colors duration-300 leading-snug">
+        <span className="text-sm md:text-base font-semibold text-[#053C42] group-hover:text-[#0F8A96] transition-colors duration-300 leading-snug">
           {faq.question}
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="flex-shrink-0 w-7 h-7 rounded-full border border-zinc-700 flex items-center justify-center group-hover:border-[#C0392B] group-hover:bg-[#C0392B]/10 transition-all duration-300"
+          className="flex-shrink-0 w-7 h-7 rounded-full border border-zinc-200 flex items-center justify-center group-hover:border-[#0F8A96] group-hover:bg-[#E6F7F6] transition-all duration-300"
         >
-          <ChevronDown className="w-4 h-4 text-zinc-400 group-hover:text-[#E74C3C]" />
+          <ChevronDown className="w-4 h-4 text-zinc-450 group-hover:text-[#0F8A96]" />
         </motion.span>
       </button>
 
@@ -105,8 +105,8 @@ const FAQItem = ({ faq, index, isOpen, onToggle }) => {
             transition={{ duration: 0.35, ease: 'easeInOut' }}
           >
             <div className="px-6 pb-6 pt-0">
-              <div className="border-t border-zinc-800 pt-4">
-                <p className="text-sm text-[#9A8F8A] leading-relaxed font-light">
+              <div className="border-t border-zinc-100 pt-4">
+                <p className="text-sm text-zinc-450 leading-relaxed font-light">
                   {faq.answer}
                 </p>
               </div>
@@ -135,10 +135,10 @@ export const FAQSection = ({ isChinese }) => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 bg-[#C0392B]/10 border border-[#C0392B]/25 rounded-full px-4 py-1.5 mb-5"
+          className="inline-flex items-center gap-2 bg-[#0F8A96]/10 border border-[#0F8A96]/20 rounded-full px-4 py-1.5 mb-5"
         >
-          <HelpCircle className="w-3.5 h-3.5 text-[#E74C3C]" />
-          <span className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C]">
+          <HelpCircle className="w-3.5 h-3.5 text-[#0F8A96]" />
+          <span className="text-[10px] uppercase tracking-widest font-bold text-[#0F8A96]">
             {isChinese ? '常见问题' : 'FAQ'}
           </span>
         </motion.div>
@@ -148,7 +148,7 @@ export const FAQSection = ({ isChinese }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4"
+          className="text-3xl md:text-5xl font-bold tracking-tight text-[#053C42] mb-4 font-serif"
         >
           {isChinese ? '您的疑问，我们来解答' : 'Questions? We Have Answers'}
         </motion.h2>
@@ -166,7 +166,7 @@ export const FAQSection = ({ isChinese }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="text-sm md:text-base text-[#9A8F8A] font-light leading-relaxed mt-4"
+          className="text-sm md:text-base text-zinc-450 font-light leading-relaxed mt-4"
         >
           {isChinese
             ? '以下是我们的会员最常提出的问题，希望能解答您的疑惑。'
@@ -195,11 +195,11 @@ export const FAQSection = ({ isChinese }) => {
         transition={{ duration: 0.5, delay: 0.3 }}
         className="text-center mt-12"
       >
-        <p className="text-xs text-zinc-500">
+        <p className="text-xs text-zinc-450">
           {isChinese ? '还有其他疑问？' : 'Still have questions?'}{' '}
           <a
             href="/contact"
-            className="text-[#E74C3C] hover:text-[#D4A853] underline underline-offset-2 transition-colors duration-300 font-medium"
+            className="text-[#0F8A96] hover:text-[#D4A853] underline underline-offset-2 transition-colors duration-300 font-medium"
           >
             {isChinese ? '联系我们的团队' : 'Contact our team'}
           </a>

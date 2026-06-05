@@ -32,7 +32,7 @@ export const CheckboxGroup = ({
           <legend className={cn(formLabelClass, 'mb-0')}>{label}</legend>
         )}
         {maxSelected && (
-          <span className="text-[10px] text-zinc-500 font-semibold uppercase tracking-wider">
+          <span className="text-[10px] text-zinc-450 font-semibold uppercase tracking-wider">
             Select up to {maxSelected}
           </span>
         )}
@@ -60,7 +60,7 @@ export const CheckboxGroup = ({
                 checked={isChecked}
                 disabled={isDisabled && !isChecked}
                 onChange={() => handleToggle(opt.value)}
-                className="w-4 h-4 shrink-0 rounded border-2 border-zinc-500 text-[#C0392B] bg-[#0D0D0D] focus:ring-[#C0392B] focus:ring-offset-[#141414]"
+                className="w-4 h-4 shrink-0 rounded border-2 border-zinc-300 text-[#0F8A96] bg-[#FAF7F2] focus:ring-[#0F8A96] focus:ring-offset-[#FAF7F2]"
               />
               <span className="text-sm select-none leading-snug">{opt.label}</span>
             </label>
@@ -68,7 +68,7 @@ export const CheckboxGroup = ({
         })}
       </div>
       {error && (
-        <span className="text-xs text-red-400 font-medium mt-1">{error}</span>
+        <span className="text-xs text-[#C0392B] font-medium mt-1">{error}</span>
       )}
     </fieldset>
   );

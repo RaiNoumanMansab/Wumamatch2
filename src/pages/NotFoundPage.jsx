@@ -12,7 +12,7 @@ export const NotFoundPage = ({ isChinese }) => {
     <PageWrapper className="w-full pt-32">
       <SectionWrapper bg="dark">
         <div className="text-center py-20 max-w-md mx-auto flex flex-col items-center">
-          <div className="w-16 h-16 rounded-full bg-[#3B0000]/30 border border-[#C0392B]/40 flex items-center justify-center text-[#E74C3C] mb-6">
+          <div className="w-16 h-16 rounded-full bg-[#E6F7F6]/30 border border-[#0F8A96]/40 flex items-center justify-center text-[#0F8A96] mb-6">
             <HeartOff className="w-8 h-8 animate-pulse" />
           </div>
           
@@ -20,11 +20,11 @@ export const NotFoundPage = ({ isChinese }) => {
             404 Error
           </span>
           
-          <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-4">
+          <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-zinc-800 mb-4">
             {isChinese ? '迷失在爱里？' : 'Lost in Love?'}
           </h1>
           
-          <p className="text-xs md:text-sm text-[#9A8F8A] leading-relaxed mb-10 font-light">
+          <p className="text-xs md:text-sm text-zinc-550 leading-relaxed mb-10 font-light">
             {isChinese
               ? '抱歉，您所访问的页面可能已经被移除或地址输入错误。让我们协助您回到正确的航向。'
               : 'The page you are looking for does not exist or has been relocated. Let us guide you back.'}

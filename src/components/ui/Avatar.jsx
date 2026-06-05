@@ -20,7 +20,7 @@ export const Avatar = ({
 
   return (
     <div className={cn('relative inline-block', className)} {...props}>
-      <div className={cn('rounded-full overflow-hidden relative border border-[#C0392B]/20', sizes[size] || sizes.md)}>
+      <div className={cn('rounded-full overflow-hidden relative border border-[#0F8A96]/20', sizes[size] || sizes.md)}>
         {/* Photo */}
         <img
           src={src || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=400'}
@@ -33,7 +33,7 @@ export const Avatar = ({
 
         {/* Blurred/Lock overlay */}
         {blurred && (
-          <div className="absolute inset-0 bg-[#0D0D0D]/65 flex flex-col items-center justify-center p-2 text-center">
+          <div className="absolute inset-0 bg-[#FAF7F2]/65 flex flex-col items-center justify-center p-2 text-center">
             <Lock className="w-4 h-4 md:w-5 md:h-5 text-[#D4A853] mb-1 animate-pulse" />
             <span className="text-[9px] md:text-[10px] uppercase font-bold tracking-widest text-[#D4A853]">
               Join To View

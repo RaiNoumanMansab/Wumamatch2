@@ -54,9 +54,9 @@ const daysUntil = (iso) => {
 };
 
 const STATUS_CONFIG = {
-  accepted:  { label: 'Accepted',  labelZh: '已接受', color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20', Icon: CheckCircle2 },
-  pending:   { label: 'Awaiting', labelZh: '待回复', color: 'text-[#D4A853]',  bg: 'bg-[#D4A853]/10 border-[#D4A853]/20',   Icon: Hourglass    },
-  declined:  { label: 'Declined', labelZh: '已婉拒', color: 'text-zinc-500',   bg: 'bg-zinc-800 border-zinc-700',            Icon: XCircle      },
+  accepted:  { label: 'Accepted',  labelZh: '已接受', color: 'text-emerald-600', bg: 'bg-emerald-50 border-emerald-250', Icon: CheckCircle2 },
+  pending:   { label: 'Awaiting', labelZh: '待回复', color: 'text-[#D4A853]',  bg: 'bg-amber-50 border-amber-200',   Icon: Hourglass    },
+  declined:  { label: 'Declined', labelZh: '已婉拒', color: 'text-zinc-450',   bg: 'bg-zinc-200 border-zinc-200',            Icon: XCircle      },
 };
 const MEETING_TYPE = {
   video_call:  { label: 'Video Call',  labelZh: '视频通话', Icon: Video    },
@@ -72,28 +72,28 @@ function ProfileSidebar({ isChinese }) {
     <div className="flex flex-col gap-4">
       {/* Photo + name card */}
       <Card variant="default" className="p-0 overflow-hidden">
-        <div className="h-24 bg-gradient-to-br from-[#3B0000] via-[#1A0000] to-[#0D0D0D] relative">
+        <div className="h-24 bg-gradient-to-br from-[#0F8A96] via-[#053C42] to-[#042E33] relative">
           <div className="absolute inset-0 opacity-30"
-            style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #C0392B44 0%, transparent 70%)' }} />
+            style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #0F8A9644 0%, transparent 70%)' }} />
         </div>
         <div className="px-5 pb-5 -mt-10 flex flex-col items-center text-center">
           <div className="relative mb-3">
             <img
               src={u.photo}
               alt={u.name}
-              className="w-20 h-20 rounded-2xl object-cover border-2 border-[#C0392B]/60 shadow-xl"
+              className="w-20 h-20 rounded-2xl object-cover border-2 border-[#0F8A96]/60 shadow-xl"
             />
-            <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-[#1E1E1E]" />
+            <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white" />
           </div>
-          <h2 className="font-serif text-base font-bold text-[#F5F0EB]">{isChinese ? u.nameChinese : u.name}</h2>
-          <p className="text-[10px] uppercase tracking-widest text-[#D4A853] font-bold mt-0.5">{u.membershipTier} Member</p>
-          <div className="flex items-center gap-1 text-xs text-zinc-500 mt-1">
+          <h2 className="font-serif text-base font-bold text-zinc-800">{isChinese ? u.nameChinese : u.name}</h2>
+          <p className="text-[10px] uppercase tracking-widest text-[#B38F44] font-bold mt-0.5">{u.membershipTier} Member</p>
+          <div className="flex items-center gap-1 text-xs text-zinc-450 mt-1">
             <MapPin className="w-3 h-3" />
             <span>{u.city}, {u.country}</span>
           </div>
-          <div className="flex items-center gap-1.5 mt-3 px-3 py-1.5 bg-[#3B0000]/30 border border-[#C0392B]/30 rounded-full">
-            <ShieldCheck className="w-3 h-3 text-[#E74C3C]" />
-            <span className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C]">
+          <div className="flex items-center gap-1.5 mt-3 px-3 py-1.5 bg-[#E6F7F6]/30 border border-[#0F8A96]/30 rounded-full">
+            <ShieldCheck className="w-3 h-3 text-[#0F8A96]" />
+            <span className="text-[10px] uppercase tracking-widest font-bold text-[#0F8A96]">
               {isChinese ? '高级认证会员' : 'Premium Verified'}
             </span>
           </div>
@@ -102,16 +102,16 @@ function ProfileSidebar({ isChinese }) {
 
       {/* Profile completion */}
       <Card variant="default" className="p-4">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 mb-2">
+        <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-450 mb-2">
           {isChinese ? '档案完整度' : 'Profile Completion'}
         </p>
         <div className="flex items-end justify-between mb-1.5">
-          <span className="text-2xl font-bold text-[#F5F0EB]">{u.profileCompletion}%</span>
-          <span className="text-[10px] text-zinc-500">{isChinese ? '还差13%完整' : '13% remaining'}</span>
+          <span className="text-2xl font-bold text-zinc-800">{u.profileCompletion}%</span>
+          <span className="text-[10px] text-zinc-450">{isChinese ? '还差13%完整' : '13% remaining'}</span>
         </div>
-        <div className="w-full h-1.5 rounded-full bg-zinc-800">
+        <div className="w-full h-1.5 rounded-full bg-zinc-200">
           <div
-            className="h-1.5 rounded-full bg-gradient-to-r from-[#C0392B] to-[#D4A853] transition-all duration-700"
+            className="h-1.5 rounded-full bg-gradient-to-r from-[#0F8A96] to-[#D4A853] transition-all duration-700"
             style={{ width: `${u.profileCompletion}%` }}
           />
         </div>
@@ -122,7 +122,7 @@ function ProfileSidebar({ isChinese }) {
 
       {/* Quick stats */}
       <Card variant="default" className="p-4 flex flex-col gap-3">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-500">
+        <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-450">
           {isChinese ? '我的数据' : 'My Stats'}
         </p>
         {[
@@ -132,11 +132,11 @@ function ProfileSidebar({ isChinese }) {
           { label: isChinese ? '成功匹配' : 'Active Matches',    val: 2,                       Icon: Heart   },
         ].map(({ label, val, Icon }) => (
           <div key={label} className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs text-zinc-400">
-              <Icon className="w-3.5 h-3.5 text-[#C0392B]" />
+            <div className="flex items-center gap-2 text-xs text-zinc-450">
+              <Icon className="w-3.5 h-3.5 text-[#0F8A96]" />
               {label}
             </div>
-            <span className="text-sm font-bold text-[#F5F0EB]">{val}</span>
+            <span className="text-sm font-bold text-zinc-800">{val}</span>
           </div>
         ))}
       </Card>
@@ -150,16 +150,16 @@ function ProfileSidebar({ isChinese }) {
           <img
             src={u.matchmakerPhoto}
             alt={u.matchmakerName}
-            className="w-10 h-10 rounded-2xl object-cover border border-[#D4A853]/40"
+            className="w-10 h-10 rounded-2xl object-cover border border-[#D4A853]/20"
           />
           <div>
-            <p className="text-sm font-bold text-[#F5F0EB]">{u.matchmakerName}</p>
-            <p className="text-[10px] text-zinc-500">Senior Matchmaker</p>
+            <p className="text-sm font-bold text-zinc-800">{u.matchmakerName}</p>
+            <p className="text-[10px] text-zinc-450">Senior Matchmaker</p>
           </div>
         </div>
         <Divider className="!my-3" />
-        <div className="flex items-center gap-2 text-[10px] text-zinc-400">
-          <Calendar className="w-3 h-3 text-[#D4A853] shrink-0" />
+        <div className="flex items-center gap-2 text-[10px] text-zinc-450">
+          <Calendar className="w-3 h-3 text-[#0F8A96] shrink-0" />
           <span>
             {isChinese ? '下次咨询：' : 'Next consultation: '}
             <span className="text-[#D4A853] font-semibold">{fmtDateTime(u.nextConsultation)}</span>
@@ -178,15 +178,15 @@ function OverviewTab({ isChinese }) {
   return (
     <div className="flex flex-col gap-6">
       {/* Welcome banner */}
-      <div className="rounded-2xl bg-gradient-to-r from-[#1A0000] via-[#160000] to-[#0D0D0D] border border-[#C0392B]/20 p-5 flex items-center gap-4">
-        <div className="w-10 h-10 rounded-2xl bg-[#3B0000]/50 border border-[#C0392B]/30 flex items-center justify-center text-[#E74C3C] shrink-0">
+      <div className="rounded-2xl bg-white border border-zinc-200 border border-[#0F8A96]/20 p-5 flex items-center gap-4">
+        <div className="w-10 h-10 rounded-2xl bg-[#E6F7F6]/50 border border-[#0F8A96]/30 flex items-center justify-center text-[#0F8A96] shrink-0">
           <Award className="w-5 h-5" />
         </div>
         <div>
-          <p className="text-sm font-bold text-[#F5F0EB]">
+          <p className="text-sm font-bold text-zinc-800">
             {isChinese ? `欢迎回来，${currentUser.nameChinese}` : `Welcome back, ${currentUser.name.split(' ')[0]}`}
           </p>
-          <p className="text-xs text-zinc-500 mt-0.5">
+          <p className="text-xs text-zinc-450 mt-0.5">
             {isChinese
               ? `您有 ${recentPending.length} 条待回复请求 · ${upcoming.length} 场即将到来的会面`
               : `You have ${recentPending.length} pending request${recentPending.length !== 1 ? 's' : ''} · ${upcoming.length} upcoming meeting${upcoming.length !== 1 ? 's' : ''}`}
@@ -197,7 +197,7 @@ function OverviewTab({ isChinese }) {
       {/* Upcoming meetings */}
       {upcoming.length > 0 && (
         <div>
-          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 mb-3">
+          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-450 mb-3">
             {isChinese ? '即将到来的会面' : 'Upcoming Meetings'}
           </p>
           <div className="flex flex-col gap-3">
@@ -207,21 +207,21 @@ function OverviewTab({ isChinese }) {
               return (
                 <Card key={m.id} variant="default" className="p-4 flex items-center gap-4">
                   <img src={m.memberPhoto} alt={m.memberName}
-                    className="w-12 h-12 rounded-2xl object-cover border border-zinc-800 shrink-0" />
+                    className="w-12 h-12 rounded-2xl object-cover border border-zinc-200/80 shadow-sm shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-bold text-[#F5F0EB] truncate">{m.memberName}</p>
-                    <p className="text-[10px] text-zinc-500 mt-0.5">{m.memberProfession}</p>
+                    <p className="text-sm font-bold text-zinc-800 truncate">{m.memberName}</p>
+                    <p className="text-[10px] text-zinc-450 mt-0.5">{m.memberProfession}</p>
                     <div className="flex items-center gap-2 mt-1.5 flex-wrap">
                       <span className="inline-flex items-center gap-1 text-[10px] text-[#D4A853] font-semibold">
                         <TypeIcon className="w-3 h-3" />
                         {isChinese ? MEETING_TYPE[m.type].labelZh : MEETING_TYPE[m.type].label}
                       </span>
-                      <span className="text-zinc-700">·</span>
-                      <span className="text-[10px] text-zinc-400">{fmtDateTime(m.date)}</span>
+                      <span className="text-zinc-200">·</span>
+                      <span className="text-[10px] text-zinc-450">{fmtDateTime(m.date)}</span>
                     </div>
                   </div>
                   <div className="text-right shrink-0">
-                    <span className="text-xs font-bold text-[#E74C3C]">{days}d</span>
+                    <span className="text-xs font-bold text-[#0F8A96]">{days}d</span>
                     <p className="text-[10px] text-zinc-600">away</p>
                   </div>
                 </Card>
@@ -234,7 +234,7 @@ function OverviewTab({ isChinese }) {
       {/* Pending received requests */}
       {recentPending.length > 0 && (
         <div>
-          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 mb-3">
+          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-450 mb-3">
             {isChinese ? '待您回复的请求' : 'Requests Awaiting Your Response'}
           </p>
           <div className="flex flex-col gap-3">
@@ -242,15 +242,15 @@ function OverviewTab({ isChinese }) {
               <Card key={r.id} variant="bordered" className="p-4">
                 <div className="flex items-start gap-4">
                   <img src={r.photo} alt={r.name}
-                    className="w-12 h-12 rounded-2xl object-cover border border-zinc-800 shrink-0" />
+                    className="w-12 h-12 rounded-2xl object-cover border border-zinc-200/80 shadow-sm shrink-0" />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 flex-wrap">
-                      <p className="text-sm font-bold text-[#F5F0EB]">{r.name}</p>
-                      <span className="text-[10px] uppercase tracking-widest text-zinc-500">{fmtDate(r.receivedDate)}</span>
+                      <p className="text-sm font-bold text-zinc-800">{r.name}</p>
+                      <span className="text-[10px] uppercase tracking-widest text-zinc-450">{fmtDate(r.receivedDate)}</span>
                     </div>
-                    <p className="text-[10px] text-zinc-500 mt-0.5">{r.profession} · {r.city}, {r.country}</p>
+                    <p className="text-[10px] text-zinc-450 mt-0.5">{r.profession} · {r.city}, {r.country}</p>
                     {r.note && (
-                      <p className="text-[11px] text-[#9A8F8A] mt-2 leading-relaxed italic border-l-2 border-[#C0392B]/40 pl-3">
+                      <p className="text-[11px] text-zinc-550 mt-2 leading-relaxed italic border-l-2 border-[#0F8A96]/40 pl-3">
                         "{r.note}"
                       </p>
                     )}
@@ -282,25 +282,25 @@ function RequestCard({ req, direction, isChinese }) {
       <div className="flex items-start gap-4">
         <Link to={`/members/${req.memberId}`}>
           <img src={req.photo} alt={req.name}
-            className="w-14 h-14 rounded-2xl object-cover border border-zinc-800 shrink-0 hover:border-[#C0392B]/50 transition-colors" />
+            className="w-14 h-14 rounded-2xl object-cover border border-zinc-200/80 shadow-sm shrink-0 hover:border-[#0F8A96]/50 transition-colors" />
         </Link>
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-2 flex-wrap">
             <Link to={`/members/${req.memberId}`}>
-              <p className="text-sm font-bold text-[#F5F0EB] hover:text-[#E74C3C] transition-colors">{req.name}</p>
+              <p className="text-sm font-bold text-zinc-800 hover:text-[#0F8A96] transition-colors">{req.name}</p>
             </Link>
             <span className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border ${cfg.bg} ${cfg.color}`}>
               <StatusIcon className="w-3 h-3" />
               {isChinese ? cfg.labelZh : cfg.label}
             </span>
           </div>
-          <p className="text-[10px] text-zinc-500 mt-0.5">{req.profession} · {req.city}, {req.country} · Age {req.age}</p>
+          <p className="text-[10px] text-zinc-450 mt-0.5">{req.profession} · {req.city}, {req.country} · Age {req.age}</p>
           <div className="flex items-center gap-3 mt-2 text-[10px] text-zinc-600">
             <span>{direction === 'sent' ? (isChinese ? '发送于' : 'Sent') : (isChinese ? '收到于' : 'Received')} {fmtDate(direction === 'sent' ? req.sentDate : req.receivedDate)}</span>
             {req.respondedDate && <span>· {isChinese ? '回复于' : 'Responded'} {fmtDate(req.respondedDate)}</span>}
           </div>
           {req.note && req.status === 'pending' && (
-            <p className="text-[11px] text-[#9A8F8A] mt-2 leading-relaxed italic border-l-2 border-[#C0392B]/40 pl-3">
+            <p className="text-[11px] text-zinc-550 mt-2 leading-relaxed italic border-l-2 border-[#0F8A96]/40 pl-3">
               "{req.note}"
             </p>
           )}
@@ -320,7 +320,7 @@ function MyMatchesTab({ isChinese }) {
   const [sub, setSub] = useState('received');
   return (
     <div className="flex flex-col gap-5">
-      <div className="flex gap-1 bg-zinc-900 rounded-2xl p-1 w-fit">
+      <div className="flex gap-1 bg-zinc-100 rounded-2xl p-1 w-fit">
         {[
           { key: 'received', label: isChinese ? '收到的请求' : 'Received', Icon: Inbox,  count: receivedRequests.length },
           { key: 'sent',     label: isChinese ? '我发出的请求' : 'Sent',    Icon: Send,   count: sentRequests.length    },
@@ -330,13 +330,13 @@ function MyMatchesTab({ isChinese }) {
             onClick={() => setSub(key)}
             className={`flex items-center gap-2 px-4 py-2 rounded-2xl text-xs font-semibold transition-all duration-200 ${
               sub === key
-                ? 'bg-[#C0392B] text-white shadow'
-                : 'text-zinc-500 hover:text-[#F5F0EB]'
+                ? 'bg-[#0F8A96] text-white shadow'
+                : 'text-zinc-450 hover:text-zinc-800'
             }`}
           >
             <Icon className="w-3.5 h-3.5" />
             {label}
-            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${sub === key ? 'bg-white/20' : 'bg-zinc-800'}`}>{count}</span>
+            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${sub === key ? 'bg-[#0F8A96]/15 text-[#0F8A96]' : 'bg-zinc-200'}`}>{count}</span>
           </button>
         ))}
       </div>
@@ -366,7 +366,7 @@ function StarRating({ rating }) {
   return (
     <div className="flex gap-0.5">
       {[1, 2, 3, 4, 5].map((s) => (
-        <Star key={s} className={`w-3 h-3 ${s <= rating ? 'text-[#D4A853] fill-[#D4A853]' : 'text-zinc-700'}`} />
+        <Star key={s} className={`w-3 h-3 ${s <= rating ? 'text-[#D4A853] fill-[#D4A853]' : 'text-zinc-200'}`} />
       ))}
     </div>
   );
@@ -380,51 +380,51 @@ function MeetingCard({ m, isChinese }) {
       <div className="flex items-start gap-4">
         <div className="relative shrink-0">
           <img src={m.memberPhoto} alt={m.memberName}
-            className="w-14 h-14 rounded-2xl object-cover border border-zinc-800" />
-          <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#161616] border border-zinc-800 flex items-center justify-center">
-            <TypeIcon className={`w-3 h-3 ${isUpcoming ? 'text-[#D4A853]' : 'text-zinc-500'}`} />
+            className="w-14 h-14 rounded-2xl object-cover border border-zinc-200/80 shadow-sm" />
+          <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white border border-zinc-200/80 shadow-sm flex items-center justify-center">
+            <TypeIcon className={`w-3 h-3 ${isUpcoming ? 'text-[#D4A853]' : 'text-zinc-450'}`} />
           </div>
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2 flex-wrap">
             <div>
-              <p className="text-sm font-bold text-[#F5F0EB]">{m.memberName}</p>
-              <p className="text-[10px] text-zinc-500">{m.memberProfession}</p>
+              <p className="text-sm font-bold text-zinc-800">{m.memberName}</p>
+              <p className="text-[10px] text-zinc-450">{m.memberProfession}</p>
             </div>
             <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-full border ${
               isUpcoming
-                ? 'bg-[#D4A853]/10 border-[#D4A853]/20 text-[#D4A853]'
+                ? 'bg-amber-50 border-amber-200 text-[#D4A853]'
                 : m.status === 'completed'
-                ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
-                : 'bg-zinc-800 border-zinc-700 text-zinc-500'
+                ? 'bg-emerald-50 border-emerald-250 text-emerald-600'
+                : 'bg-zinc-200 border-zinc-200 text-zinc-450'
             }`}>
               {isUpcoming ? (isChinese ? '即将进行' : 'Upcoming') : (isChinese ? '已完成' : 'Completed')}
             </span>
           </div>
 
-          <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-500">
-            <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-[#C0392B]" />{fmtDateTime(m.date)}</span>
-            <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-[#C0392B]" />{m.duration}</span>
-            <span className="flex items-center gap-1"><MapPin className="w-3 h-3 text-[#C0392B]" />{m.location}</span>
+          <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-450">
+            <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-[#0F8A96]" />{fmtDateTime(m.date)}</span>
+            <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-[#0F8A96]" />{m.duration}</span>
+            <span className="flex items-center gap-1"><MapPin className="w-3 h-3 text-[#0F8A96]" />{m.location}</span>
           </div>
 
           {m.matchmakerNote && (
-            <div className="mt-3 bg-[#3B0000]/20 border border-[#C0392B]/20 rounded-2xl p-3">
-              <p className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C] mb-1">
+            <div className="mt-3 bg-[#E6F7F6]/20 border border-[#0F8A96]/20 rounded-2xl p-3">
+              <p className="text-[10px] uppercase tracking-widest font-bold text-[#0F8A96] mb-1">
                 {isChinese ? '红娘备注' : 'Matchmaker Note'}
               </p>
-              <p className="text-[11px] text-[#9A8F8A] leading-relaxed">{m.matchmakerNote}</p>
+              <p className="text-[11px] text-zinc-550 leading-relaxed">{m.matchmakerNote}</p>
             </div>
           )}
 
           {m.status === 'completed' && m.yourRating && (
-            <div className="mt-3 bg-zinc-900 rounded-2xl p-3">
+            <div className="mt-3 bg-zinc-100 rounded-2xl p-3">
               <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-600 mb-2">
                 {isChinese ? '您的反馈' : 'Your Feedback'}
               </p>
               <StarRating rating={m.yourRating} />
               {m.yourFeedback && (
-                <p className="text-[11px] text-zinc-400 mt-1.5 leading-relaxed italic">"{m.yourFeedback}"</p>
+                <p className="text-[11px] text-zinc-450 mt-1.5 leading-relaxed italic">"{m.yourFeedback}"</p>
               )}
             </div>
           )}
@@ -450,7 +450,7 @@ function MeetingsTab({ isChinese }) {
     <div className="flex flex-col gap-8">
       {upcoming.length > 0 && (
         <div>
-          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 mb-4">
+          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-450 mb-4">
             {isChinese ? '即将到来' : 'Upcoming'} ({upcoming.length})
           </p>
           <div className="flex flex-col gap-4">
@@ -460,7 +460,7 @@ function MeetingsTab({ isChinese }) {
       )}
       {completed.length > 0 && (
         <div>
-          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 mb-4">
+          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-450 mb-4">
             {isChinese ? '历史记录' : 'Past Meetings'} ({completed.length})
           </p>
           <div className="flex flex-col gap-4">
@@ -501,17 +501,17 @@ function MyProfileTab({ isChinese }) {
       {/* Bio */}
       <Card variant="default" className="p-5">
         <div className="flex items-center justify-between mb-3">
-          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-500">
+          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-450">
             {isChinese ? '个人简介' : 'About Me'}
           </p>
-          <button className="text-[10px] text-[#C0392B] font-semibold hover:text-[#E74C3C] transition-colors uppercase tracking-widest">
+          <button className="text-[10px] text-[#0F8A96] font-semibold hover:text-[#0F8A96] transition-colors uppercase tracking-widest">
             {isChinese ? '编辑' : 'Edit'}
           </button>
         </div>
-        <p className="text-sm text-[#9A8F8A] leading-relaxed font-light">{u.bio}</p>
+        <p className="text-sm text-zinc-550 leading-relaxed font-light">{u.bio}</p>
         <div className="flex flex-wrap gap-2 mt-4">
           {u.interests.map((i) => (
-            <span key={i} className="text-[10px] px-3 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 font-medium">{i}</span>
+            <span key={i} className="text-[10px] px-3 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/80 shadow-sm text-zinc-450 font-medium">{i}</span>
           ))}
         </div>
       </Card>
@@ -519,10 +519,10 @@ function MyProfileTab({ isChinese }) {
       {/* Profile fields */}
       <Card variant="default" className="p-5">
         <div className="flex items-center justify-between mb-4">
-          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-500">
+          <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-450">
             {isChinese ? '基本信息' : 'Profile Details'}
           </p>
-          <button className="text-[10px] text-[#C0392B] font-semibold hover:text-[#E74C3C] transition-colors uppercase tracking-widest">
+          <button className="text-[10px] text-[#0F8A96] font-semibold hover:text-[#0F8A96] transition-colors uppercase tracking-widest">
             {isChinese ? '编辑' : 'Edit'}
           </button>
         </div>
@@ -530,7 +530,7 @@ function MyProfileTab({ isChinese }) {
           {fields.map(({ label, value }) => (
             <div key={label}>
               <p className="text-[10px] uppercase tracking-widest text-zinc-600 mb-0.5">{label}</p>
-              <p className="text-sm text-[#F5F0EB] font-medium">{value}</p>
+              <p className="text-sm text-zinc-800 font-medium">{value}</p>
             </div>
           ))}
         </div>
@@ -538,7 +538,7 @@ function MyProfileTab({ isChinese }) {
 
       {/* Verification status */}
       <Card variant="default" className="p-5">
-        <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 mb-4">
+        <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-450 mb-4">
           {isChinese ? '认证状态' : 'Verification Status'}
         </p>
         <div className="flex flex-col gap-3">
@@ -551,11 +551,11 @@ function MyProfileTab({ isChinese }) {
           ].map(({ label, done }) => (
             <div key={label} className="flex items-center gap-3">
               {done
-                ? <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                : <div className="w-4 h-4 rounded-full border-2 border-zinc-700 shrink-0" />}
-              <span className={`text-xs ${done ? 'text-zinc-300' : 'text-zinc-600'}`}>{label}</span>
+                ? <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                : <div className="w-4 h-4 rounded-full border-2 border-zinc-200 shrink-0" />}
+              <span className={`text-xs ${done ? 'text-zinc-650' : 'text-zinc-600'}`}>{label}</span>
               {!done && (
-                <button className="ml-auto text-[10px] text-[#C0392B] font-semibold hover:text-[#E74C3C] transition-colors uppercase tracking-widest shrink-0">
+                <button className="ml-auto text-[10px] text-[#0F8A96] font-semibold hover:text-[#0F8A96] transition-colors uppercase tracking-widest shrink-0">
                   {isChinese ? '立即认证' : 'Verify'}
                 </button>
               )}
@@ -582,14 +582,14 @@ export const MyDashboardPage = ({ isChinese, onLoginToggle }) => {
   return (
     <PageWrapper className="w-full pt-20">
       {/* Page header */}
-      <div className="border-b border-zinc-900 bg-[#0D0D0D] px-8 pt-10 pb-0">
+      <div className="border-b border-zinc-150 bg-[#FAF7F2] px-8 pt-10 pb-0">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-end justify-between gap-4 mb-0 flex-wrap">
             <div>
-              <span className="text-[10px] uppercase tracking-widest font-bold text-[#E74C3C]">
+              <span className="text-[10px] uppercase tracking-widest font-bold text-[#0F8A96]">
                 {isChinese ? '会员中心' : 'MEMBER PORTAL'}
               </span>
-              <h1 className="font-serif text-2xl md:text-3xl font-bold text-[#F5F0EB] mt-1">
+              <h1 className="font-serif text-2xl md:text-3xl font-bold text-zinc-800 mt-1">
                 {isChinese ? '个人资料' : 'Profile'}
               </h1>
             </div>
@@ -613,8 +613,8 @@ export const MyDashboardPage = ({ isChinese, onLoginToggle }) => {
                     onClick={() => setActiveTab(id)}
                     className={`flex items-center gap-2 px-4 py-3 text-xs font-semibold whitespace-nowrap border-b-2 transition-all duration-200 ${
                       isActive
-                        ? 'border-[#C0392B] text-[#E74C3C]'
-                        : 'border-transparent text-zinc-500 hover:text-[#F5F0EB]'
+                        ? 'border-[#0F8A96] text-[#0F8A96]'
+                        : 'border-transparent text-zinc-450 hover:text-zinc-800'
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -631,7 +631,7 @@ export const MyDashboardPage = ({ isChinese, onLoginToggle }) => {
                   navigate('/');
                 }
               }}
-              className="flex items-center gap-2 text-[#E74C3C] hover:text-white border border-[#E74C3C]/40 hover:bg-[#C0392B] text-xs font-bold px-3 py-1.5 rounded-xl transition-all duration-200 mb-1"
+              className="flex items-center gap-2 text-[#0F8A96] hover:text-white border border-[#0F8A96]/40 hover:bg-[#0F8A96] text-xs font-bold px-3 py-1.5 rounded-xl transition-all duration-200 mb-1"
             >
               <LogOut className="w-3.5 h-3.5" />
               {isChinese ? '安全退出' : 'Logout'}
@@ -641,7 +641,7 @@ export const MyDashboardPage = ({ isChinese, onLoginToggle }) => {
       </div>
 
       {/* Body */}
-      <div className="px-8 py-10 bg-[#0D0D0D] min-h-screen">
+      <div className="px-8 py-10 bg-[#FAF7F2] min-h-screen">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Sidebar */}

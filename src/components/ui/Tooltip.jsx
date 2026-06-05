@@ -28,7 +28,7 @@ export const Tooltip = ({
       {visible && (
         <div
           className={cn(
-            'absolute z-30 px-2.5 py-1.5 text-[10px] uppercase font-bold tracking-widest text-[#F5F0EB] bg-zinc-950 border border-zinc-800 rounded shadow-lg pointer-events-none whitespace-nowrap',
+            'absolute z-30 px-2.5 py-1.5 text-[10px] uppercase font-bold tracking-widest text-zinc-800 bg-white border border-zinc-200/80 shadow-sm rounded shadow-lg pointer-events-none whitespace-nowrap',
             positions[position],
             className
           )}

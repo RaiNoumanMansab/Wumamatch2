@@ -30,10 +30,10 @@ export const Textarea = React.forwardRef(({
         {...props}
       />
       {error && (
-        <span className="text-xs text-red-400 font-medium">{error}</span>
+        <span className="text-xs text-[#C0392B] font-medium">{error}</span>
       )}
       {!error && helperText && (
-        <span className="text-[11px] text-zinc-500">{helperText}</span>
+        <span className="text-[11px] text-zinc-450">{helperText}</span>
       )}
     </div>
   );

@@ -22,13 +22,13 @@ export const ProgressBar = ({
               <div
                 className={cn(
                   'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-500 border-2',
-                  isCompleted && 'bg-[#C0392B] border-[#C0392B] text-[#F5F0EB]',
-                  isActive && 'bg-[#C0392B] border-[#E74C3C] text-[#F5F0EB] shadow-[0_0_15px_rgba(231,76,60,0.5)] scale-110',
-                  !isCompleted && !isActive && 'bg-zinc-950 border-zinc-800 text-zinc-500'
+                  isCompleted && 'bg-[#0F8A96] border-[#0F8A96] text-white',
+                  isActive && 'bg-[#0F8A96] border-[#3AAEA9] text-white shadow-[0_0_15px_rgba(15,138,150,0.3)] scale-110',
+                  !isCompleted && !isActive && 'bg-white border-zinc-200 text-zinc-400'
                 )}
               >
                 {isCompleted ? (
-                  <Check className="w-4 h-4 text-[#F5F0EB]" />
+                  <Check className="w-4 h-4 text-white" />
                 ) : (
                   <span>{stepNum}</span>
                 )}
@@ -37,7 +37,7 @@ export const ProgressBar = ({
               <span
                 className={cn(
                   'mt-2.5 text-[10px] uppercase font-bold tracking-widest transition-all duration-300',
-                  isActive ? 'text-[#E74C3C]' : 'text-zinc-500'
+                  isActive ? 'text-[#0F8A96]' : 'text-zinc-400'
                 )}
               >
                 {stepName}
@@ -46,9 +46,9 @@ export const ProgressBar = ({
             
             {/* Step Connector Line */}
             {index < steps.length - 1 && (
-              <div className="flex-1 h-[2px] bg-zinc-850 -mt-6 relative">
+              <div className="flex-1 h-[2px] bg-zinc-200 -mt-6 relative">
                 <div
-                  className="absolute inset-y-0 left-0 bg-[#C0392B] transition-all duration-500"
+                  className="absolute inset-y-0 left-0 bg-[#0F8A96] transition-all duration-500"
                   style={{ width: isCompleted ? '100%' : '0%' }}
                 />
               </div>

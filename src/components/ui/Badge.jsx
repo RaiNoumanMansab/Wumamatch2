@@ -11,22 +11,22 @@ export const Badge = ({
     'basic-verified': {
       icon: ShieldCheck,
       text: 'Basic Verified',
-      style: 'bg-blue-950/60 border border-blue-500/40 text-blue-300'
+      style: 'bg-teal-50 border border-teal-200 text-teal-700'
     },
     'premium-verified': {
       icon: Crown,
       text: 'Premium Verified',
-      style: 'bg-amber-950/60 border border-[#D4A853]/40 text-[#D4A853]'
+      style: 'bg-[#FAF6F0] border border-[#D4A853]/40 text-[#B38F44]'
     },
     'matchmaker': {
       icon: UserCheck,
       text: 'Matchmaker Curated',
-      style: 'bg-[#3B0000] border border-[#C0392B]/40 text-[#E74C3C]'
+      style: 'bg-[#E6F7F6] border border-[#0F8A96]/30 text-[#0F8A96]'
     },
     'new': {
       icon: Sparkles,
       text: 'New Member',
-      style: 'bg-zinc-800 border border-zinc-700 text-zinc-300'
+      style: 'bg-zinc-100 border border-zinc-200/80 text-zinc-600'
     }
   };
 

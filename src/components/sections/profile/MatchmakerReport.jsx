@@ -9,12 +9,12 @@ export const MatchmakerReport = ({ member, isChinese }) => {
 
   return (
     <div className="flex flex-col gap-6 text-left">
-      <Card variant="gold" className="p-6 bg-[#1A1A1A] border-[#D4A853]/30">
+      <Card variant="gold" className="p-6 bg-white border-[#D4A853]/30">
         {/* Header */}
-        <div className="flex justify-between items-center border-b border-zinc-800 pb-4 mb-6">
+        <div className="flex justify-between items-center border-b border-zinc-200/80 shadow-sm pb-4 mb-6">
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-[#D4A853] animate-pulse" />
-            <h3 className="font-serif text-lg font-bold text-[#F5F0EB]">
+            <h3 className="font-serif text-lg font-bold text-zinc-800">
               {isChinese ? '红娘深度配对报告' : 'Expert Matchmaker Report'}
             </h3>
           </div>
@@ -26,7 +26,7 @@ export const MatchmakerReport = ({ member, isChinese }) => {
           <h4 className="text-xs uppercase tracking-widest font-bold text-[#D4A853] mb-2">
             {isChinese ? '会员综合评估' : 'Member Summary'}
           </h4>
-          <p className="text-xs md:text-sm text-[#9A8F8A] leading-relaxed font-light">
+          <p className="text-xs md:text-sm text-zinc-550 leading-relaxed font-light">
             {report.summary || (isChinese ? '该会员展现出极高的人格魅力与自我修养。' : 'An emotionally mature individual...')}
           </p>
         </div>
@@ -36,7 +36,7 @@ export const MatchmakerReport = ({ member, isChinese }) => {
           <h4 className="text-xs uppercase tracking-widest font-bold text-[#D4A853] mb-2">
             {isChinese ? '性格特质与依恋类型' : 'Personality & Attachment Analysis'}
           </h4>
-          <p className="text-xs md:text-sm text-[#9A8F8A] leading-relaxed font-light">
+          <p className="text-xs md:text-sm text-zinc-550 leading-relaxed font-light">
             {report.personalityAnalysis || (isChinese ? '展现出稳定安全的依恋人格，注重高质量对话与情感安全。' : 'Displays secure attachment patterns...')}
           </p>
         </div>
@@ -50,7 +50,7 @@ export const MatchmakerReport = ({ member, isChinese }) => {
             {report.strengths?.map((strength) => (
               <span 
                 key={strength}
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#3B0000]/30 border border-[#C0392B]/20 text-xs text-[#E74C3C]"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#E6F7F6]/30 border border-[#0F8A96]/20 text-xs text-[#0F8A96]"
               >
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#D4A853]" />
                 <span>{strength}</span>
@@ -66,35 +66,35 @@ export const MatchmakerReport = ({ member, isChinese }) => {
         </div>
 
         {/* Ideal Partner profile */}
-        <div className="border-t border-zinc-850 pt-5 mt-6">
+        <div className="border-t border-zinc-150 pt-5 mt-6">
           <h4 className="text-xs uppercase tracking-widest font-bold text-[#D4A853] mb-3">
             {isChinese ? '红娘画像：理想伴侣档案' : 'Ideal Matching Partner Profile'}
           </h4>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs bg-zinc-950/40 p-4 border border-zinc-900 rounded">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs bg-white/40 p-4 border border-zinc-150 rounded">
             <div>
-              <span className="text-zinc-500 block mb-1 uppercase text-[9px] font-bold">{isChinese ? '建议年龄' : 'Age Range'}</span>
-              <span className="text-[#F5F0EB]">{report.idealMatchProfile?.ageRange || '32–42'}</span>
+              <span className="text-zinc-450 block mb-1 uppercase text-[9px] font-bold">{isChinese ? '建议年龄' : 'Age Range'}</span>
+              <span className="text-zinc-800">{report.idealMatchProfile?.ageRange || '32–42'}</span>
             </div>
             <div>
-              <span className="text-zinc-500 block mb-1 uppercase text-[9px] font-bold">{isChinese ? '建议作息' : 'Lifestyle'}</span>
-              <span className="text-[#F5F0EB]">{report.idealMatchProfile?.lifestyle || (isChinese ? '规律健康' : 'Balanced')}</span>
+              <span className="text-zinc-450 block mb-1 uppercase text-[9px] font-bold">{isChinese ? '建议作息' : 'Lifestyle'}</span>
+              <span className="text-zinc-800">{report.idealMatchProfile?.lifestyle || (isChinese ? '规律健康' : 'Balanced')}</span>
             </div>
             <div>
-              <span className="text-zinc-500 block mb-1 uppercase text-[9px] font-bold">{isChinese ? '核心价值契合' : 'Core Values'}</span>
-              <span className="text-[#F5F0EB] truncate block">{report.idealMatchProfile?.values || (isChinese ? '家庭观念强' : 'Family-oriented')}</span>
+              <span className="text-zinc-450 block mb-1 uppercase text-[9px] font-bold">{isChinese ? '核心价值契合' : 'Core Values'}</span>
+              <span className="text-zinc-800 truncate block">{report.idealMatchProfile?.values || (isChinese ? '家庭观念强' : 'Family-oriented')}</span>
             </div>
           </div>
         </div>
       </Card>
 
       {/* Hidden Staff Only Card */}
-      <Card variant="bordered" className="p-6 bg-zinc-950/60 border-zinc-900/80 flex items-center justify-between gap-4">
+      <Card variant="bordered" className="p-6 bg-white/60 border-zinc-150/80 flex items-center justify-between gap-4">
         <div className="flex gap-4">
-          <div className="flex-shrink-0 w-10 h-10 rounded bg-zinc-900 border border-zinc-850 flex items-center justify-center text-zinc-500">
+          <div className="flex-shrink-0 w-10 h-10 rounded bg-zinc-100 border border-zinc-150 flex items-center justify-center text-zinc-450">
             <Lock className="w-4 h-4" />
           </div>
           <div>
-            <h4 className="text-xs uppercase tracking-widest font-bold text-zinc-400 flex items-center gap-1.5 mb-1">
+            <h4 className="text-xs uppercase tracking-widest font-bold text-zinc-450 flex items-center gap-1.5 mb-1">
               <span>{isChinese ? '红娘后台保密记录 (Staff Only)' : 'Confidential Matchmaker Log (Staff Only)'}</span>
               <EyeOff className="w-3.5 h-3.5 text-zinc-600" />
             </h4>
@@ -105,7 +105,7 @@ export const MatchmakerReport = ({ member, isChinese }) => {
             </p>
           </div>
         </div>
-        <span className="text-[9px] uppercase tracking-widest bg-zinc-900 border border-zinc-800 text-zinc-600 font-bold px-2 py-1 rounded">
+        <span className="text-[9px] uppercase tracking-widest bg-zinc-100 border border-zinc-200/80 shadow-sm text-zinc-600 font-bold px-2 py-1 rounded">
           {isChinese ? '已加密' : 'Encrypted'}
         </span>
       </Card>

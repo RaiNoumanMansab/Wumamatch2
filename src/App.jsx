@@ -32,7 +32,7 @@ export function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-[#0D0D0D] text-[#F5F0EB] flex flex-col justify-between selection:bg-[#C0392B] selection:text-white">
+      <div className="min-h-screen bg-[#FAF7F2] text-[#2D3748] flex flex-col justify-between selection:bg-[#0F8A96] selection:text-white">
         {/* Navigation Bar */}
         <Navbar
           isLoggedIn={isLoggedIn}

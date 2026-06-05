@@ -124,42 +124,42 @@ export const RegistrationPage = ({ isChinese }) => {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: 'spring', duration: 0.6 }}
-              className="mb-8 bg-[#3B0000]/30 border border-[#C0392B]/40 p-4 rounded-full"
+              className="mb-8 bg-[#E6F7F6]/30 border border-[#0F8A96]/40 p-4 rounded-full"
             >
-              <CheckCircle2 className="w-16 h-16 text-[#E74C3C]" />
+              <CheckCircle2 className="w-16 h-16 text-[#0F8A96]" />
             </motion.div>
 
-            <h2 className="font-serif text-3xl font-bold text-[#F5F0EB] mb-4">
+            <h2 className="font-serif text-3xl font-bold text-zinc-800 mb-4">
               {isChinese ? '档案提交成功！' : 'Profile Submitted Successfully'}
             </h2>
             
-            <p className="text-xs md:text-sm text-[#9A8F8A] leading-relaxed mb-8 font-light">
+            <p className="text-xs md:text-sm text-zinc-550 leading-relaxed mb-8 font-light">
               {isChinese
                 ? '感谢您对 WuMa Match 的信任。我们只服务真诚严肃且以结婚为目的的会员。红娘顾问团队已收到您的档案，并在开始人脸实名审查。'
                 : 'Thank you for your application to join WuMa Match. We are dedicated to maintaining a high-caliber community. Our review process has begun.'}
             </p>
 
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-5 text-left mb-10">
-              <Card variant="default" className="p-4 bg-[#141414] border-zinc-800">
+              <Card variant="default" className="p-4 bg-white border-zinc-200/80 shadow-sm">
                 <Clock className="w-5 h-5 text-[#D4A853] mb-3" />
-                <h4 className="text-[10px] uppercase tracking-widest font-bold text-[#F5F0EB] mb-2">{isChinese ? '资料核实' : 'Profile Review'}</h4>
-                <p className="text-[11px] text-[#9A8F8A] leading-relaxed">
+                <h4 className="text-[10px] uppercase tracking-widest font-bold text-zinc-800 mb-2">{isChinese ? '资料核实' : 'Profile Review'}</h4>
+                <p className="text-[11px] text-zinc-550 leading-relaxed">
                   {isChinese ? '红娘团队将在24小时内审核您的材料。' : 'Reviewing background details within 24 hours.'}
                 </p>
               </Card>
 
-              <Card variant="default" className="p-4 bg-[#141414] border-zinc-800">
+              <Card variant="default" className="p-4 bg-white border-zinc-200/80 shadow-sm">
                 <Mail className="w-5 h-5 text-[#D4A853] mb-3" />
-                <h4 className="text-[10px] uppercase tracking-widest font-bold text-[#F5F0EB] mb-2">{isChinese ? '邮箱邀请' : 'Email Invitation'}</h4>
-                <p className="text-[11px] text-[#9A8F8A] leading-relaxed">
+                <h4 className="text-[10px] uppercase tracking-widest font-bold text-zinc-800 mb-2">{isChinese ? '邮箱邀请' : 'Email Invitation'}</h4>
+                <p className="text-[11px] text-zinc-550 leading-relaxed">
                   {isChinese ? '通过后我们将发送1对1红娘沟通链接。' : 'Consultation scheduling link sent to verified emails.'}
                 </p>
               </Card>
 
-              <Card variant="default" className="p-4 bg-[#141414] border-zinc-800">
+              <Card variant="default" className="p-4 bg-white border-zinc-200/80 shadow-sm">
                 <ShieldAlert className="w-5 h-5 text-[#D4A853] mb-3" />
-                <h4 className="text-[10px] uppercase tracking-widest font-bold text-[#F5F0EB] mb-2">{isChinese ? '身份安全' : 'Liveness check'}</h4>
-                <p className="text-[11px] text-[#9A8F8A] leading-relaxed">
+                <h4 className="text-[10px] uppercase tracking-widest font-bold text-zinc-800 mb-2">{isChinese ? '身份安全' : 'Liveness check'}</h4>
+                <p className="text-[11px] text-zinc-550 leading-relaxed">
                   {isChinese ? '首次见面需提供驾照/护照完成人脸认证。' : 'Veriff live liveness check required on onboarding.'}
                 </p>
               </Card>

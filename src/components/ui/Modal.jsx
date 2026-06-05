@@ -40,8 +40,7 @@ export const Modal = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 bg-slate-900/40 backdrop-blur-md"
           />
 
           {/* Modal Content */}
@@ -55,21 +54,21 @@ export const Modal = ({
             <Card
               variant="bordered"
               className={cn(
-                'w-full mx-auto shadow-2xl glass-panel relative overflow-y-auto max-h-[90vh]',
+                'w-full mx-auto shadow-2xl relative overflow-y-auto max-h-[90vh]',
                 sizes[size],
                 className
               )}
             >
               {/* Header */}
-              <div className="flex items-center justify-between px-6 py-5 border-b border-zinc-800/60">
+              <div className="flex items-center justify-between px-6 py-5 border-b border-zinc-100">
                 {title && (
-                  <h3 className="text-xl font-semibold text-[#F5F0EB]">
+                  <h3 className="text-xl font-bold text-[#053C42]">
                     {title}
                   </h3>
                 )}
                 <button
                   onClick={onClose}
-                  className="p-1 rounded bg-zinc-900 border border-zinc-850 hover:bg-zinc-850 hover:border-zinc-700 text-[#9A8F8A] hover:text-[#F5F0EB] transition-colors"
+                  className="p-1 rounded bg-zinc-50 border border-zinc-200 hover:bg-[#E6F7F6]/50 hover:border-teal-200 text-zinc-500 hover:text-[#0F8A96] transition-colors"
                 >
                   <X className="w-4 h-4" />
                 </button>

@@ -10,10 +10,10 @@ export const Card = ({
   const baseStyles = 'rounded-2xl transition-all duration-300 overflow-hidden';
   
   const variants = {
-    default: 'bg-[#1E1E1E] border border-zinc-800/80',
-    glass: 'bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.37)]',
-    bordered: 'border border-[#C0392B]/40 bg-[#111111]',
-    gold: 'border border-[#D4A853]/40 bg-[#1A1A1A] relative before:absolute before:top-0 before:left-0 before:right-0 before:h-[2px] before:bg-gradient-to-r before:from-[#D4A853] before:to-[#B38F44]'
+    default: 'bg-white border border-zinc-200/60 shadow-sm',
+    glass: 'bg-white/80 backdrop-blur-md border border-teal-500/10 shadow-[0_8px_32px_rgba(15,138,150,0.05)]',
+    bordered: 'border border-teal-500/20 bg-white shadow-sm',
+    gold: 'border border-[#D4A853]/30 bg-white relative before:absolute before:top-0 before:left-0 before:right-0 before:h-[2px] before:bg-gradient-to-r before:from-[#D4A853] before:to-[#B38F44] shadow-sm'
   };
 
   return (

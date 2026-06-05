@@ -21,9 +21,9 @@ export const MemberProfilePage = ({ isLoggedIn, isChinese }) => {
       <PageWrapper className="w-full pt-32">
         <SectionWrapper>
           <div className="text-center py-20 max-w-md mx-auto">
-            <HelpCircle className="w-16 h-16 text-[#C0392B] mx-auto mb-6" />
+            <HelpCircle className="w-16 h-16 text-[#0F8A96] mx-auto mb-6" />
             <h2 className="font-serif text-2xl font-bold mb-4">{isChinese ? '未找到会员档案' : 'Profile Not Found'}</h2>
-            <p className="text-sm text-[#9A8F8A] mb-8">
+            <p className="text-sm text-zinc-550 mb-8">
               {isChinese
                 ? '您所寻找的会员档案可能已被下线，或该ID不存在。请回到精选会员页面继续寻找。'
                 : 'The profile you are looking for does not exist or has been set to private.'}
@@ -51,7 +51,7 @@ export const MemberProfilePage = ({ isLoggedIn, isChinese }) => {
         <div className="mb-8 max-w-6xl mx-auto w-full flex justify-start">
           <Link
             to="/members"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-[#9A8F8A] hover:text-[#E74C3C] transition-colors"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-zinc-550 hover:text-[#0F8A96] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>{isChinese ? '返回会员列表' : 'Back to Members'}</span>
@@ -72,7 +72,7 @@ export const MemberProfilePage = ({ isLoggedIn, isChinese }) => {
           {/* Right Column (Tabs + Detailed content - span 8) */}
           <div className="lg:col-span-8 w-full flex flex-col gap-6">
             {/* Tab Navigation */}
-            <div className="flex border-b border-zinc-800 overflow-x-auto scrollbar-none gap-2">
+            <div className="flex border-b border-zinc-200/80 shadow-sm overflow-x-auto scrollbar-none gap-2">
               {tabs.map((tab) => {
                 const isActive = activeTab === tab.id;
                 return (
@@ -81,8 +81,8 @@ export const MemberProfilePage = ({ isLoggedIn, isChinese }) => {
                     onClick={() => setActiveTab(tab.id)}
                     className={`py-3 px-4 text-xs md:text-sm uppercase tracking-wider font-semibold whitespace-nowrap border-b-2 transition-all duration-300 ${
                       isActive
-                        ? 'border-[#C0392B] text-[#E74C3C]'
-                        : 'border-transparent text-[#9A8F8A] hover:text-[#F5F0EB]'
+                        ? 'border-[#0F8A96] text-[#0F8A96]'
+                        : 'border-transparent text-zinc-550 hover:text-zinc-800'
                     }`}
                   >
                     {tab.label}

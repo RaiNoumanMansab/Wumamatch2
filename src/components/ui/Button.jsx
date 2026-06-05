@@ -16,10 +16,10 @@ export const Button = React.forwardRef(({
   const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 rounded-2xl focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed tracking-wide';
   
   const variants = {
-    primary: 'bg-[#C0392B] hover:bg-[#E74C3C] text-[#F5F0EB] hover:shadow-[0_0_20px_rgba(231,76,60,0.4)] shadow-md',
-    secondary: 'bg-[#1E1E1E] text-[#F5F0EB] border border-zinc-800 hover:bg-zinc-800 hover:border-zinc-700',
-    ghost: 'bg-[#141414]/60 text-[#E74C3C] border border-[#C0392B]/40 hover:bg-[#C0392B]/8 hover:border-[#E74C3C] shadow-sm',
-    danger: 'bg-red-800 hover:bg-red-700 text-white shadow-sm',
+    primary: 'bg-[#0F8A96] hover:bg-[#3AAEA9] text-white hover:shadow-[0_0_20px_rgba(15,138,150,0.3)] shadow-md',
+    secondary: 'bg-white text-zinc-800 border border-zinc-200 hover:bg-zinc-50 hover:border-zinc-300',
+    ghost: 'bg-[#E6F7F6]/60 text-[#0F8A96] border border-[#0F8A96]/30 hover:bg-[#0F8A96]/8 hover:border-[#0F8A96] shadow-sm',
+    danger: 'bg-[#C0392B]/90 hover:bg-[#C0392B] text-white shadow-sm',
     gold: 'bg-gradient-to-r from-[#D4A853] to-[#B38F44] hover:from-[#E5B865] hover:to-[#C59F53] text-[#0D0D0D] font-semibold hover:shadow-[0_0_15px_rgba(212,168,83,0.3)]'
   };
 

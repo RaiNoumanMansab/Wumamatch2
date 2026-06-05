@@ -24,8 +24,8 @@ const PLANS = [
     badge: null,
     icon: Shield,
     accentColor: '#9A8F8A',
-    borderColor: 'border-zinc-700/60',
-    bgColor: 'bg-[#141414]',
+    borderColor: 'border-zinc-200/60',
+    bgColor: 'bg-white',
     features: [
       { text: 'Identity verification badge', textCN: '实名身份认证徽章' },
       { text: 'Access to member directory', textCN: '浏览会员目录' },
@@ -51,9 +51,9 @@ const PLANS = [
     badge: 'Most Popular',
     badgeCN: '最受欢迎',
     icon: Star,
-    accentColor: '#C0392B',
-    borderColor: 'border-[#C0392B]/50',
-    bgColor: 'bg-[#160808]',
+    accentColor: '#0F8A96',
+    borderColor: 'border-[#0F8A96]/50',
+    bgColor: 'bg-[#E6F7F6]/30',
     featured: true,
     features: [
       { text: 'Everything in Essential', textCN: '包含基础会员全部权益' },
@@ -79,8 +79,8 @@ const PLANS = [
     badgeCN: '白手套服务',
     icon: Crown,
     accentColor: '#D4A853',
-    borderColor: 'border-[#D4A853]/50',
-    bgColor: 'bg-[#120e03]',
+    borderColor: 'border-[#D4A853]/40',
+    bgColor: 'bg-[#FDFBF7]',
     features: [
       { text: 'Everything in Premium', textCN: '包含高端会员全部权益' },
       { text: 'Unlimited curated introductions', textCN: '无限次精选引荐' },
@@ -138,35 +138,35 @@ export const PlansPage = ({ isChinese }) => {
 
       {/* ── Hero header ── */}
       <div className="relative py-20 px-6 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(192,57,43,0.18)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(15,138,150,0.10)_0%,transparent_70%)]" />
         <div className="relative max-w-7xl mx-auto">
           <motion.div {...fadeUp(0)} className="mb-5">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase bg-[#1a0505] border border-[#C0392B]/30 text-[#E74C3C]">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-[0.18em] uppercase bg-[#E6F7F6] border border-[#0F8A96]/30 text-[#0F8A96]">
               <Sparkles className="w-3 h-3 fill-current text-[#D4A853]" />
               {isChinese ? '透明真实的会员定价' : 'Transparent Membership Pricing'}
             </span>
           </motion.div>
 
-          <motion.h1 {...fadeUp(0.1)} className="font-serif text-4xl md:text-6xl font-bold text-[#F5F0EB] mb-5 leading-tight">
+          <motion.h1 {...fadeUp(0.1)} className="font-serif text-4xl md:text-6xl font-bold text-zinc-800 mb-5 leading-tight">
             {isChinese ? '选择适合您的\n会员方案' : 'Choose Your\nMembership Plan'}
           </motion.h1>
 
-          <motion.p {...fadeUp(0.2)} className="text-[#9A8F8A] text-sm md:text-base leading-relaxed max-w-3xl mx-auto mb-10">
+          <motion.p {...fadeUp(0.2)} className="text-zinc-550 text-sm md:text-base leading-relaxed max-w-3xl mx-auto mb-10">
             {isChinese
               ? '每项方案均包含实名认证、红娘人工配对及隐私保护。无隐藏费用，无自动续费陷阱。'
               : 'All plans include identity verification, human matchmaker support, and full privacy protection. No hidden fees.'}
           </motion.p>
 
           {/* Billing toggle */}
-          <motion.div {...fadeUp(0.28)} className="inline-flex items-center gap-1 p-1 rounded-full bg-[#1A1A1A] border border-zinc-800 mb-4">
+          <motion.div {...fadeUp(0.28)} className="inline-flex items-center gap-1 p-1 rounded-full bg-white border border-zinc-200/80 shadow-sm mb-4">
             {['monthly', 'annual'].map((cycle) => (
               <button
                 key={cycle}
                 onClick={() => setBillingCycle(cycle)}
                 className={`px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
                   billingCycle === cycle
-                    ? 'bg-[#C0392B] text-white shadow-[0_0_15px_rgba(192,57,43,0.4)]'
-                    : 'text-[#9A8F8A] hover:text-[#F5F0EB]'
+                    ? 'bg-[#0F8A96] text-white shadow-[0_0_15px_rgba(15,138,150,0.35)]'
+                    : 'text-zinc-550 hover:text-zinc-800'
                 }`}
               >
                 {cycle === 'monthly'
@@ -200,7 +200,7 @@ export const PlansPage = ({ isChinese }) => {
               >
                 {/* Gold top line for featured */}
                 {plan.featured && (
-                  <div className="h-[3px] bg-gradient-to-r from-[#C0392B] via-[#D4A853] to-[#C0392B]" />
+                  <div className="h-[3px] bg-gradient-to-r from-[#0F8A96] via-[#D4A853] to-[#0F8A96]" />
                 )}
 
                 {/* Badge */}
@@ -211,7 +211,7 @@ export const PlansPage = ({ isChinese }) => {
                       style={{
                         background: plan.id === 'elite'
                           ? 'linear-gradient(135deg,#D4A853,#B38F44)'
-                          : 'linear-gradient(135deg,#C0392B,#96000F)',
+                          : 'linear-gradient(135deg,#0F8A96,#074F57)',
                         color: plan.id === 'elite' ? '#0D0D0D' : '#fff',
                       }}
                     >
@@ -230,21 +230,21 @@ export const PlansPage = ({ isChinese }) => {
                       <Icon className="w-5 h-5" style={{ color: plan.accentColor }} />
                     </div>
 
-                    <h2 className="font-serif text-2xl font-bold text-[#F5F0EB] mb-1">
+                    <h2 className="font-serif text-2xl font-bold text-zinc-800 mb-1">
                       {isChinese ? plan.nameCN : plan.name}
                     </h2>
-                    <p className="text-xs text-[#9A8F8A] leading-relaxed">
+                    <p className="text-xs text-zinc-550 leading-relaxed">
                       {isChinese ? plan.taglineCN : plan.tagline}
                     </p>
                   </div>
 
                   {/* Price */}
                   <div className="flex items-end gap-1.5 py-4 border-y border-white/5">
-                    <span className="text-sm text-[#9A8F8A] font-semibold self-start mt-2">$</span>
+                    <span className="text-sm text-zinc-550 font-semibold self-start mt-2">$</span>
                     <span className="font-serif text-5xl font-bold" style={{ color: plan.accentColor }}>
                       {getPrice(plan.price).toLocaleString()}
                     </span>
-                    <span className="text-xs text-[#9A8F8A] mb-2">
+                    <span className="text-xs text-zinc-550 mb-2">
                       / {billingCycle === 'annual' ? (isChinese ? '年' : 'yr') : (isChinese ? '月' : 'mo')}
                       {billingCycle === 'annual' && (
                         <span className="ml-2 line-through opacity-50">${plan.price * 12}</span>
@@ -260,17 +260,17 @@ export const PlansPage = ({ isChinese }) => {
                           style={{ background: `${plan.accentColor}20` }}>
                           <Check className="w-2.5 h-2.5" style={{ color: plan.accentColor }} />
                         </div>
-                        <span className="text-xs text-[#C8BFB9] leading-relaxed">
+                        <span className="text-xs text-zinc-600 leading-relaxed">
                           {isChinese ? f.textCN : f.text}
                         </span>
                       </li>
                     ))}
                     {plan.excluded.map((f) => (
                       <li key={f.text} className="flex items-start gap-3 opacity-35">
-                        <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-zinc-800">
-                          <Lock className="w-2.5 h-2.5 text-zinc-500" />
+                        <div className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-zinc-100">
+                          <Lock className="w-2.5 h-2.5 text-zinc-450" />
                         </div>
-                        <span className="text-xs text-[#9A8F8A] leading-relaxed line-through">
+                        <span className="text-xs text-zinc-550 leading-relaxed line-through">
                           {isChinese ? f.textCN : f.text}
                         </span>
                       </li>
@@ -282,10 +282,10 @@ export const PlansPage = ({ isChinese }) => {
                     onClick={() => navigate('/register')}
                     className={`w-full py-3.5 rounded-2xl text-sm font-bold tracking-wide uppercase transition-all duration-300 flex items-center justify-center gap-2 group ${
                       plan.featured
-                        ? 'bg-gradient-to-r from-[#C0392B] to-[#96000F] text-white shadow-[0_0_25px_rgba(192,57,43,0.35)] hover:shadow-[0_0_35px_rgba(192,57,43,0.5)] hover:from-[#E74C3C] hover:to-[#C0392B]'
+                        ? 'bg-gradient-to-r from-[#0F8A96] to-[#074F57] text-white shadow-[0_0_25px_rgba(15,138,150,0.35)] hover:shadow-[0_0_35px_rgba(15,138,150,0.5)] hover:from-[#0F8A96] hover:to-[#3AAEA9]'
                         : plan.id === 'elite'
                           ? 'bg-gradient-to-r from-[#D4A853] to-[#B38F44] text-[#0D0D0D] hover:from-[#E5C06A] hover:to-[#C5A055]'
-                          : 'bg-zinc-800 text-[#F5F0EB] hover:bg-zinc-700 border border-zinc-700'
+                          : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200 border border-zinc-200 hover:border-zinc-300'
                     }`}
                   >
                     {isChinese ? '立即申请' : 'Get Started'}
@@ -298,16 +298,16 @@ export const PlansPage = ({ isChinese }) => {
         </div>
 
         {/* ── Enterprise / Custom ── */}
-        <motion.div {...fadeUp(0.3)} className="mt-8 rounded-3xl border border-[#D4A853]/20 bg-gradient-to-r from-[#120e03] via-[#1a1305] to-[#120e03] p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <motion.div {...fadeUp(0.3)} className="mt-8 rounded-3xl border border-[#D4A853]/30 bg-gradient-to-r from-[#FDFBF7] via-[#FBF8F2] to-[#FDFBF7] p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-5">
             <div className="w-14 h-14 rounded-2xl bg-[#D4A853]/10 border border-[#D4A853]/30 flex items-center justify-center flex-shrink-0">
               <Users className="w-6 h-6 text-[#D4A853]" />
             </div>
             <div className="text-left">
-              <h3 className="font-serif text-xl font-bold text-[#F5F0EB] mb-1">
+              <h3 className="font-serif text-xl font-bold text-zinc-800 mb-1">
                 {isChinese ? '企业团队合作方案' : 'Corporate & Group Packages'}
               </h3>
-              <p className="text-xs text-[#9A8F8A] leading-relaxed max-w-lg">
+              <p className="text-xs text-zinc-550 leading-relaxed max-w-lg">
                 {isChinese
                   ? '专为企业、机构或团体量身定制的批量会员配对方案。可私下联系我们的商务顾问获取独家报价。'
                   : 'Custom plans for corporations, associations, or groups of 5+ members. Contact us for bespoke pricing and dedicated support.'}
@@ -323,19 +323,19 @@ export const PlansPage = ({ isChinese }) => {
         <motion.div {...fadeUp(0.15)} className="mt-20">
           <div className="text-center mb-10">
             <div className="section-rule" />
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#F5F0EB] mb-3">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-zinc-800 mb-3">
               {isChinese ? '全方位方案对比' : 'Full Plan Comparison'}
             </h2>
-            <p className="text-xs text-[#9A8F8A] uppercase tracking-widest">
+            <p className="text-xs text-zinc-550 uppercase tracking-widest">
               {isChinese ? '清晰透明，无任何隐藏项目' : 'Transparent. Honest. No surprises.'}
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-zinc-800">
+          <div className="overflow-x-auto rounded-2xl border border-zinc-200/80 shadow-sm">
             <table className="w-full text-left text-xs md:text-sm">
               <thead>
-                <tr className="border-b border-zinc-800 bg-[#141414]">
-                  <th className="px-6 py-4 text-[#9A8F8A] font-semibold uppercase tracking-wider w-1/4">
+                <tr className="border-b border-zinc-200/80 shadow-sm bg-white">
+                  <th className="px-6 py-4 text-zinc-550 font-semibold uppercase tracking-wider w-1/4">
                     {isChinese ? '功能 / 权益' : 'Feature'}
                   </th>
                   {PLANS.map((p) => (
@@ -360,14 +360,14 @@ export const PlansPage = ({ isChinese }) => {
                   { label: isChinese ? '专属国际人脉' : 'Global Match Network',     e: false, p: false, el: true  },
                   { label: isChinese ? '24/7 热线服务' : '24/7 Phone Access',       e: false, p: false, el: true  },
                 ].map((row, i) => (
-                  <tr key={i} className={`border-b border-zinc-900/80 ${i % 2 === 0 ? 'bg-[#111]' : 'bg-[#0f0f0f]'}`}>
-                    <td className="px-6 py-4 text-[#9A8F8A] font-medium">{row.label}</td>
+                  <tr key={i} className={`border-b border-zinc-100 ${i % 2 === 0 ? 'bg-white' : 'bg-[#FAF7F2]/60'}`}>
+                    <td className="px-6 py-4 text-zinc-550 font-medium">{row.label}</td>
                     {[row.e, row.p, row.el].map((val, j) => (
                       <td key={j} className="px-6 py-4 text-center">
-                        {val === true  && <Check className="w-4 h-4 text-[#C0392B] mx-auto" />}
-                        {val === false && <span className="w-4 h-0.5 bg-zinc-800 block mx-auto rounded" />}
+                        {val === true  && <Check className="w-4 h-4 text-[#0F8A96] mx-auto" />}
+                        {val === false && <span className="w-4 h-0.5 bg-zinc-100 block mx-auto rounded" />}
                         {typeof val === 'string' && (
-                          <span className="font-bold text-[#F5F0EB]">{val}</span>
+                          <span className="font-bold text-zinc-800">{val}</span>
                         )}
                       </td>
                     ))}
@@ -382,7 +382,7 @@ export const PlansPage = ({ isChinese }) => {
         <motion.div {...fadeUp(0.2)} className="mt-20 max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <div className="section-rule" />
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#F5F0EB] mb-3">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-zinc-800 mb-3">
               {isChinese ? '常见问题解答' : 'Frequently Asked Questions'}
             </h2>
           </div>
@@ -393,22 +393,22 @@ export const PlansPage = ({ isChinese }) => {
                 key={i}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                   openFaq === i
-                    ? 'border-[#C0392B]/40 bg-[#160808]'
-                    : 'border-zinc-800/80 bg-[#111] hover:border-zinc-700'
+                    ? 'border-[#0F8A96]/40 bg-[#E6F7F6]/30'
+                    : 'border-zinc-200/60 shadow-sm bg-white hover:border-zinc-300'
                 }`}
               >
                 <button
                   className="w-full px-6 py-5 flex items-center justify-between text-left gap-4"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-semibold text-sm text-[#F5F0EB]">
+                  <span className="font-semibold text-sm text-zinc-800">
                     {isChinese ? faq.qCN : faq.q}
                   </span>
                   <div
                     className={`w-6 h-6 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                       openFaq === i
-                        ? 'bg-[#C0392B] border-[#C0392B] rotate-45'
-                        : 'border-zinc-700'
+                        ? 'bg-[#0F8A96] border-[#0F8A96] rotate-45'
+                        : 'border-zinc-200'
                     }`}
                   >
                     <span className="text-white font-bold text-sm leading-none">+</span>
@@ -421,7 +421,7 @@ export const PlansPage = ({ isChinese }) => {
                     exit={{ opacity: 0, height: 0 }}
                     className="px-6 pb-6"
                   >
-                    <p className="text-sm text-[#9A8F8A] leading-relaxed border-t border-zinc-800/60 pt-4">
+                    <p className="text-sm text-zinc-550 leading-relaxed border-t border-zinc-200/80 shadow-sm/60 pt-4">
                       {isChinese ? faq.aCN : faq.a}
                     </p>
                   </motion.div>
@@ -433,7 +433,7 @@ export const PlansPage = ({ isChinese }) => {
 
         {/* ── Bottom CTA ── */}
         <motion.div {...fadeUp(0.1)} className="mt-20 rounded-3xl overflow-hidden relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#96000F] via-[#C0392B] to-[#96000F]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#074F57] via-[#0F8A96] to-[#074F57]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,168,83,0.15)_0%,transparent_60%)]" />
           <div className="relative px-8 py-16 text-center flex flex-col items-center gap-6">
             <Heart className="w-10 h-10 text-white/30 fill-current" />
@@ -448,7 +448,7 @@ export const PlansPage = ({ isChinese }) => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => navigate('/register')}
-                className="px-10 py-4 rounded-2xl bg-white text-[#C0392B] font-bold text-sm uppercase tracking-wider hover:bg-[#F5F0EB] transition-colors shadow-lg"
+                className="px-10 py-4 rounded-2xl bg-white text-[#0F8A96] font-bold text-sm uppercase tracking-wider hover:bg-[#F5F0EB] transition-colors shadow-lg"
               >
                 {isChinese ? '立即免费注册' : 'Start Free Today'}
               </button>

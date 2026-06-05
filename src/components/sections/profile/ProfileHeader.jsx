@@ -37,7 +37,7 @@ export const ProfileHeader = ({ member, isLoggedIn, isChinese }) => {
 
   return (
     <div className="flex flex-col gap-6 w-full lg:sticky lg:top-24">
-      <Card variant="bordered" className="p-6 flex flex-col items-center border-[#C0392B]/20 bg-[#111111]">
+      <Card variant="bordered" className="p-6 flex flex-col items-center border-[#0F8A96]/20 bg-white">
         <div className="relative mb-6">
           <Avatar
             src={member.photo}
@@ -75,44 +75,44 @@ export const ProfileHeader = ({ member, isLoggedIn, isChinese }) => {
               </span>
             </Button>
           ) : (
-            <div className="w-full bg-[#1A1A1A] border border-zinc-800 rounded p-4 text-center">
+            <div className="w-full bg-white border border-zinc-200/80 shadow-sm rounded p-4 text-center">
               <Lock className="w-5 h-5 text-[#D4A853] mx-auto mb-2" />
-              <p className="text-[10px] text-[#9A8F8A] uppercase tracking-widest font-semibold leading-relaxed mb-3">
+              <p className="text-[10px] text-zinc-550 uppercase tracking-widest font-semibold leading-relaxed mb-3">
                 {isChinese ? '身份安全保护中' : 'Profile Actions Locked'}
               </p>
-              <p className="text-[11px] text-zinc-500 mb-3">
+              <p className="text-[11px] text-zinc-450 mb-3">
                 {isChinese ? '登录尊贵会员，即可预约红娘配对咨询' : 'Join WuMa Match to request a matchmaker consultation.'}
               </p>
             </div>
           )}
         </div>
 
-        <div className="w-full border-t border-zinc-850 pt-4 text-left">
-          <h4 className="text-[10px] uppercase tracking-widest font-bold text-zinc-500 mb-3">
+        <div className="w-full border-t border-zinc-150 pt-4 text-left">
+          <h4 className="text-[10px] uppercase tracking-widest font-bold text-zinc-450 mb-3">
             {isChinese ? '基础档案概览' : 'Quick Demographics'}
           </h4>
           <div className="flex flex-col gap-2.5 text-xs">
             <div className="flex justify-between">
-              <span className="text-[#9A8F8A]">{isChinese ? '年龄' : 'Age'}</span>
-              <span className="text-[#F5F0EB] font-medium">{member.age}</span>
+              <span className="text-zinc-550">{isChinese ? '年龄' : 'Age'}</span>
+              <span className="text-zinc-800 font-medium">{member.age}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-[#9A8F8A]">{isChinese ? '身高' : 'Height'}</span>
-              <span className="text-[#F5F0EB] font-medium">{member.height}</span>
+              <span className="text-zinc-550">{isChinese ? '身高' : 'Height'}</span>
+              <span className="text-zinc-800 font-medium">{member.height}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-[#9A8F8A]">{isChinese ? '常住国家' : 'Residence'}</span>
-              <span className="text-[#F5F0EB] font-medium">{member.city}, {member.country}</span>
+              <span className="text-zinc-550">{isChinese ? '常住国家' : 'Residence'}</span>
+              <span className="text-zinc-800 font-medium">{member.city}, {member.country}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-[#9A8F8A]">{isChinese ? '母语与外语' : 'Languages'}</span>
-              <span className="text-[#F5F0EB] font-medium truncate max-w-[150px]">
+              <span className="text-zinc-550">{isChinese ? '母语与外语' : 'Languages'}</span>
+              <span className="text-zinc-800 font-medium truncate max-w-[150px]">
                 {member.languages?.join(', ')}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-[#9A8F8A]">{isChinese ? '学历程度' : 'Education'}</span>
-              <span className="text-[#F5F0EB] font-medium">{member.education}</span>
+              <span className="text-zinc-550">{isChinese ? '学历程度' : 'Education'}</span>
+              <span className="text-zinc-800 font-medium">{member.education}</span>
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@ export const ProfileHeader = ({ member, isLoggedIn, isChinese }) => {
         onClose={() => setShowConsultModal(false)}
         title={isChinese ? '预约红娘配对咨询' : 'Schedule Matchmaker Consultation'}
       >
-        <form onSubmit={handleConsultSubmit} className="flex flex-col gap-4 text-xs md:text-sm text-[#9A8F8A]">
+        <form onSubmit={handleConsultSubmit} className="flex flex-col gap-4 text-xs md:text-sm text-zinc-550">
           <p className="leading-relaxed">
             {isChinese
               ? '预约红娘配对咨询以匹配此会员。您的专属顾问红娘将为您做全面的兼容性核对。'

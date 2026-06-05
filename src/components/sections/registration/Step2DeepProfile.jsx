@@ -133,9 +133,9 @@ export const Step2DeepProfile = ({ data, onSubmit, onBack, isChinese }) => {
   return (
     <div className="flex flex-col gap-6 w-full text-left pb-16">
       {/* Progress header */}
-      <div className="bg-[#141414] border-2 border-zinc-600 p-5 rounded-xl flex items-center justify-between gap-4">
+      <div className="bg-white border-2 border-zinc-600 p-5 rounded-xl flex items-center justify-between gap-4">
         <div>
-          <span className="text-[10px] uppercase font-bold tracking-widest text-[#9A8F8A]">
+          <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-550">
             {isChinese ? '深度问卷完成率' : 'Deep Qs Progress'}
           </span>
           <span className="block font-serif text-2xl font-bold text-[#D4A853]">
@@ -144,7 +144,7 @@ export const Step2DeepProfile = ({ data, onSubmit, onBack, isChinese }) => {
         </div>
         <div className="w-1/2 bg-zinc-800 h-2 rounded-full overflow-hidden">
           <div 
-            className="h-full bg-gradient-to-r from-[#C0392B] to-[#D4A853] transition-all duration-500" 
+            className="h-full bg-gradient-to-r from-[#0F8A96] to-[#D4A853] transition-all duration-500" 
             style={{ width: `${getOverallProgress()}%` }} 
           />
         </div>
@@ -160,9 +160,9 @@ export const Step2DeepProfile = ({ data, onSubmit, onBack, isChinese }) => {
             <Card
               key={idx}
               variant="bordered"
-              className={`border-2 border-l-4 overflow-hidden bg-[#111111] transition-all duration-300 !p-0 ${
+              className={`border-2 border-l-4 overflow-hidden bg-white transition-all duration-300 !p-0 ${
                 isOpen
-                  ? 'border-l-[#C0392B] border-zinc-600'
+                  ? 'border-l-[#0F8A96] border-zinc-600'
                   : isComplete
                     ? 'border-l-green-600 border-zinc-600'
                     : 'border-l-zinc-500 border-zinc-600'
@@ -172,19 +172,19 @@ export const Step2DeepProfile = ({ data, onSubmit, onBack, isChinese }) => {
               <button
                 type="button"
                 onClick={() => toggleAccordion(idx)}
-                className="w-full px-5 py-4 flex items-center justify-between hover:bg-[#1a1a1a] transition-colors border-b border-zinc-700/50"
+                className="w-full px-5 py-4 flex items-center justify-between hover:bg-[#1a1a1a] transition-colors border-b border-zinc-200/50"
               >
                 <div className="flex items-center gap-3">
                   {isComplete ? (
-                    <CheckCircle className="w-5 h-5 text-green-500 fill-current bg-zinc-950 rounded-full" />
+                    <CheckCircle className="w-5 h-5 text-green-500 fill-current bg-white rounded-full" />
                   ) : (
                     <Circle className="w-5 h-5 text-zinc-600" />
                   )}
-                  <span className="font-serif text-sm md:text-base font-bold text-[#F5F0EB]">
+                  <span className="font-serif text-sm md:text-base font-bold text-zinc-800">
                     {section.title}
                   </span>
                 </div>
-                {isOpen ? <ChevronUp className="w-4 h-4 text-zinc-400" /> : <ChevronDown className="w-4 h-4 text-zinc-400" />}
+                {isOpen ? <ChevronUp className="w-4 h-4 text-zinc-450" /> : <ChevronDown className="w-4 h-4 text-zinc-450" />}
               </button>
 
               {/* Accordion Content */}
@@ -194,7 +194,7 @@ export const Step2DeepProfile = ({ data, onSubmit, onBack, isChinese }) => {
                     initial={{ height: 0 }}
                     animate={{ height: 'auto' }}
                     exit={{ height: 0 }}
-                    className="border-t-2 border-zinc-700 px-5 md:px-6 py-6 bg-[#0d0d0d] flex flex-col gap-6"
+                    className="border-t-2 border-zinc-200 px-5 md:px-6 py-6 bg-[#0d0d0d] flex flex-col gap-6"
                   >
                     {/* Render fields depending on section index */}
                     {idx === 0 && (

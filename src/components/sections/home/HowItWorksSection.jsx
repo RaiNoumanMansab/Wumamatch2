@@ -65,13 +65,13 @@ export const HowItWorksSection = ({ isChinese }) => {
       <div className="hidden lg:block relative max-w-6xl mx-auto py-10">
         <div className="grid grid-cols-5 gap-4 relative">
           {/* Timeline line — centered through icon circles (w-16 / 2 = top-8) */}
-          <div className="absolute top-8 left-[10%] right-[10%] -translate-y-1/2 h-[2px] bg-zinc-800 z-0">
+          <div className="absolute top-8 left-[10%] right-[10%] -translate-y-1/2 h-[2px] bg-zinc-250 z-0">
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: '100%' }}
               viewport={viewportOnce}
               transition={{ duration: 1.2, ease: 'easeInOut' }}
-              className="h-full bg-gradient-to-r from-[#C0392B] to-[#D4A853]"
+              className="h-full bg-gradient-to-r from-[#0F8A96] to-[#D4A853]"
             />
           </div>
           {steps.map((step, idx) => {
@@ -87,17 +87,17 @@ export const HowItWorksSection = ({ isChinese }) => {
                 className="flex flex-col items-center px-2 text-center"
               >
                 {/* Step Circle Icon Wrapper */}
-                <div className="w-16 h-16 rounded-full bg-[#1A1A1A] border-2 border-zinc-850 flex items-center justify-center text-zinc-400 mb-6 hover:border-[#C0392B] hover:text-[#E74C3C] hover:shadow-[0_0_20px_rgba(231,76,60,0.3)] transition-all duration-300 relative z-10 group">
+                <div className="w-16 h-16 rounded-full bg-white border border-zinc-200/80 flex items-center justify-center text-zinc-450 mb-6 hover:border-[#0F8A96] hover:text-[#0F8A96] hover:shadow-[0_0_20px_rgba(15,138,150,0.15)] transition-all duration-300 relative z-10 group">
                   <Icon className="w-6 h-6" />
-                  <span className="absolute -top-2 -right-2 text-[10px] font-bold bg-[#C0392B] text-white rounded-full w-5 h-5 flex items-center justify-center shadow-md">
+                  <span className="absolute -top-2 -right-2 text-[10px] font-bold bg-[#0F8A96] text-white rounded-full w-5 h-5 flex items-center justify-center shadow-md">
                     {step.num}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-base font-bold text-[#F5F0EB] mb-2 uppercase tracking-wide">
+                <h3 className="font-serif text-base font-bold text-[#053C42] mb-2 uppercase tracking-wide">
                   {step.title}
                 </h3>
-                <p className="text-xs text-[#9A8F8A] leading-relaxed font-light">
+                <p className="text-xs text-zinc-450 leading-relaxed font-light">
                   {step.desc}
                 </p>
               </motion.div>
@@ -107,7 +107,7 @@ export const HowItWorksSection = ({ isChinese }) => {
       </div>
 
       {/* Mobile Vertical Timeline */}
-      <div className="lg:hidden relative max-w-xl mx-auto pl-8 text-left border-l border-zinc-800 flex flex-col gap-12">
+      <div className="lg:hidden relative max-w-xl mx-auto pl-8 text-left border-l border-zinc-200 flex flex-col gap-12">
         {steps.map((step, idx) => {
           const Icon = step.icon;
           return (
@@ -121,17 +121,17 @@ export const HowItWorksSection = ({ isChinese }) => {
               className="relative"
             >
               {/* Timeline dot overlay */}
-              <div className="absolute -left-[49px] top-0 w-8 h-8 rounded-full bg-[#1A1A1A] border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-[#E74C3C] hover:border-[#C0392B]">
+              <div className="absolute -left-[49px] top-0 w-8 h-8 rounded-full bg-white border border-zinc-200 flex items-center justify-center text-zinc-450 hover:text-[#0F8A96] hover:border-[#0F8A96]">
                 <Icon className="w-4 h-4" />
               </div>
 
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#E74C3C] block mb-1">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-[#0F8A96] block mb-1">
                 Step {step.num}
               </span>
-              <h3 className="font-serif text-lg font-bold text-[#F5F0EB] mb-2">
+              <h3 className="font-serif text-lg font-bold text-[#053C42] mb-2">
                 {step.title}
               </h3>
-              <p className="text-xs text-[#9A8F8A] leading-relaxed">
+              <p className="text-xs text-zinc-450 leading-relaxed">
                 {step.desc}
               </p>
             </motion.div>

@@ -24,20 +24,21 @@ export const BlogsPage = ({ isChinese }) => {
   return (
     <PageWrapper className="w-full pt-20">
       {/* Hero */}
-      <div className="bg-gradient-to-b from-[#180303] via-[#0D0D0D] to-[#0D0D0D] pt-20 pb-8 px-8 text-center">
-        <div className="max-w-6xl mx-auto flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase bg-[#1a0505] border border-[#C0392B]/30 text-[#E74C3C] mb-5">
+      <div className="relative bg-[#FAF7F2] pt-20 pb-10 px-8 text-center overflow-hidden border-b border-zinc-200/60">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(15,138,150,0.08)_0%,transparent_70%)]" />
+        <div className="relative max-w-6xl mx-auto flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase bg-[#E6F7F6] border border-[#0F8A96]/30 text-[#0F8A96] mb-5">
             <BookOpen className="w-3 h-3" />
             {isChinese ? 'WuMa 婚恋洞察' : 'WuMa Insights'}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[#F5F0EB] mb-4">
+          <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-tight text-[#053C42] mb-4">
             {isChinese ? '红娘博客与情感指南' : 'Matchmaker Blog & Relationship Guides'}
           </h1>
           <p className="text-xs md:text-sm uppercase tracking-widest font-semibold text-[#D4A853] mb-6">
             {isChinese ? '专业红娘执笔 · 真诚婚恋智慧' : 'Expert advice for intentional, meaningful love'}
           </p>
           <Divider icon className="!my-5" />
-          <p className="text-xs md:text-sm text-[#9A8F8A] leading-relaxed max-w-3xl font-light">
+          <p className="text-xs md:text-sm text-zinc-550 leading-relaxed max-w-3xl font-light">
             {isChinese
               ? '从约会技巧到跨文化婚恋，我们的资深红娘与关系教练分享真实经验，帮助您在寻爱路上更有方向、更有信心。'
               : 'From first-date conversation tips to navigating long-distance love across the diaspora — curated wisdom from the matchmakers who know what works.'}
@@ -78,8 +79,8 @@ export const BlogsPage = ({ isChinese }) => {
           </div>
         ) : (
           <div className="text-center py-16 max-w-md mx-auto">
-            <BookOpen className="w-10 h-10 text-[#C0392B]/40 mx-auto mb-4" />
-            <p className="text-sm text-[#9A8F8A]">
+            <BookOpen className="w-10 h-10 text-[#0F8A96]/40 mx-auto mb-4" />
+            <p className="text-sm text-zinc-550">
               {isChinese ? '该分类暂无文章，请选择其他分类。' : 'No articles in this category yet. Try another filter.'}
             </p>
           </div>

@@ -39,7 +39,7 @@ export const MatchmakerTeamSection = ({ isChinese }) => {
                 className="w-full flex flex-col justify-between p-6 border-[#D4A853]/20 hover:border-[#D4A853] hover:shadow-[0_10px_30px_rgba(212,168,83,0.15)] transition-all duration-500"
               >
                 {/* Photo & Badge */}
-                <div className="relative mb-6 rounded-2xl overflow-hidden aspect-[4/5] border border-zinc-800 group">
+                <div className="relative mb-6 rounded-2xl overflow-hidden aspect-[4/5] border border-zinc-100 group">
                   <img
                     src={matchmaker.photo}
                     alt={matchmaker.name}
@@ -53,25 +53,25 @@ export const MatchmakerTeamSection = ({ isChinese }) => {
                 {/* Details */}
                 <div className="text-left flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-bold text-[#F5F0EB] mb-1 font-serif">
+                    <h3 className="text-xl font-bold text-[#053C42] mb-1 font-serif">
                       {matchmaker.name}
                     </h3>
                     <p className="text-xs text-[#D4A853] font-semibold uppercase tracking-wider mb-4">
                       {matchmaker.title}
                     </p>
-                    <p className="text-xs text-[#9A8F8A] leading-relaxed mb-6 font-light">
+                    <p className="text-xs text-zinc-450 leading-relaxed mb-6 font-light">
                       {matchmaker.bio}
                     </p>
                   </div>
 
                   {/* Footer stats details */}
-                  <div className="border-t border-zinc-850 pt-4 flex items-center justify-between text-[10px] text-zinc-500 uppercase tracking-widest font-semibold">
+                  <div className="border-t border-zinc-100 pt-4 flex items-center justify-between text-[10px] text-zinc-450 uppercase tracking-widest font-semibold">
                     <div className="flex items-center gap-1.5">
                       <Award className="w-3.5 h-3.5 text-[#D4A853]" />
                       <span>{isChinese ? `${matchmaker.yearsExperience}年经验` : `${matchmaker.yearsExperience} Yrs Exp`}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Heart className="w-3.5 h-3.5 text-[#C0392B]" />
+                      <Heart className="w-3.5 h-3.5 text-[#0F8A96]" />
                       <span>{isChinese ? `${matchmaker.successMatches}对联姻` : `${matchmaker.successMatches} Matches`}</span>
                     </div>
                   </div>

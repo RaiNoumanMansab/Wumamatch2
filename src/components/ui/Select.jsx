@@ -35,16 +35,16 @@ export const Select = React.forwardRef(({
           </option>
         )}
         {options.map((opt) => (
-          <option key={opt.value} value={opt.value} className="bg-[#141414] text-[#F5F0EB]">
+          <option key={opt.value} value={opt.value} className="bg-white text-zinc-800">
             {opt.label}
           </option>
         ))}
       </select>
       {error && (
-        <span className="text-xs text-red-400 font-medium">{error}</span>
+        <span className="text-xs text-[#C0392B] font-medium">{error}</span>
       )}
       {!error && helperText && (
-        <span className="text-[11px] text-zinc-500">{helperText}</span>
+        <span className="text-[11px] text-zinc-450">{helperText}</span>
       )}
     </div>
   );

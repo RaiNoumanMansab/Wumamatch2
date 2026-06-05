@@ -79,16 +79,16 @@ export const WhyWuMaSection = ({ isChinese }) => {
             >
               <Card
                 variant="default"
-                className="p-6 h-full flex gap-5 border-zinc-800/60 bg-[#141414] hover:border-[#C0392B]/30 hover:bg-[#1A1A1A] transition-all duration-300 group"
+                className="p-6 h-full flex gap-5 border-zinc-200/80 bg-white hover:border-[#0F8A96]/30 hover:bg-[#FAF7F2]/30 transition-all duration-300 group shadow-sm"
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded bg-[#3B0000]/40 border border-[#C0392B]/30 flex items-center justify-center text-[#E74C3C] group-hover:bg-[#C0392B] group-hover:text-white transition-all duration-500">
+                <div className="flex-shrink-0 w-12 h-12 rounded bg-[#E6F7F6] border border-[#0F8A96]/20 flex items-center justify-center text-[#0F8A96] group-hover:bg-[#0F8A96] group-hover:text-white transition-all duration-500 shadow-sm">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#F5F0EB] mb-2 group-hover:text-[#E74C3C] transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-[#053C42] mb-2 group-hover:text-[#0F8A96] transition-colors duration-300 font-serif">
                     {feature.title}
                   </h3>
-                  <p className="text-xs text-[#9A8F8A] leading-relaxed font-light">
+                  <p className="text-xs text-zinc-450 leading-relaxed font-light">
                     {feature.desc}
                   </p>
                 </div>

@@ -33,7 +33,7 @@ export const BlogPreviewSection = ({ isChinese }) => {
         <Button 
           variant="secondary" 
           onClick={() => navigate('/blogs')}
-          className="group px-8 hover:bg-zinc-800"
+          className="group px-8"
         >
           {isChinese ? '阅读全部文章' : 'View All Articles'}
           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

@@ -33,7 +33,7 @@ export const StatsBanner = ({ isChinese }) => {
   return (
     <div
       ref={ref}
-      className="w-full bg-[#180303] border-y border-[#C0392B]/20 py-10 px-8 relative z-10"
+      className="w-full bg-[#F5EFEB] border-y border-zinc-200/60 py-10 px-8 relative z-10"
     >
       <motion.div
         initial="hidden"
@@ -47,10 +47,10 @@ export const StatsBanner = ({ isChinese }) => {
             variants={fadeUp}
             className="flex flex-col items-center"
           >
-            <span className="font-serif text-3xl md:text-5xl font-bold text-[#D4A853] tracking-tight mb-2 drop-shadow-[0_2px_10px_rgba(212,168,83,0.15)]">
+            <span className="font-serif text-3xl md:text-5xl font-bold text-[#0F8A96] tracking-tight mb-2">
               {stat.value}
             </span>
-            <span className="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-[#9A8F8A]">
+            <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-zinc-450">
               {stat.label}
             </span>
           </motion.div>

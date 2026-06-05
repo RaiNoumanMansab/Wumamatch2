@@ -47,7 +47,7 @@ export const MembersPage = ({ isLoggedIn, isChinese }) => {
           <Button
             variant="secondary"
             size="sm"
-            className="bg-[#0D0D0D] text-white hover:bg-zinc-800 hover:text-white border-none py-1.5 px-4 font-bold scale-90 sm:scale-100"
+            className="bg-[#FAF7F2] text-white hover:bg-zinc-800 hover:text-white border-none py-1.5 px-4 font-bold scale-90 sm:scale-100"
             onClick={() => navigate('/register')}
           >
             {isChinese ? '立即注册' : 'Register Now'}
@@ -58,10 +58,10 @@ export const MembersPage = ({ isLoggedIn, isChinese }) => {
       {/* Main content section */}
       <SectionWrapper bg="dark">
         <div className="text-left mb-10">
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-[#F5F0EB] mb-3">
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-800 mb-3">
             {isChinese ? '甄选单身精英' : 'Elite Verified Singles'}
           </h1>
-          <p className="text-xs md:text-sm text-[#9A8F8A] font-light max-w-xl leading-relaxed">
+          <p className="text-xs md:text-sm text-zinc-550 font-light max-w-xl leading-relaxed">
             {isChinese
               ? 'WuMa 平台的所有会员均已完成身份和实人核验。为了保障会员隐私，您需要注册并登录您的尊贵会员账号以开启高清照片和完整档案。'
               : 'Every single on WuMa is strictly verified. To protect community privacy, active login is required to reveal full profiles.'}
@@ -91,12 +91,12 @@ export const MembersPage = ({ isLoggedIn, isChinese }) => {
             ))}
           </div>
         ) : (
-          <div className="bg-zinc-950/40 border border-zinc-900 rounded-2xl p-16 text-center max-w-lg mx-auto">
+          <div className="bg-white/40 border border-zinc-150 rounded-2xl p-16 text-center max-w-lg mx-auto">
             <Sparkles className="w-10 h-10 text-[#D4A853] mx-auto mb-4 animate-pulse" />
-            <h3 className="font-serif text-lg font-bold text-[#F5F0EB] mb-2">
+            <h3 className="font-serif text-lg font-bold text-zinc-800 mb-2">
               {isChinese ? '未找到符合条件的会员' : 'No Members Match Your Criteria'}
             </h3>
-            <p className="text-xs text-zinc-500 mb-6 leading-relaxed">
+            <p className="text-xs text-zinc-450 mb-6 leading-relaxed">
               {isChinese
                 ? '我们暂时没有完全匹配该筛选条件的实名会员。请尝试放宽筛选要求，或直接预约我们的专业红娘为您人工检索数据库。'
                 : 'We currently don\'t have verified members matching these exact filters. Try broadening your criteria or consult our matchmakers.'}

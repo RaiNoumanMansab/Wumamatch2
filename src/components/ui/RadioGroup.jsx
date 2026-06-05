@@ -36,7 +36,7 @@ export const RadioGroup = ({
                 value={opt.value}
                 checked={isChecked}
                 onChange={() => onChange(opt.value)}
-                className="w-4 h-4 shrink-0 text-[#C0392B] bg-[#0D0D0D] border-2 border-zinc-500 focus:ring-[#C0392B] focus:ring-offset-[#141414]"
+                className="w-4 h-4 shrink-0 text-[#0F8A96] bg-[#FAF7F2] border-2 border-zinc-300 focus:ring-[#0F8A96] focus:ring-offset-[#FAF7F2]"
               />
               <span className="text-sm select-none leading-snug">{opt.label}</span>
             </label>
@@ -44,7 +44,7 @@ export const RadioGroup = ({
         })}
       </div>
       {error && (
-        <span className="text-xs text-red-400 font-medium mt-1">{error}</span>
+        <span className="text-xs text-[#C0392B] font-medium mt-1">{error}</span>
       )}
     </fieldset>
   );

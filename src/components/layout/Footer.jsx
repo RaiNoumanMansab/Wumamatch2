@@ -6,15 +6,15 @@ const LOGO_SRC = '/images/wuma-logo.png';
 
 export const Footer = ({ isChinese }) => {
   return (
-    <footer className="bg-[#0D0D0D] border-t border-[#C0392B]/15 pt-16 pb-8 text-left">
+    <footer className="bg-[#0B1C1D] border-t border-[#0F8A96]/15 pt-16 pb-8 text-left">
       <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* About column */}
         <div className="flex flex-col gap-4">
           <Link to="/" className="inline-flex w-fit hover:opacity-90 transition-opacity">
             <img
               src={LOGO_SRC}
-              alt="WuMa Match"
-              className="h-9 w-auto object-contain"
+              alt="WuMa Matchmaking New York"
+              className="h-16 w-auto object-contain"
             />
           </Link>
           <p className="text-xs text-[#9A8F8A] leading-relaxed">
@@ -32,24 +32,24 @@ export const Footer = ({ isChinese }) => {
 
         {/* Quick Links */}
         <div className="flex flex-col gap-4">
-          <h4 className="text-xs uppercase tracking-widest font-bold text-[#F5F0EB]">
+          <h4 className="text-xs uppercase tracking-widest font-bold text-white">
             {isChinese ? '快速链接' : 'Quick Links'}
           </h4>
           <div className="grid grid-cols-2 gap-2 text-xs text-[#9A8F8A]">
-            <Link to="/members" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '精选会员' : 'Members'}</Link>
+            <Link to="/members" className="hover:text-[#0F8A96] transition-colors">{isChinese ? '精选会员' : 'Members'}</Link>
             <Link to="/plans" className="hover:text-[#D4A853] transition-colors font-semibold">{isChinese ? '会员方案' : 'Plans'}</Link>
-            <Link to="/success-stories" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '成功案例' : 'Success'}</Link>
-            <Link to="/about" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '关于我们' : 'About'}</Link>
-            <Link to="/events" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '高端活动' : 'Events'}</Link>
-            <Link to="/blogs" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '博客' : 'Blog'}</Link>
-            <Link to="/contact" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '联系我们' : 'Contact'}</Link>
-            <Link to="/register" className="hover:text-[#E74C3C] transition-colors">{isChinese ? '注册加入' : 'Register'}</Link>
+            <Link to="/success-stories" className="hover:text-[#0F8A96] transition-colors">{isChinese ? '成功案例' : 'Success'}</Link>
+            <Link to="/about" className="hover:text-[#0F8A96] transition-colors">{isChinese ? '关于我们' : 'About'}</Link>
+            <Link to="/events" className="hover:text-[#0F8A96] transition-colors">{isChinese ? '高端活动' : 'Events'}</Link>
+            <Link to="/blogs" className="hover:text-[#0F8A96] transition-colors">{isChinese ? '博客' : 'Blog'}</Link>
+            <Link to="/contact" className="hover:text-[#0F8A96] transition-colors">{isChinese ? '联系我们' : 'Contact'}</Link>
+            <Link to="/register" className="hover:text-[#0F8A96] transition-colors">{isChinese ? '注册加入' : 'Register'}</Link>
           </div>
         </div>
 
         {/* Premium Standards */}
         <div className="flex flex-col gap-4">
-          <h4 className="text-xs uppercase tracking-widest font-bold text-[#F5F0EB]">
+          <h4 className="text-xs uppercase tracking-widest font-bold text-white">
             {isChinese ? '红娘标准' : 'Elite Standards'}
           </h4>
           <ul className="flex flex-col gap-2.5 text-xs text-[#9A8F8A]">
@@ -62,19 +62,19 @@ export const Footer = ({ isChinese }) => {
 
         {/* Contact info */}
         <div className="flex flex-col gap-4 text-xs text-[#9A8F8A]">
-          <h4 className="text-xs uppercase tracking-widest font-bold text-[#F5F0EB]">
+          <h4 className="text-xs uppercase tracking-widest font-bold text-white">
             {isChinese ? '联系方式' : 'Contact Us'}
           </h4>
           <div className="flex items-center gap-3">
-            <Mail className="w-4 h-4 text-[#C0392B]" />
+            <Mail className="w-4 h-4 text-[#0F8A96]" />
             <span>concierge@wumamatch.com</span>
           </div>
           <div className="flex items-center gap-3">
-            <Phone className="w-4 h-4 text-[#C0392B]" />
+            <Phone className="w-4 h-4 text-[#0F8A96]" />
             <span>+1 (800) 888-WUMA</span>
           </div>
           <div className="flex items-start gap-3">
-            <MapPin className="w-4 h-4 text-[#C0392B] mt-0.5" />
+            <MapPin className="w-4 h-4 text-[#0F8A96] mt-0.5" />
             <span>
               {isChinese
                 ? '美国旧金山・加拿大温哥华・澳大利亚悉尼・新加坡'
@@ -84,12 +84,12 @@ export const Footer = ({ isChinese }) => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-8 mt-12 pt-6 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-zinc-600 uppercase tracking-widest font-semibold">
+      <div className="max-w-7xl mx-auto px-8 mt-12 pt-6 border-t border-zinc-900/50 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-zinc-500 uppercase tracking-widest font-semibold">
         <span>© {new Date().getFullYear()} WuMa Match. {isChinese ? '保留所有权利。' : 'All rights reserved.'}</span>
         <div className="flex gap-4">
-          <span className="hover:text-[#E74C3C] cursor-pointer">{isChinese ? '隐私政策' : 'Privacy Policy'}</span>
+          <span className="hover:text-[#0F8A96] cursor-pointer">{isChinese ? '隐私政策' : 'Privacy Policy'}</span>
           <span>•</span>
-          <span className="hover:text-[#E74C3C] cursor-pointer">{isChinese ? '服务条款' : 'Terms of Service'}</span>
+          <span className="hover:text-[#0F8A96] cursor-pointer">{isChinese ? '服务条款' : 'Terms of Service'}</span>
         </div>
       </div>
     </footer>
