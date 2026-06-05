@@ -7,6 +7,7 @@ import { mockSuccessStories } from '../data/mockSuccessStories';
 import { Quote, Heart, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { FAQSection } from '../components/sections/home/FAQSection';
+import { SEO } from '../components/seo/SEO';
 
 export const SuccessStoriesPage = ({ isChinese }) => {
   const featuredStory = mockSuccessStories[0];
@@ -14,6 +15,11 @@ export const SuccessStoriesPage = ({ isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-20">
+      <SEO
+        title={isChinese ? '真实成功故事' : 'Success Stories'}
+        description={isChinese ? '阅读真实WuMa Match会员的幸福成功故事，见证人工红娘匹配的力量。' : 'Read real WuMa Match success stories. Discover how our expert matchmakers have helped serious singles find lasting love.'}
+        isChinese={isChinese}
+      />
       {/* Hero Headings */}
       <div className="relative bg-[#EDF6F6] pt-20 pb-10 px-6 text-center overflow-hidden border-b border-zinc-200/60">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(15,138,150,0.08)_0%,transparent_70%)]" />

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Check, Star, Crown, Zap, Shield, Heart, Users, MessageSquare, Calendar, FileText, Lock, ArrowRight, Sparkles } from 'lucide-react';
 import { PageWrapper } from '../components/layout/PageWrapper';
 import { Button } from '../components/ui/Button';
+import { SEO } from '../components/seo/SEO';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -135,6 +136,11 @@ export const PlansPage = ({ isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-20">
+      <SEO
+        title={isChinese ? '会员方案' : 'Membership Plans'}
+        description={isChinese ? '选择适合您的WuMa Match会员方案，包括基础、高端和顶级三个等级。所有方案均含实名认证和人工红娘服务。' : 'Choose from Essential, Premium, or Elite WuMa Match membership plans. All include identity verification and expert human matchmaker support.'}
+        isChinese={isChinese}
+      />
 
       {/* ── Hero header ── */}
       <div className="relative py-20 px-6 text-center overflow-hidden">

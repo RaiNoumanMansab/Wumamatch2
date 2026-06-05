@@ -7,6 +7,7 @@ import { Button } from '../components/ui/Button';
 import { ShieldCheck, Heart, Users, Award, EyeOff, CheckSquare } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { mockMatchmakers } from '../data/mockMatchmakers';
+import { SEO } from '../components/seo/SEO';
 
 export const AboutUsPage = ({ isChinese }) => {
   const navigate = useNavigate();
@@ -44,6 +45,11 @@ export const AboutUsPage = ({ isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-20">
+      <SEO
+        title={isChinese ? '关于我们' : 'About Us'}
+        description={isChinese ? 'WuMa Match是专为海外华人精英打造的人工定制婚恋配对平台，由资深红娘顾问提供一对一匹配服务。' : 'Learn about WuMa Match — a premium, human-curated matchmaking platform for the global Chinese diaspora. Real matchmakers, real connections.'}
+        isChinese={isChinese}
+      />
       {/* 1. Hero banner */}
       <div
         className="relative pt-28 pb-14 px-6 text-center bg-cover bg-center overflow-hidden border-b border-zinc-200/60"

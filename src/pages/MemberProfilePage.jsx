@@ -9,6 +9,7 @@ import { MatchmakerReport } from '../components/sections/profile/MatchmakerRepor
 import { mockMembers } from '../data/mockMembers';
 import { ArrowLeft, User, Eye, Heart, HelpCircle } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { SEO } from '../components/seo/SEO';
 
 export const MemberProfilePage = ({ isLoggedIn, isChinese }) => {
   const { id } = useParams();
@@ -46,6 +47,11 @@ export const MemberProfilePage = ({ isLoggedIn, isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-24 text-left">
+      <SEO
+        title={isChinese ? `${member.profession} · ${member.city}` : `${member.profession} in ${member.city}`}
+        description={isChinese ? `了解这位来自${member.city}的${member.age}岁${member.profession}的详细档案与红娘评估报告。` : `View the full profile of a ${member.age}-year-old ${member.profession} from ${member.city}, ${member.country} on WuMa Match.`}
+        isChinese={isChinese}
+      />
       <SectionWrapper bg="dark" className="text-left">
         {/* Back Link */}
         <div className="mb-8 max-w-6xl mx-auto w-full flex justify-start">

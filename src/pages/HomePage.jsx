@@ -10,10 +10,15 @@ import { SuccessStoriesPreview } from '../components/sections/home/SuccessStorie
 import { PlansPreviewSection } from '../components/sections/home/PlansPreviewSection';
 import { BlogPreviewSection } from '../components/sections/home/BlogPreviewSection';
 import { CTASection } from '../components/sections/home/CTASection';
+import { SEO } from '../components/seo/SEO';
 
 export const HomePage = ({ isLoggedIn, isChinese }) => {
   return (
     <PageWrapper className="w-full">
+      <SEO 
+        title={isChinese ? '首页' : 'Home'} 
+        isChinese={isChinese} 
+      />
       <HeroSection isChinese={isChinese} />
       <StatsBanner isChinese={isChinese} />
       <HowItWorksSection isChinese={isChinese} />

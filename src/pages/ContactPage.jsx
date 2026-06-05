@@ -8,6 +8,7 @@ import { Textarea } from '../components/ui/Textarea';
 import { Button } from '../components/ui/Button';
 import { Mail, Phone, MapPin, Clock, CheckCircle2, MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SEO } from '../components/seo/SEO';
 
 export const ContactPage = ({ isChinese }) => {
   const [formData, setFormData] = useState({
@@ -62,6 +63,11 @@ export const ContactPage = ({ isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-20 text-left">
+      <SEO
+        title={isChinese ? '联系我们' : 'Contact Us'}
+        description={isChinese ? '联系WuMa Match专属红娘客服团队。可通过电话、邮件或在线留言与我们取得联系。' : 'Contact the WuMa Match concierge team. Reach us via phone, email, or our online inquiry form for matchmaking support.'}
+        isChinese={isChinese}
+      />
       <SectionWrapper bg="dark">
         <div className="text-center max-w-6xl mx-auto mb-16">
           <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-800 mb-4">

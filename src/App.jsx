@@ -16,6 +16,7 @@ import { BlogsPage } from './pages/BlogsPage';
 import { BlogDetailPage } from './pages/BlogDetailPage';
 import { MyDashboardPage } from './pages/MyDashboardPage';
 import { ScrollToTop } from './components/layout/ScrollToTop';
+import { ScrollToTopButton } from './components/layout/ScrollToTopButton';
 
 export function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -101,6 +102,9 @@ export function App() {
 
         {/* Global Footer */}
         <Footer isChinese={isChinese} />
+
+        {/* Floating Scroll-to-Top Button */}
+        <ScrollToTopButton />
       </div>
     </Router>
   );

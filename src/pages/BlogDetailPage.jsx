@@ -8,6 +8,7 @@ import { BlogCard } from '../components/sections/blogs/BlogCard';
 import { Button } from '../components/ui/Button';
 import { getBlogBySlug, mockBlogs, formatBlogDate, getCategoryLabel } from '../data/mockBlogs';
 import { fadeUp } from '../utils/motion';
+import { SEO } from '../components/seo/SEO';
 
 export const BlogDetailPage = ({ isChinese }) => {
   const { slug } = useParams();
@@ -31,6 +32,11 @@ export const BlogDetailPage = ({ isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-24">
+      <SEO
+        title={title}
+        description={isChinese ? blog.excerptChinese || blog.excerpt : blog.excerpt}
+        isChinese={isChinese}
+      />
       <SectionWrapper bg="dark" className="!pt-8 !pb-12 text-left">
         {/* Back link */}
         <div className="max-w-3xl mx-auto mb-8 flex justify-start">

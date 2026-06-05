@@ -33,6 +33,7 @@ import {
   Award,
   LogOut,
 } from 'lucide-react';
+import { SEO } from '../components/seo/SEO';
 
 /* ─── helpers ─────────────────────────────────── */
 const fmtDate = (iso) => {
@@ -581,6 +582,11 @@ export const MyDashboardPage = ({ isChinese, onLoginToggle }) => {
 
   return (
     <PageWrapper className="w-full pt-20">
+      <SEO
+        title={isChinese ? '会员中心' : 'My Dashboard'}
+        description={isChinese ? '管理您的WuMa Match会员档案、查看配对请求和会面安排。' : 'Manage your WuMa Match profile, view consultation requests, and track your matchmaking journey.'}
+        isChinese={isChinese}
+      />
       {/* Page header */}
       <div className="border-b border-zinc-150 bg-[#EDF6F6] px-8 pt-10 pb-0">
         <div className="max-w-6xl mx-auto">

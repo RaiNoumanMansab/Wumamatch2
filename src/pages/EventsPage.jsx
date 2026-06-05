@@ -6,10 +6,16 @@ import { Divider } from '../components/ui/Divider';
 import { mockEvents } from '../data/mockEvents';
 import { Calendar, MapPin, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SEO } from '../components/seo/SEO';
 
 export const EventsPage = ({ isChinese }) => {
   return (
     <PageWrapper className="w-full pt-20">
+      <SEO
+        title={isChinese ? '高端社交活动' : 'Exclusive VIP Events'}
+        description={isChinese ? '参与WuMa Match为认证会员精心策划的高端鸡尾酒派对、红酒品鉴及私密艺术沙龙活动。' : 'Attend exclusive WuMa Match curated events — private wine tastings, art gallery mixers, and formal dinners for verified members only.'}
+        isChinese={isChinese}
+      />
       <div className="relative bg-[#EDF6F6] pt-20 pb-10 px-6 text-center overflow-hidden border-b border-zinc-200/60">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(15,138,150,0.08)_0%,transparent_70%)]" />
         <div className="relative max-w-6xl mx-auto flex flex-col items-center">

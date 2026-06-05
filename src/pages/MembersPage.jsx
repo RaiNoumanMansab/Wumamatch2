@@ -7,6 +7,7 @@ import { MemberCard } from '../components/sections/members/MemberCard';
 import { mockMembers } from '../data/mockMembers';
 import { Sparkles, Info } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { SEO } from '../components/seo/SEO';
 
 export const MembersPage = ({ isLoggedIn, isChinese }) => {
   const navigate = useNavigate();
@@ -33,6 +34,11 @@ export const MembersPage = ({ isLoggedIn, isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-20">
+      <SEO
+        title={isChinese ? '甄选单身精英' : 'Elite Verified Members'}
+        description={isChinese ? '浏览WuMa Match平台经过严格实名认证的优质单身华人精英会员档案。' : 'Browse elite, identity-verified single professionals on WuMa Match. All members have passed rigorous background screening.'}
+        isChinese={isChinese}
+      />
       {/* Unauthenticated Alert Banner */}
       {!isLoggedIn && (
         <div className="bg-gradient-to-r from-[#D4A853] via-[#B38F44] to-[#D4A853] text-[#0D0D0D] py-3.5 px-6 font-semibold text-xs md:text-sm tracking-wider uppercase text-center flex flex-col sm:flex-row items-center justify-center gap-3 shadow-lg z-30 relative">

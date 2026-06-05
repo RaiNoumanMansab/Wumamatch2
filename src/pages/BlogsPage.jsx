@@ -6,6 +6,7 @@ import { Tag } from '../components/ui/Tag';
 import { Divider } from '../components/ui/Divider';
 import { blogCategories, mockBlogs } from '../data/mockBlogs';
 import { BookOpen } from 'lucide-react';
+import { SEO } from '../components/seo/SEO';
 
 export const BlogsPage = ({ isChinese }) => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -23,6 +24,11 @@ export const BlogsPage = ({ isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-20">
+      <SEO
+        title={isChinese ? '红娘博客与情感指南' : 'Matchmaker Blog & Guides'}
+        description={isChinese ? '由WuMa Match资深红娘执笔，分享约会技巧、跨文化婚恋智慧及真实情感指南。' : 'Expert relationship advice, dating tips, and cross-cultural love stories from WuMa Match senior matchmakers.'}
+        isChinese={isChinese}
+      />
       {/* Hero */}
       <div className="relative bg-[#EDF6F6] pt-20 pb-10 px-8 text-center overflow-hidden border-b border-zinc-200/60">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(15,138,150,0.08)_0%,transparent_70%)]" />

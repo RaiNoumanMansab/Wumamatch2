@@ -4,12 +4,18 @@ import { PageWrapper } from '../components/layout/PageWrapper';
 import { SectionWrapper } from '../components/layout/SectionWrapper';
 import { Button } from '../components/ui/Button';
 import { HeartOff } from 'lucide-react';
+import { SEO } from '../components/seo/SEO';
 
 export const NotFoundPage = ({ isChinese }) => {
   const navigate = useNavigate();
 
   return (
     <PageWrapper className="w-full pt-32">
+      <SEO
+        title={isChinese ? '页面未找到' : 'Page Not Found'}
+        description={isChinese ? '抱歉，您所访问的页面不存在。请返回WuMa Match首页继续探索。' : 'The page you are looking for does not exist. Return to WuMa Match homepage to continue your journey.'}
+        isChinese={isChinese}
+      />
       <SectionWrapper bg="dark">
         <div className="text-center py-20 max-w-md mx-auto flex flex-col items-center">
           <div className="w-16 h-16 rounded-full bg-[#E6F7F6]/30 border border-[#0F8A96]/40 flex items-center justify-center text-[#0F8A96] mb-6">

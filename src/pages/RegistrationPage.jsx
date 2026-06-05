@@ -10,6 +10,7 @@ import { useFormStep } from '../hooks/useFormStep';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { CheckCircle2, Clock, Mail, ShieldAlert } from 'lucide-react';
+import { SEO } from '../components/seo/SEO';
 
 export const RegistrationPage = ({ isChinese }) => {
   const navigate = useNavigate();
@@ -95,6 +96,11 @@ export const RegistrationPage = ({ isChinese }) => {
 
   return (
     <PageWrapper className="w-full pt-20">
+      <SEO
+        title={isChinese ? '申请加入' : 'Join WuMa Match'}
+        description={isChinese ? '提交您的WuMa Match实名会员申请，开启专属红娘配对之旅。我们只接受以婚姻为目标的严肃申请。' : 'Apply to join WuMa Match and begin your curated matchmaking journey. We only accept serious applicants committed to finding a life partner.'}
+        isChinese={isChinese}
+      />
       <SectionWrapper bg="dark" className="!px-4 md:!px-6 lg:!px-8">
         {!isSubmitted ? (
           <div className="max-w-6xl mx-auto w-full px-2 sm:px-4">
